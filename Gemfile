@@ -11,9 +11,9 @@ gem "bcrypt", "~> 3.1.7"
 gem 'aws-sdk-s3'
 gem "active_model_serializers", "~> 0.10.12"
 
-group :development, :test do
-    gem "debug", platforms: %i[ mri mingw x64_mingw ]
-end
+# group :development, :test do
+#     gem "debug", platforms: %i[ mri mingw x64_mingw ]
+# end
 
 group :development do
     gem "debug", platforms: %i[ mri mingw x64_mingw ]
