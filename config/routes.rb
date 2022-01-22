@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :pets
+  resources :user_addresses
+  resources :user_profiles
   resources :users
 
 end
