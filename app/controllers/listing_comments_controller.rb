@@ -1,0 +1,2 @@
+class ListingCommentsController < ApplicationController
+end

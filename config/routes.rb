@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :listing_comments
+  resources :listing_addresses
+  resources :listings
+  resources :listing_infos
   resources :pets
   resources :user_addresses
   resources :user_profiles
