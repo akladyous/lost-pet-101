@@ -1,2 +1,0 @@
-class ListingAddressesController < ApplicationController
-end

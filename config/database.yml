@@ -20,10 +20,22 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: lost_pet_101
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: lost_pet_101
+  password: '02310'
 
 development:
-  <<: *default
-  database: lost_pet_101_development
+  adapter: postgresql
+  encoding: unicode
+  database: lost_pet_101
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: lost_pet_101
+  password: '02310'
+
+# development:
+#   <<: *default
+#   database: lost_pet_101
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -55,9 +67,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: lost_pet_101_test
+# test:
+#   <<: *default
+#   database: lost_pet_101_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +93,9 @@ test:
 #
 production:
   <<: *default
-  database: lost_pet_101_production
+  adapter: postgresql
+  encoding: unicode
+  database: lost_pet_101
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: lost_pet_101
-  password: <%= ENV["LOST_PET_101_DATABASE_PASSWORD"] %>
+  password: '02310'
