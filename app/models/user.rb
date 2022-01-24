@@ -4,8 +4,8 @@ class User < ApplicationRecord
     has_one :user_profile, dependent: :destroy
     has_one :user_address, dependent: :destroy
 
-    has_many :listing_infos
-    has_one :pet, through: :listing_infos
+    has_one :listing_info
+    has_one :pet, through: :listing_info
 
     # validates :size, inclusion: {in: %w[small medium large], message: "%{value} is not a valid size" }
     # validates :species, inclusion: {in: %w[dog cat bird ferret pig reptiles horse], message: "%{value} is not a valid species" }
