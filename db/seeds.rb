@@ -9,7 +9,7 @@ end
 
 puts "🌱 Seeding Users..."
 
-1.upto(100) do |i|
+1.upto(10) do |i|
     progress = "=" * (i/5) unless i < 5
     printf("\rGenerating user records: %s", spinner.next)
     # printf("\rGenerating user records: [%-20s] %d%%", progress, i)
@@ -19,7 +19,8 @@ puts "🌱 Seeding Users..."
         password: Faker::Internet.password
         # (min_length: 5, max_length: 10, mix_case: true, special_characters: true)
     )
-    if user.save
+    if user.valid?
+        if user.save
         user.create_user_profile(
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name ,
@@ -39,6 +40,7 @@ puts "🌱 Seeding Users..."
         )
         # country: Faker::Address.country_name_to_code(name: 'united_states')
     end
+    end
 end
 
 
@@ -49,7 +51,7 @@ microchip = -> {rand.to_s[2..9]}
 coat = -> {["Hairless", "Curly-Coated", "Wire-Coated", "Long-Coated", "Short-Coated", "Medium-Coated", "Smooth",  "Double and Single Coated", "Silky Coated","Rough Coated", "Wire Coated", "Hairless", "Drying a silky coated", "Washing a silky coated", "Drying a double coated"].sample}
 
 puts "🌱 Seeding Pets..."
-1.upto(100) do |i|
+1.upto(10) do |i|
     progress = "=" * (i/5) unless i < 5
     printf("\rGenerating user records: %s", spinner.next)
 
