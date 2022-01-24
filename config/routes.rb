@@ -13,8 +13,13 @@ Rails.application.routes.draw do
             end
         end
         
-        
-        # resources :pets
+        resources :pets, only: [:create] do
+            collection do
+                get :profile, to: "pets#show"
+                patch :profile, to: "pets#update"
+                delete :profile, to: "pets#destroy"
+            end
+        end
     end
 
 end

@@ -26,6 +26,19 @@ Rails.application.configure do
 
     config.active_storage.service = :amazon
 
-    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.default_url_option = { host: "www.lostpet101.com" }
+    config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_caching = false
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'example.com',
+    user_name:            'akladyous@gmail.com',
+    password:             'sspxnbtbxyvmznug',
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5 }
 end
