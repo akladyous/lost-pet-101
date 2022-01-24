@@ -12,13 +12,16 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.valid?
-            @user.save!
+        # debugger
+        if @user.save! # @user.valid?
+            # @user.save!
             session[:user_id] = @user.id
             # send welcome email
             render json: @user, status: :created
+        else
+            # render json: {error: "Registration Error"}, status: :unprocessable_entity
+            render json: {error: @user.errors.full_messages}, status: :unprocessable_entity
         end
-            render json: {error: "Registration Error"}, status: :unprocessable_entity
     end
 
 
