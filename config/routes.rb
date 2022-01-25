@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
     # resources :listing_comments
-    # resources :listing_addresses
-    # resources :listings
-    # resources :listing_infos
     
     scope :api do
         resources :users, only: [:create] do
@@ -13,13 +10,31 @@ Rails.application.routes.draw do
             end
         end
         
-        resources :pets, only: [:create] do
-            collection do
-                get :profile, to: "pets#show"
-                patch :profile, to: "pets#update"
-                delete :profile, to: "pets#destroy"
-            end
-        end
+        # resources :pets, only: [:create] do
+        #     collection do
+        #         get :profile, to: "pets#show"
+        #         patch :profile, to: "pets#update"
+        #         delete :profile, to: "pets#destroy"
+        #     end
+        # end
+        resources :pets, except: :index
+
+
+        # resources :listing_infos, except: [:create] do
+        #     collection do
+        #         post 'pet/:pet_id', to: "listing_infos#create"
+        #     end
+        #     resource :listings, except: :destroy
+        # end
+
+        resources :listing_infos
+        resources :listings, except: [:index, :destroy]
+        resources :listing_addresses, except: [:index, :destroy]
+
+
+
+        # resource :listing_addresses
+
     end
 
 end

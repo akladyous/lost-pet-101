@@ -1,33 +1,26 @@
 class PetsController < ApplicationController
     skip_before_action :authenticate_user, only: [:show, :create] 
+    before_action :current_pet, only: [:show, :update, :destroy]
 
     def show
-        if current_user.pet
-            render json: current_user.pet, status: :ok
+        if @pet
+            render json: @pet, status: :ok
         else
             render json: {error: "Pet not found"}, status: :not_found
         end
     end
 
     def create
-        if current_user.pet
-            render json: {error: "Pet already exist"}, status: :unprocessable_entity
+        @pet = Pet.new(pet_params.except(:id))
+        if @pet.save
+            render json: @pet, status: :ok
         else
-            @pet = current_user.create_pet(pet_params)
-            if @pet.save
-                render json: @pet, status: :ok
-            else
-                render json: {error: "Unable to create Pet profile"}, status: :unprocessable_entity
-            end
+            render json: {error: "Unable to create Pet profile"}, status: :unprocessable_entity
         end
     end
 
-    def delete
-    end
-
     def update
-        if current_user.pet
-            @pet = current_user.pet
+        if @pet
             @pet.update(pet_params)
             if @pet.save
                 render json: @pet, status: :ok
@@ -39,9 +32,25 @@ class PetsController < ApplicationController
         end
     end
 
+    def destroy
+        if @pet
+            @pet.destroy
+            if @pet.destroyed?
+                render json: {}, status: :ok
+            else
+                render json: {error: "Unable to delete Pet profile"}, status: :unprocessable_entity
+            end
+        else
+            render json: {error: "Pet profile not found"}, status: :not_found
+        end
+    end
+
 
     private
     def pet_params
-        params.permit(:species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar)
+        params.permit(:id, :species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar)
+    end
+    def current_pet
+        @pet = Pet.find_by_id!(pet_params[:id])
     end
 end
