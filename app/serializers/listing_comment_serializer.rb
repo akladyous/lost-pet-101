@@ -1,4 +1,4 @@
 class ListingCommentSerializer < ActiveModel::Serializer
-  attributes :id, :comment, :likes, :tags
-  has_one :listing
+    attributes :id, :comment, :likes, :tags
+    belongs_to :listing
 end

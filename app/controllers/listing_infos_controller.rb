@@ -1,5 +1,6 @@
 class ListingInfosController < ApplicationController
-    skip_before_action :authenticate_user, only: [:show, :create, :update, :destroy] 
+    # skip_before_action :authenticate_user, only: [:show, :create, :update, :destroy]
+    skip_before_action :authenticate_user, only: [:public]
     before_action :load_listing_info, only: [:show, :update, :destroy]
 
     def index
@@ -56,6 +57,10 @@ class ListingInfosController < ApplicationController
         end
     end
 
+    def public
+        @all_listing_infos = ListingInfo.all #.includes(:listing).includes(:listing_address, :listing_comment)
+        render json: @all_listing_infos, status: :ok
+    end
     private
     def listing_info_params
         params.permit(:id, :listing_type, :published, :published_at)

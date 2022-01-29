@@ -27,7 +27,12 @@ Rails.application.routes.draw do
         #     resource :listings, except: :destroy
         # end
 
-        resources :listing_infos
+        resources :listing_infos do
+            collection do
+                get 'public', to: "listing_infos#public"
+            end
+        end
+
         resources :listings, except: [:index, :destroy]
         resources :listing_addresses, except: [:index, :destroy]
 

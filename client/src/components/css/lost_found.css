@@ -1,0 +1,11 @@
+.lost_found{
+    background-image: url(../../images/bradcam.png);
+    max-height: 80px;
+    padding: 100px;
+    max-width: 90%;
+    width: 700px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: bottom;
+}

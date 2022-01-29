@@ -16,9 +16,11 @@ def create_user
     user = User.new(
         user_name: Faker::Internet.username,
         email: Faker::Internet.email, 
-        password: Faker::Internet.password
-        # (min_length: 5, max_length: 10, mix_case: true, special_characters: true)
+        password: "00000",
+        password_confirmation: "00000" 
+        # password: Faker::Internet.password(min_length: 5, max_length: 10, mix_case: true, special_characters: true)
     )
+
     if user.valid?
         if user.save
             user.create_user_profile(
@@ -82,16 +84,16 @@ end
 
 puts "🌱 Seeding Users..."
 
-1.upto(10) do |i|
+1.upto(1) do |i|
     progress = "=" * (i/5) unless i < 5
     printf("\rGenerating  records: %s", spinner.next)
     # printf("\rGenerating user records: [%-20s] %d%%", progress, i)
 
     user = create_user
     pet = create_pet
+    # debugger
     if user && pet
         listing_info = create_listing_info(user, pet)
-        # debugger
         if listing_info
             listing = create_listing(listing_info)
             if listing

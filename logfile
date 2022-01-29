@@ -1,0 +1,29 @@
+2022-01-27 15:05:19.117 EST [6492] LOG:  starting PostgreSQL 14.1 on x86_64-apple-darwin21.1.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.3), 64-bit
+2022-01-27 15:05:19.118 EST [6492] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-01-27 15:05:19.118 EST [6492] LOG:  listening on IPv6 address "::1", port 5432
+2022-01-27 15:05:19.119 EST [6492] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-01-27 15:05:19.129 EST [6493] LOG:  database system was shut down at 2022-01-27 12:21:10 EST
+2022-01-27 15:05:19.142 EST [6492] LOG:  database system is ready to accept connections
+2022-01-27 17:35:44.292 EST [11643] ERROR:  null value in column "user_id" of relation "listing_infos" violates not-null constraint
+2022-01-27 17:35:44.292 EST [11643] DETAIL:  Failing row contains (21, lost, t, 2021-09-19 11:33:53.987099, null, 18, 2022-01-27 22:35:44.290463, 2022-01-27 22:35:44.290463).
+2022-01-27 17:35:44.292 EST [11643] STATEMENT:  INSERT INTO "listing_infos" ("listing_type", "published", "published_at", "user_id", "pet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"
+2022-01-27 17:39:13.720 EST [11717] ERROR:  null value in column "user_id" of relation "listing_infos" violates not-null constraint
+2022-01-27 17:39:13.720 EST [11717] DETAIL:  Failing row contains (1, lost, t, 2021-02-11 08:59:41.197441, null, 1, 2022-01-27 22:39:13.719731, 2022-01-27 22:39:13.719731).
+2022-01-27 17:39:13.720 EST [11717] STATEMENT:  INSERT INTO "listing_infos" ("listing_type", "published", "published_at", "user_id", "pet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"
+2022-01-27 17:39:45.811 EST [11758] ERROR:  null value in column "user_id" of relation "listing_infos" violates not-null constraint
+2022-01-27 17:39:45.811 EST [11758] DETAIL:  Failing row contains (1, lost, t, 2021-10-14 17:34:23.208975, null, 1, 2022-01-27 22:39:45.809999, 2022-01-27 22:39:45.809999).
+2022-01-27 17:39:45.811 EST [11758] STATEMENT:  INSERT INTO "listing_infos" ("listing_type", "published", "published_at", "user_id", "pet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"
+2022-01-27 17:43:09.119 EST [11820] ERROR:  null value in column "user_id" of relation "listing_infos" violates not-null constraint
+2022-01-27 17:43:09.119 EST [11820] DETAIL:  Failing row contains (2, lost, t, 2021-10-14 16:47:32.601884, null, 2, 2022-01-27 22:43:09.118826, 2022-01-27 22:43:09.118826).
+2022-01-27 17:43:09.119 EST [11820] STATEMENT:  INSERT INTO "listing_infos" ("listing_type", "published", "published_at", "user_id", "pet_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"
+2022-01-27 17:51:31.312 EST [12121] FATAL:  database "lost_pet_101" does not exist
+2022-01-28 17:36:17.179 EST [6492] LOG:  received smart shutdown request
+2022-01-28 17:36:17.184 EST [6492] LOG:  background worker "logical replication launcher" (PID 6499) exited with exit code 1
+2022-01-28 17:36:17.187 EST [6494] LOG:  shutting down
+2022-01-28 17:36:17.222 EST [6492] LOG:  database system is shut down
+2022-01-28 18:22:30.439 EST [4756] LOG:  starting PostgreSQL 14.1 on x86_64-apple-darwin21.1.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.3), 64-bit
+2022-01-28 18:22:30.441 EST [4756] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-01-28 18:22:30.441 EST [4756] LOG:  listening on IPv6 address "::1", port 5432
+2022-01-28 18:22:30.441 EST [4756] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-01-28 18:22:30.449 EST [4757] LOG:  database system was shut down at 2022-01-28 17:36:17 EST
+2022-01-28 18:22:30.459 EST [4756] LOG:  database system is ready to accept connections

@@ -1,0 +1,25 @@
+.breadcam_bg{
+    background-image: url(../../images/banner.png);
+    max-height: 500px;
+}
+
+.bradcam_area{
+    background-size: cover;
+    background-position: center center;
+    padding: 160px 0;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+/* .dog_thumb{
+    background-image: url(../../images/dog.png);
+}
+.dog_area{
+    background-position: right;
+    background-size:cover;
+    background-blend-mode: overlay;
+    background-color:  rgba(0, 0, 0, 0.3);
+}
+.dog_thumb:after{
+    background-color:  rgba(0, 0, 0, 0.3);
+} */
