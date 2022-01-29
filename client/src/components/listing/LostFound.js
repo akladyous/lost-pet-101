@@ -1,12 +1,13 @@
-import '../css/lost_found.css'
+// import '../css/lost_found.css'
 import {useState} from 'react';
+import PageHeader from '../layout/PageHeader.js';
 import ListingMapper from './ListingMapper.js';
 import ListingCard from './ListingCard.js';
 import ListingtContainer from './ListingContainer.js';
 
 export default function LostFound() {
     
-    const [listingInfo, setListingInfo] = useState([])
+    const [listingInfo, setListingInfo] = useState(null)
 
     function handleForm(e) {
         e.preventDefault()
@@ -24,17 +25,13 @@ export default function LostFound() {
     };
 
     return (
-        <div>
-            <div className="container my-4 pt-4 lost_found area">
-                <div className="container">
-                    <h2 className="display-5 text-light">LOST & FOUND PETS</h2>
-                    <p className="text-white">
-                        SEARCH LOST & FOUND PETS IN YOUR AREA
-                    </p>
-                </div>
-            </div>
-            
-            <div className="container mt-2">
+        <div className="container mt-4 mh-70 overflow-scroll main-container">
+            <PageHeader
+                title="LOST & FOUND PETS"
+                subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
+            />
+
+            <div className="container mt-4 search-container">
                 <div className="card" style={{ borderRadius: "15px" }}>
                     <div
                         className="card-header"
@@ -132,20 +129,25 @@ export default function LostFound() {
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            
-            <ListingtContainer>
                 {listingInfo && (
-                    <ListingMapper
-                        itemComponent={ListingCard}
-                        listingInfo={listingInfo}
-                    />
+                    <div
+                        className="container border rounded-4 my-3 overflow-scroll"
+                        style={{ height: "700px", borderRadius: "15px" }}
+                    >
+                        <ListingtContainer>
+                            {listingInfo && (
+                                <ListingMapper
+                                    itemComponent={ListingCard}
+                                    listingInfo={listingInfo}
+                                />
+                            )}
+                            {/* <ListingMapper itemComponent={PetCards} listingInfo={listingInfo} /> */}
+                        </ListingtContainer>
+                    </div>
                 )}
-                {/* <ListingMapper itemComponent={PetCards} listingInfo={listingInfo} /> */}
-            </ListingtContainer>
 
-
+                <div className="container"></div>
+            </div>
         </div>
     );
 }

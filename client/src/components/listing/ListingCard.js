@@ -9,11 +9,11 @@ export default function ListingCard({listing}) {
     return (
         <div
             className="card m-2"
-            style={{ minWidth: "18rem", borderRadius: "15px" }}
+            style={{ minWidth: "20rem", maxWidth: '20rem', borderRadius: "15px" }}
         >
             {/* <img src="..." className="card-img-top" alt="..."> */}
             <div className="card-body">
-                <h5 className="card-title fs-4 fw-bold">
+                <h5 className="card-title fs-4 fw-bold text-center">
                     {listing.pet.name.toUpperCase()}
                 </h5>
                 {/* <p className="card-text">Some quick example text.</p> */}

@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function ListingtContainer({children}) {
     return (
-        <div className="container d-flex w-1 flex-wrap justify-content-center mt-5">
-            {/* <div className='card-group'> */}
+        <div
+            className="container d-flex flex-wrap justify-content-center mt-2 px-0"
+            // style={{ height: "700px" }}
+        >
             {children}
         </div>
     );

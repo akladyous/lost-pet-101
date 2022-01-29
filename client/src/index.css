@@ -2,3 +2,15 @@ body {
     margin: 0;
     padding: 0;
 }
+#root{
+    height: 100;
+}
+
+.app{
+    height: 100%;
+}
+
+.main_container{
+    height: -webkit-calc(100% - 80);
+
+}

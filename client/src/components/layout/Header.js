@@ -7,7 +7,6 @@ export default function Header() {
     const {userEmail, handleUserEmail, userState, handleUserState} = useContext(userContext)
 
     
-
     const handleLogout = ()=>{
         fetch("api/users/logout", {
             method: "DELETE",
