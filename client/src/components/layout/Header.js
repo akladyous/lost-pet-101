@@ -93,7 +93,7 @@ export default function Header() {
                     >
                         User
                     </button>
-                    <ul className="dropdown-menu">
+                    <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-star">
                         <Link
                             className={`dropdown-item ${userState === false ? "" : "disabled"}`} to="login">
                             Login

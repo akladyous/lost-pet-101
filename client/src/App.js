@@ -9,7 +9,7 @@ import Home from './components/layout/Home.js'
 import LostFound from "./components/listing/LostFound.js";
 import LostFoundInfo from "./components/listing/LostFoundInfo.js";
 
-// import './App.css';
+import './App.css';
 
 function App() {
     return (

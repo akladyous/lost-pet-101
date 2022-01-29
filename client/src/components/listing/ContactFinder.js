@@ -18,15 +18,15 @@ export default function ContactFinder({modalRef, onClose}) {
 
                 <form>
                     <div className="form-group text-start">
-                        <label for="recipient-name" className="col-form-label">Full Name</label>
+                        <label htmlFor="recipient-name" className="col-form-label">Full Name</label>
                         <input type="text" className="form-control" id="recipient-name" />
                     </div>
                     <div className="form-group text-start">
-                        <label for="recipient-email" className="col-form-label">Email Address</label>
+                        <label htmlFor="recipient-email" className="col-form-label">Email Address</label>
                         <input type="text" className="form-control" id="recipient-email" />
                     </div>
                     <div className="form-group text-start">
-                        <label for="recipient-phone" className="col-form-label">Phone Number</label>
+                        <label htmlFor="recipient-phone" className="col-form-label">Phone Number</label>
                         <input type="text" className="form-control" id="recipient-phone" />
                     </div>
 
@@ -34,7 +34,7 @@ export default function ContactFinder({modalRef, onClose}) {
 
 
                     <div className="form-group text-start">
-                        <label for="message-text" className="col-form-label">Message</label>
+                        <label htmlFor="message-text" className="col-form-label">Message</label>
                         <textarea className="form-control" id="message-text"></textarea>
                     </div>
                 </form>
