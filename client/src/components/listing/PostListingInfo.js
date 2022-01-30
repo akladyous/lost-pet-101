@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 
-export default function PostListingInfo() {
+export default function PostListingInfo({goToNext}) {
 
     const [listingInfo, setListingInfo] = useState({})
 
@@ -13,6 +13,10 @@ export default function PostListingInfo() {
         }));
     }
 
+    const handleForm = (e) => {
+        e.preventDefault()
+        goToNext({listing_info: listingInfo})
+    }
 
 return (
         <div className="card m-2 bg-transparent">
@@ -50,9 +54,9 @@ return (
                                 <input type="text" name="description" className="form-control" value={listingInfo['description']} onChange={setCurrentValue} />
                                 </div>
                             </div>
-
                         </form>
                     </div>
+                    <button type='submit' className='btn btn-light' onClick={handleForm}>Next</button>
                 </div>
             </div>
         </div>

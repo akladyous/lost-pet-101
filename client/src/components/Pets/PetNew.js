@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 
-export default function PetNew({setImagePreview}) {
+export default function PetNew({setImagePreview, goToNext}) {
 
     const [petData, setPetData] = useState({})
     const [imageFile, setImageFile] = useState(null)
@@ -21,6 +21,11 @@ export default function PetNew({setImagePreview}) {
         setImagePreview(imgBlob);
     }
 
+    const handleForm = (e) => {
+        e.preventDefault();
+        console.log("Pet data : ", petData)
+        goToNext({pet: petData})
+    }
     
     return (
         <div className="card m-2 bg-transparent">
@@ -113,25 +118,13 @@ export default function PetNew({setImagePreview}) {
                                 <input type="file" accept='image/*' multiple={false} className="form-control" onChange={loadImage} />
                                 </div>
                             </div>
-
-
-
                         </form>
-                        {/* ------------------------------------------------------------------------------------ */}
-                                
-
-
-                                
-                                
-                                
-
                         {/* <div className="col-md-3">
                         </div>
                         <div className="col-md-9">
                         </div> */}
-                        {/* ------------------------------------------------------------------------------------ */}
                     </div>
-                        {/* <button onClick={console.log(petData)}>test</button> */}
+                        <button type='submit' className='btn btn-light' onClick={handleForm}>Next</button>
                 </div>
             </div>
         </div>

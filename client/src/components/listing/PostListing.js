@@ -1,11 +1,27 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import PageHeader from '../layout/PageHeader.js';
+import MultiStepResources from './MultiStepResources.js';
 import PetNew from '../Pets/PetNew.js';
+import PostListingInfo from './PostListingInfo.js'
+import PostListingAddress from './PostListingAddress.js'
+
 
 export default function PostListing() {
     const [imagePreview, setImagePreview] = useState(null)
-    const imgTag = useRef()
 
+    const [onBoardindData, setOnboardingData] = useState({});
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const onNext = stepData =>{
+        setOnboardingData({...onBoardindData, ...stepData});
+        console.log("currentIndex: ", currentIndex);
+        console.log("onBoardindData : ", onBoardindData);
+        setCurrentIndex(currentIndex + 1);
+    }
+
+    const onFinish = () => {
+        console.log(onBoardindData)
+    }
     
     return (
             <div>
@@ -22,7 +38,7 @@ export default function PostListing() {
                         <div className='col-md-3 col-lg-3 px-2 mt-2' style={{height: '200px', backgroud: 'green'}}>
                             <div className='card ' style={{background: 'yellow'}}>
                                 <img src={imagePreview && "https://via.placeholder.com/150x400?text=pet%20image"} alt="PetImage" />
-                                {/* <img src={imagePreview} alt="PetImage" ref={imgTag}/> */}
+
                             </div>
                         </div>
 
@@ -41,7 +57,16 @@ export default function PostListing() {
                                     </li>
                                 </ul>
 
-                                <PetNew setImagePreview={setImagePreview}></PetNew>
+                                {/* <PetNew setImagePreview={setImagePreview}></PetNew> */}
+                                <MultiStepResources
+                                    currentIndex={currentIndex}
+                                    onNext={onNext}
+                                    onFinish={onFinish}
+                                >
+                                    <PetNew />
+                                    <PostListingInfo />
+                                    <PostListingAddress />
+                                </MultiStepResources>
 
                             </div>
                         </div>
