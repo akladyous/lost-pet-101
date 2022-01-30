@@ -8,7 +8,7 @@ import Login from './components/user/Login.js'
 import Home from './components/layout/Home.js'
 import LostFound from "./components/listing/LostFound.js";
 import LostFoundInfo from "./components/listing/LostFoundInfo.js";
-import ListingNew from "./components/listing/ListingNew.js";
+import PostListing from "./components/listing/PostListing.js";
 import Parent from "./components/listing/Parent.js";
 
 import './App.css';
@@ -25,7 +25,7 @@ function App() {
                     <Route path="login" element={<Login />} />
                     <Route path="lost_found" element={<LostFound />} />
                     <Route path="detail" element={<LostFoundInfo />} />
-                    <Route path="create_listing" element={<ListingNew />} />
+                    <Route path="create_listing" element={<PostListing />} />
                     <Route path="test" element={<Parent />} />
                 </Routes>
             </Root>

@@ -67,7 +67,7 @@ export default function LostFoundInfo(params) {
 
                     {/* ------------------------------------------------------ */}
                     <div
-                        className="card m-2 border border-warning "
+                        className="card m-2 border border-warning"
                         // style={{ minWidth: "25rem", borderRadius: "15px" }}
                     >
                         <div
