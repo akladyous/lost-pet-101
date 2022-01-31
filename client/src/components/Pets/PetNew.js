@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-// import { wrapper } from '../hocs/wrapper.js';
-// import FormButtons from '../layout/FormButtons.js';
+import { wrapper } from '../hocs/wrapper.js';
+import FormButtons from '../layout/FormButtons.js';
 
-// const ControlButtons = wrapper(FormButtons);
+const ControlButtons = wrapper(FormButtons);
 
 
 export default function PetNew(props) {
@@ -39,11 +39,9 @@ export default function PetNew(props) {
     }
 
     return (
-        <div className="card p-3" style={{ borderColor: "var(--orange)" }}>
-            {/* <div className="card p-2"> */}
-            {/* style= {{ backgroundColor: "hsl(25,100%,50%)" }} */}
-            <div className="row">
-                <div className="container">
+        <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
+            <div className="row w-100 h-100 mx-auto d-flex align-content-between">
+                <div className="container px-4 py-2">
                     <form className="bg-transparent">
                         <div className="row mb-1">
                             <label className="col-4 col-form-label fw-normal">
@@ -54,8 +52,6 @@ export default function PetNew(props) {
                                     type="text"
                                     name="name"
                                     className="form-control"
-                                    // value={petData.name}
-                                    // onChange={setCurrentValue}
                                     value={formData.pet.name}
                                     onChange={handleChange}
                                 />
@@ -70,8 +66,6 @@ export default function PetNew(props) {
                                     type="text"
                                     name="species"
                                     className="form-control"
-                                    // value={petData.species}
-                                    // onChange={setCurrentValue}
                                     value={formData.pet.species}
                                     onChange={handleChange}
                                 />
@@ -144,7 +138,7 @@ export default function PetNew(props) {
                                     value={formData.pet.gender}
                                     onChange={handleChange}
                                 >
-                                    <option value=''>{''}</option>
+                                    <option value="">{""}</option>
                                     <option value="male">Male</option>
                                     <option value="female">Femail</option>
                                 </select>
@@ -231,7 +225,7 @@ export default function PetNew(props) {
                                     value={formData.pet.collar}
                                     onChange={handleChange}
                                 >
-                                    <option value={null}>{''}</option>
+                                    <option value={null}>{""}</option>
                                     <option value={true}>Yes</option>
                                     <option value={false}>No</option>
                                 </select>
@@ -252,48 +246,32 @@ export default function PetNew(props) {
                             </div>
                         </div>
                     </form>
-                    {/* <div className="col-md-3"></div>
-                        <div className="col-md-9"></div> */}
                 </div>
-            </div>
-            {/* ---------------------------- */}
-            <div className="container mt-2 px-1">
-                <div className="row">
-                    <div className="col-2">
-                        <div className="d-grid">
-                            <button
-                                type="button"
-                                className="btn w-100"
-                                onClick={prevStep}
-                                disabled={currentIndex === 0}
-                                style={{ backgroundColor: "hsl(25,100%,50%)" }}
-                            >
-                                previous
-                            </button>
+                <div className="row m-2 p-1 button-container">
+                    <ControlButtons
+                        currentIndex={currentIndex}
+                        lastIndex={lastIndex}
+                        prevStep={prevStep}
+                        nextStep={nextStep}
+                    />
+                </div>
+                {/* <div className="row mx-0 px-1 mb-2 progress-container">
+                    <div className="container">
+                        <div className="progress">
+                            <div
+                                className="progress-bar"
+                                role="progressbar"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                style={{ width: "25%", backgroundColor: "var(--orange)" }}
+                                >
+                                
+                            </div>
                         </div>
                     </div>
-
-                    <div className="col-2">
-                        <div className="d-grid">
-                            <button
-                                type="button"
-                                className="btn w-100"
-                                // disabled={currentIndex === steps.length -1}
-                                // disabled={currentIndex === lastIndex}
-                                onClick={nextStep}
-                                style={{
-                                    backgroundColor: "hsl(25,100%,50%)",
-                                }}
-                            >
-                                {currentIndex >= lastIndex ? "Submit" : "Next"}
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="col-6"></div>
-                </div>
+                </div> */}
             </div>
-
         </div>
     );
 };

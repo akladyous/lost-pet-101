@@ -23,7 +23,7 @@ body {
 }
 
 .multi-step-container{
-    height: calc(1000px - calc(var(--navbar-height) + var(--header-height)));
+    height: calc(920px - calc(var(--navbar-height) + var(--header-height)));
 }
 .page-header{
     height: var(--header-height)

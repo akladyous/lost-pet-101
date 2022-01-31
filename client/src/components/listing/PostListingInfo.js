@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-// import { wrapper } from '../hocs/wrapper.js';
-// import FormButtons from '../layout/FormButtons.js';
+import { wrapper } from '../hocs/wrapper.js';
+import FormButtons from '../layout/FormButtons.js';
 
-// const ControlButtons = wrapper(FormButtons);
-
-
+const ControlButtons = wrapper(FormButtons);
 export default function PostListingInfo(props) {
     const {
         currentIndex,
@@ -30,9 +28,9 @@ export default function PostListingInfo(props) {
     };
     
     return (
-        <div className="card p-3">
-            <div className="row">
-                <div className="container">
+        <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
+            <div className="row w-100 h-100 mx-auto d-flex align-content-between">
+                <div className="container px-4 py-2">
                     <form className="">
                         <div className="row mb-1">
                             <label className="col-4 col-form-label fw-normal">
@@ -110,45 +108,13 @@ export default function PostListingInfo(props) {
                         </div>
                     </form>
                 </div>
-            </div>
-            {/* ---------- */}
-
-            <div className="container mt-2 px-1">
-                <div className="row">
-                    <div className="col-2">
-                        <div className="d-grid">
-                            <button
-                                type="button"
-                                className="btn w-100"
-                                onClick={prevStep}
-                                disabled={currentIndex === 0}
-                                style={{
-                                    backgroundColor: "hsl(25,100%,50%)",
-                                }}
-                            >
-                                previous
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="col-2">
-                        <div className="d-grid">
-                            <button
-                                type="button"
-                                className="btn w-100"
-                                // disabled={currentIndex === steps.length -1}
-                                // disabled={currentIndex === lastIndex}
-                                onClick={nextStep}
-                                style={{
-                                    backgroundColor: "hsl(25,100%,50%)",
-                                }}
-                            >
-                                {currentIndex >= lastIndex ? "Submit" : "Next"}
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="col-6"></div>
+                <div className="row m-1 p-1">
+                    <ControlButtons
+                        currentIndex={currentIndex}
+                        lastIndex={lastIndex}
+                        prevStep={prevStep}
+                        nextStep={nextStep}
+                    />
                 </div>
             </div>
         </div>

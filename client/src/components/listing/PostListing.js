@@ -78,9 +78,9 @@ export default function PostListing() {
             />
 
             <div className="container mt-4 px-2 border multi-step-container">
-                <div className="row">
+                <div className="row h-100">
                     <div className="col-md-5 col-lg-5 px-2 mt-2">
-                        <div className="container h-100">
+                        <div className="card h-100" style={{borderColor: "var(--orange)"}}>
                             <img
                                 src={
                                     petImage &&
@@ -91,55 +91,20 @@ export default function PostListing() {
                         </div>
                     </div>
 
-                    <div className="col-md-7 col-md-7 mt-2">
-                        <MultiStepForm
-                            currentIndex={currentIndex}
-                            lastIndex={lastIndex}
-                            nextStep={nextStep}
-                            prevStep={prevStep}
-                            onFinish={onFinish}
-                            formData={formData}
-                            updateFormData={updateFormData}
-                        >
-                            <PetNew />
-                            <PostListingInfo />
-                            <PostListingAddress />
-                        </MultiStepForm>
-                        {/* multi-form controll ------------------------------------------- */}
-                        {/* <div className="container mt-2 px-1">
-                            <div className="row">
-                                <div className="col-2">
-                                    <div className='d-grid'>
-                                        <button
-                                            type="button"
-                                            className="btn w-100"
-                                            onClick={goPrev}
-                                            disabled={currentIndex === 0}
-                                            style={{ backgroundColor: "hsl(25,100%,50%)" }}
-                                        >
-                                            previous
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className="col-2">
-                                    <div className='d-grid'>
-                                        <button
-                                            type="button"
-                                            className="btn w-100"
-                                            disabled={currentIndex === formTitles.length -1}
-                                            onClick={goNext}
-                                            style={{ backgroundColor: "hsl(25,100%,50%)" }}
-                                        >
-                                            Next
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className="col-6"></div>
-                            </div>
-                        </div> */}
-                        {/* multi-form controll ------------------------------------------- */}
+                    <div className="col-md-7 col-md-7 px-2 mt-2">
+                            <MultiStepForm
+                                currentIndex={currentIndex}
+                                lastIndex={lastIndex}
+                                nextStep={nextStep}
+                                prevStep={prevStep}
+                                onFinish={onFinish}
+                                formData={formData}
+                                updateFormData={updateFormData}
+                            >
+                                <PetNew />
+                                <PostListingInfo />
+                                <PostListingAddress />
+                            </MultiStepForm>
                     </div>
                 </div>
             </div>
