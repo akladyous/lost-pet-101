@@ -1,8 +1,9 @@
-import '../css/lost_found.css'
+// import '../css/lost_found.css'
 import {useRef} from 'react';
+import PageHeader from '../layout/PageHeader.js';
 import { Modal } from 'bootstrap';
 import {useLocation} from 'react-router-dom'
-import { usDateFormat } from "../api/util.jsx";
+import { usDateFormat } from "../hocs/util.jsx";
 import ContactFinder from './ContactFinder.js';
 
 
@@ -38,14 +39,10 @@ export default function LostFoundInfo(params) {
     
     return (
         <div>
-            <div className="container my-4 pt-4 lost_found area">
-                <div className="container">
-                    <h2 className="display-5 text-light">LOST & FOUND PETS</h2>
-                    <p className="text-white">
-                        SEARCH LOST & FOUND PETS IN YOUR AREA
-                    </p>
-                </div>
-            </div>
+            <PageHeader
+                title="LOST & FOUND PETS"
+                subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
+            />
 
             <div className="container">
                 <div className="card-group px-10">

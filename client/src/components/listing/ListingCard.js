@@ -1,5 +1,5 @@
 import React from 'react';
-import { usDateFormat } from "../api/util.jsx";
+import { usDateFormat } from "../hocs/util.jsx";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function ListingCard({listing}) {

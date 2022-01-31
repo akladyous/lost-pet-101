@@ -1,3 +1,9 @@
+:root{
+    --orange: hsl(25,100%,50%);
+    --navbar-height: 80px;
+    --header-height: 150px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -13,6 +19,25 @@ body {
 }
 
 .main_container{
-    height: -webkit-calc(100% - 80);
+    height: calc(100% - calc(var(--navbar-height) + var(--header-height)));
+}
 
+.multi-step-container{
+    height: calc(1000px - calc(var(--navbar-height) + var(--header-height)));
+}
+.page-header{
+    height: var(--header-height)
+}
+
+.header-image{
+    background-image: url(./images/bradcam.png);
+    opacity: 0.8;
+    height: 150px;
+    /* padding: 100px; */
+    max-width: 90%;
+    width: 700px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: bottom;
 }

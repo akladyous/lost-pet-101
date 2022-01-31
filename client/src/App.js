@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import { Routes, Route} from "react-router-dom";
-import util from './components/api/util.jsx'
+import util from './components/hocs/util.jsx'
 import Root from './components/layout/Root.js'
 import Header from './components/layout/Header.js'
 import About from './components/layout/About.js'

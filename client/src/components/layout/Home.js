@@ -9,7 +9,7 @@ const logo3 = require('../../images/3.png')
 
 export default function Home({children}) {
     return (
-        <div className="main_container">
+        <div className="home_container">
             <div className="bradcam_area breadcam_bg pt-5">
                 <div className="container">
                     <div className="row">

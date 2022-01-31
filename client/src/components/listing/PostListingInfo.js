@@ -1,65 +1,156 @@
-
 import React, {useState} from 'react';
+// import { wrapper } from '../hocs/wrapper.js';
+// import FormButtons from '../layout/FormButtons.js';
 
-export default function PostListingInfo({goToNext}) {
+// const ControlButtons = wrapper(FormButtons);
 
-    const [listingInfo, setListingInfo] = useState({})
 
-    const setCurrentValue = (e) => {
-        const currentVaue = {[e.currentTarget.name]: e.currentTarget.value}
-        setListingInfo((petData) => ({
-            ...petData,
-            ...currentVaue
-        }));
-    }
+export default function PostListingInfo(props) {
+    const {
+        currentIndex,
+        lastIndex,
+        nextStep,
+        prevStep,
+        formData,
+        updateFormData,
+    } = props || {};
+
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        const currentVaue = { [e.currentTarget.name]: e.currentTarget.value };
+        updateFormData("listingInfo", currentVaue);
+    };
+
 
     const handleForm = (e) => {
-        e.preventDefault()
-        goToNext({listing_info: listingInfo})
-    }
+        e.preventDefault();
+        // console.log("ListingInfoComponent -> ListingInfo: ", listingInfo);
+        // goToNext(listingInfo)
+    };
+    
+    return (
+        <div className="card p-3">
+            <div className="row">
+                <div className="container">
+                    <form className="">
+                        <div className="row mb-1">
+                            <label className="col-4 col-form-label fw-normal">
+                                Listing Type
+                            </label>
+                            <div className="col-8">
+                                <select
+                                    name="listing_type"
+                                    className="form-select"
+                                    value={formData.listingInfo.listing_type}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">{""}</option>
+                                    <option value="lost">LOST</option>
+                                    <option value="found">FOUND</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="row mb-1">
+                            <label className="col-4 col-form-label fw-normal">
+                                Publication Date
+                            </label>
+                            <div className="col-8">
+                                <input
+                                    type="text"
+                                    name="published_at"
+                                    className="form-control"
+                                    value={formData.listingInfo.published_at}
+                                    onChange={handleChange}
+                                    disabled={true}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-1">
+                            <label className="col-4 col-form-label fw-normal">
+                                Data last Seen
+                            </label>
+                            <div className="col-8">
+                                <input
+                                    type="date"
+                                    name="date_lost_found"
+                                    className="form-control"
+                                    value={formData.listingInfo.date_lost_found}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-1">
+                            <label className="col-4 col-form-label fw-normal">
+                                Message
+                            </label>
+                            <div className="col-8">
+                                <textarea
+                                    rows="5"
+                                    name="msg_from"
+                                    className="form-control"
+                                    value={formData.listingInfo.msg_from}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="row mb-1">
+                            <label className="col-4 col-form-label fw-normal">
+                                Description
+                            </label>
+                            <div className="col-8">
+                                <textarea
+                                    rows="5"
+                                    name="description"
+                                    className="form-control"
+                                    value={formData.listingInfo.description}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {/* ---------- */}
 
-return (
-        <div className="card m-2 bg-transparent">
-            <div className="card-header"> 
-                <div className='row'>
-                    <div className="container">
-                        <form className=''>
-                            <div className='row mb-1'>
-                                <label htmlFor="listing_type" className="col-4 col-form-label fw-normal">Age</label>
-                                <div className='col-8'>
-                                    <input type="text" name="listing_type" className="form-control" value={listingInfo['listing_type']} onChange={setCurrentValue} />
-                                </div>
-                            </div>
-                            <div className='row mb-1'>
-                                <label htmlFor="published_at" className="col-4 col-form-label fw-normal">Description</label>
-                                <div className='col-8'>
-                                <input type="text" name="published_at" className="form-control" value={listingInfo['published_at']} onChange={setCurrentValue} />
-                                </div>
-                            </div>
-                            <div className='row mb-1'>
-                                <label htmlFor="date_lost_found" className="col-4 col-form-label fw-normal">Description</label>
-                                <div className='col-8'>
-                                <input type="text" name="date_lost_found" className="form-control" value={listingInfo['date_lost_found']} onChange={setCurrentValue} />
-                                </div>
-                            </div>
-                            <div className='row mb-1'>
-                                <label htmlFor="msg_from" className="col-4 col-form-label fw-normal">Description</label>
-                                <div className='col-8'>
-                                <input type="text" name="msg_from" className="form-control" value={listingInfo['msg_from']} onChange={setCurrentValue} />
-                                </div>
-                            </div>
-                            <div className='row mb-1'>
-                                <label htmlFor="description" className="col-4 col-form-label fw-normal">Description</label>
-                                <div className='col-8'>
-                                <input type="text" name="description" className="form-control" value={listingInfo['description']} onChange={setCurrentValue} />
-                                </div>
-                            </div>
-                        </form>
+            <div className="container mt-2 px-1">
+                <div className="row">
+                    <div className="col-2">
+                        <div className="d-grid">
+                            <button
+                                type="button"
+                                className="btn w-100"
+                                onClick={prevStep}
+                                disabled={currentIndex === 0}
+                                style={{
+                                    backgroundColor: "hsl(25,100%,50%)",
+                                }}
+                            >
+                                previous
+                            </button>
+                        </div>
                     </div>
-                    <button type='submit' className='btn btn-light' onClick={handleForm}>Next</button>
+
+                    <div className="col-2">
+                        <div className="d-grid">
+                            <button
+                                type="button"
+                                className="btn w-100"
+                                // disabled={currentIndex === steps.length -1}
+                                // disabled={currentIndex === lastIndex}
+                                onClick={nextStep}
+                                style={{
+                                    backgroundColor: "hsl(25,100%,50%)",
+                                }}
+                            >
+                                {currentIndex >= lastIndex ? "Submit" : "Next"}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="col-6"></div>
                 </div>
             </div>
         </div>
     );
-    
-}
+};
