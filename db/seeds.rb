@@ -84,7 +84,7 @@ end
 
 puts "🌱 Seeding Users..."
 
-1.upto(1) do |i|
+1.upto(50) do |i|
     progress = "=" * (i/5) unless i < 5
     printf("\rGenerating  records: %s", spinner.next)
     # printf("\rGenerating user records: [%-20s] %d%%", progress, i)

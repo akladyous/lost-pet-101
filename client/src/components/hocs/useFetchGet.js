@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export const FetchGet = (path) => {
+export const useFetchGet = (path) => {
 
     const [resource, setResource] = useState()
 
@@ -18,5 +18,5 @@ export const FetchGet = (path) => {
         });
     },[] )
 
-    return resource
+    return {resource}
 }

@@ -26,13 +26,6 @@ export default function PostListingAddress(props) {
         updateFormData("listingAddress", currentVaue);
     };
 
-    const handleForm = (e) => {
-        e.preventDefault();
-        // console.log("ListingAddress Component -> ListingAddress : ",listingAddress);
-        // goToNext(listingAddress);
-    };
-
-
     return (
         <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">

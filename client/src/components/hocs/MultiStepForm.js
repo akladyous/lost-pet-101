@@ -9,7 +9,8 @@ export default function MultiStepForm(props) {
         nextStep, 
         prevStep,
         formData,
-        updateFormData 
+        updateFormData,
+        formTitle
     } = props || {}
     
     const currentChild = React.Children.toArray(children)[currentIndex]
@@ -21,7 +22,8 @@ export default function MultiStepForm(props) {
             nextStep,
             prevStep,
             formData,
-            updateFormData
+            updateFormData,
+            formTitle
         })
     } else{
         return null

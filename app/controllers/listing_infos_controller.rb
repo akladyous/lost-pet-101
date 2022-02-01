@@ -15,6 +15,33 @@ class ListingInfosController < ApplicationController
         end
     end
 
+    def new_listing
+        # debugger
+        @pet_params = params.require(:pet).permit(:id, :species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar)
+        @listinginfo_params = params.require(:listing_info).permit(:listing_type, :published, :published_at)
+        @listing_params = params.require(:listing).permit(:date_lost_found, :msg_from, :description)
+        @listing_address_params = params.require(:listing_address).permit(:address1, :address2, :city, :zip_code, :state)
+
+        @pet_record = Pet.new(@pet_params)
+        @listing_info_record = current_user.listing_infos.new(@listinginfo_params)
+        @listing_info_record.pet = @pet_record
+        if @listing_info_record.save!
+            @listing_record = Listing.new(@listing_params)
+            @listing_address_record = ListingAddress.new(@listing_address_params)
+            @listing_record.update(listing_info: @listing_info_record, listing_address: @listing_address_record)
+        end
+        
+        if @listing_info_record.persisted? && @listing_record.persisted?
+            render json: @listing_info_record, status: :ok
+        else
+            @pet_record.destroy
+            @listing_info_record.destroy
+            @listing_record.destroy
+            render_unprocessable
+        end
+    end
+
+
     def create
         @pet = Pet.find_by_id!(params.require(:pet).permit(:pet_id)[:pet_id])
         if @pet
@@ -29,6 +56,7 @@ class ListingInfosController < ApplicationController
             render json: {error: "Pet not found"}, status: unprocessable_entity
         end
     end
+
     def update
         if @listing_info && current_user.listing_infos.ids.include?(@listing_info.id)
             @listing_info.update(
@@ -69,4 +97,23 @@ class ListingInfosController < ApplicationController
     def load_listing_info
         @listing_info = ListingInfo.find_by_id!(listing_info_params[:id])
     end
+
 end
+
+
+
+
+    # def create
+    #     @pet = Pet.find_by_id!(params.require(:pet).permit(:pet_id)[:pet_id])
+    #     if @pet
+    #         @listing_info = current_user.listing_infos.new(listing_info_params.except(:pet_id, :id))
+    #         @listing_info.pet = @pet
+    #         if @listing_info.save!
+    #             render json: @listing_info, status: :ok
+    #         else
+    #             render_unprocessable
+    #         end
+    #     else
+    #         render json: {error: "Pet not found"}, status: unprocessable_entity
+    #     end
+    # end

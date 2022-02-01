@@ -18,8 +18,8 @@ export default function LostFound() {
             }})
         .then(response => response.json())
         .then(data => {
-            setListingInfo(data);
-            // console.log(data)
+            setListingInfo([...data].reverse());
+            console.log(data)
         })
     };
 

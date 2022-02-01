@@ -13,14 +13,13 @@ export default function PetNew(props) {
         nextStep, 
         prevStep,
         formData,
-        updateFormData
+        updateFormData,
+        formTitle
     } = props || {}
 
     const [imageFile, setImageFile] = useState(null)
 
-
     const loadImage = (e) => {
-        console.log(e.currentTarget)
         var imgBlob = URL.createObjectURL(e.currentTarget.files[0]);
         setImageFile(e.currentTarget.files[0]);
         setPetImage(imgBlob);
@@ -54,6 +53,7 @@ export default function PetNew(props) {
                                     className="form-control"
                                     value={formData.pet.name}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                         </div>

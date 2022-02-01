@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         resources :listing_infos do
             collection do
                 get 'public', to: "listing_infos#public"
+                post 'public', to: "listing_infos#new_listing"
             end
         end
 

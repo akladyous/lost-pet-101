@@ -8,7 +8,7 @@ export default function FormButtons({currentIndex, lastIndex, prevStep, nextStep
                 <div className="col-2">
                     <div className="d-grid">
                         <button
-                            type="button"
+                            type="submit"
                             className="btn w-100"
                             onClick={prevStep}
                             disabled={currentIndex === 0}

@@ -14,7 +14,13 @@ const StepTwo = ({goToNext})=>(
     <div>
         <h2>step two</h2>
         <br />
-        <button onClick={()=> goToNext({age: "30"})}>next</button>
+
+        <form action="/">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required/>
+            <input type="submit"/>
+            <button onClick={()=> goToNext({age: "30"})}>next</button>
+        </form>
     </div>
 )
 

@@ -1,75 +1,62 @@
-import React, {useState} from 'react';
+import {useState, useCallback, useMemo, useEffect} from 'react';
 import PageHeader from '../layout/PageHeader.js';
 import MultiStepForm from '../hocs/MultiStepForm.js';
 import PetNew from '../Pets/PetNew.js';
 import PostListingInfo from './PostListingInfo.js'
 import PostListingAddress from './PostListingAddress.js'
+import PostListingSuccess from './PostListingSuccess.js';
 
-const formTitles = ["Pet Profile", "Listing Information", "Listing Address"];
-const formObject = {
-    pet: {
-        name: "",
-        species: "",
-        age: "",
-        size: "",
-        description: "",
-        breed: "",
-        gender: "",
-        color: "",
-        microchip: "",
-        height: "",
-        weight: "",
-        coat: "",
-        collar: "",
-        image: "",
-    },
-    listingInfo: {
-        listing_type: "",
-        published_at: Date().toString(),
-        date_lost_found: "",
-        msg_from: "",
-        description: "",
-    },
-    listingAddress: {
-        address1: "",
-        address2: "",
-        city: "",
-        zip_code: "",
-        state: "",
-    },
-};
+// const formTitles = ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"];
+
 
 export default function PostListing() {
-    
+
     const [petImage, setPetImage] = useState(null)
     const [formData, setFormData] = useState(formObject);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const lastIndex = formTitles.length - 1;
+    // const lastIndex = formTitles.length - 1;
 
-    const nextStep = () => {
+    const lastIndex = useMemo( () =>{
+        return formData.formTitles.titles.length - 1
+    },[[formData.formTitles.titles]] )
+
+    const formTitles = useMemo( () => {
+        return formData.formTitles.titles
+    }, [formData.formTitles.titles] )
+
+    const nextStep = useCallback( (e) => {
+        e.preventDefault()
         if (currentIndex < lastIndex) {
             setCurrentIndex(currentIndex + 1);
         } else if (currentIndex === lastIndex) {
             onFinish();
         }
-    };
-    const prevStep = () => {
+    },[currentIndex] ) 
+    
+    const prevStep = useCallback( (e) => {
+        e.preventDefault()
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
-        } 
-    };
+        }
+    },[currentIndex] )
 
-    const updateFormData = (obj_name, obj_pair) => {
-        setFormData( (prevState) => {
-            return { ...prevState, [obj_name]: { ...formData[obj_name], ...obj_pair } }
-        })
-    }
+    const updateFormData = useCallback((obj_name, obj_pair) => {
+        setFormData((prevState) => {
+            return { ...prevState, [obj_name]: { ...formData[obj_name], ...obj_pair } };
+        });
+    }, [formData] );
 
-    const onFinish = () => {
-        console.log("onFinish: ", formData);
-    }
-    
+    // const updateFormData = (obj_name, obj_pair) => {
+    //     setFormData( (prevState) => {
+    //         return { ...prevState, [obj_name]: { ...formData[obj_name], ...obj_pair } }
+    //     })
+    // }
+
+    const onFinish = () =>{
+        console.log(formData.pet);
+    } 
+
     return (
         <div className="lost_found_main">
             <PageHeader
@@ -100,10 +87,12 @@ export default function PostListing() {
                                 onFinish={onFinish}
                                 formData={formData}
                                 updateFormData={updateFormData}
+                                formTitle={formTitles[currentIndex]}
                             >
                                 <PetNew />
                                 <PostListingInfo />
                                 <PostListingAddress />
+                                <PostListingSuccess /> 
                             </MultiStepForm>
                     </div>
                 </div>
@@ -111,4 +100,48 @@ export default function PostListing() {
         </div>
     );
 }
+const today = () => {
+    const date = new Date();
+    return date.toLocaleDateString();
+    console.log(today);
+};
 
+const formObject = {
+    pet: {
+        name: "",
+        species: "",
+        age: "",
+        size: "",
+        description: "",
+        breed: "",
+        gender: "",
+        color: "",
+        microchip: "",
+        height: "",
+        weight: "",
+        coat: "",
+        collar: "",
+        image: "",
+    },
+    listingInfo: {
+        listing_type: "",
+        published: true,
+        published_at: today(),
+        
+    },
+    listing: {
+        date_lost_found: "",
+        msg_from: "",
+        description: "",
+    },
+    listingAddress: {
+        address1: "",
+        address2: "",
+        city: "",
+        zip_code: "",
+        state: "",
+    },
+    formTitles:{titles:
+        ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"]
+    }
+};

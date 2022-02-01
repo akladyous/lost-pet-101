@@ -2,6 +2,21 @@ import React from 'react';
 import { usDateFormat } from "../hocs/util.jsx";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
+// String.prototype.capitalize = function () {
+//     return this.charAt(0).toUpperCase() + this.slice(1);
+// };
+// export const usDateFormat = (date) => {
+//     return new Date(date).toLocaleDateString("en-US", {
+//         year: "numeric",
+//         month: "2-digit",
+//         day: "2-digit",
+//     });
+// };
+
+const capitalize = (input)=>{
+    return input.charAt(0).toUpperCase() + this.slice(1);
+}
+
 export default function ListingCard({listing}) {
 
     const navigate = useNavigate()
@@ -9,7 +24,11 @@ export default function ListingCard({listing}) {
     return (
         <div
             className="card m-2"
-            style={{ minWidth: "20rem", maxWidth: '20rem', borderRadius: "15px" }}
+            style={{
+                minWidth: "20rem",
+                maxWidth: "20rem",
+                borderRadius: "15px",
+            }}
         >
             {/* <img src="..." className="card-img-top" alt="..."> */}
             <div className="card-body">
@@ -21,10 +40,12 @@ export default function ListingCard({listing}) {
             <ul className="list-group list-group-flush">
                 <li className="list-group-item d-flex flex-column">
                     <p>
-                        {`${listing.listing_type.capitalize()} ${listing.pet.species.capitalize()} ${listing.pet.gender.capitalize()}`}
+                        {`${listing.listing_type} ${
+                            listing.pet.species
+                        } ${listing.pet.gender}`}
                     </p>
                     <p>
-                        {`${listing.listing_address.city} ${listing.listing_address.state} ${listing.listing_address.zip_code}`}
+                        {`${'' || listing.listing_address.city} ${'' || listing.listing_address.state } ${'' || listing.listing_address.zip_code}`}
                     </p>
                     <p>{usDateFormat(listing.listing.date_lost_found)}</p>
                 </li>

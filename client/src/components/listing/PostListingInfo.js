@@ -14,19 +14,12 @@ export default function PostListingInfo(props) {
     } = props || {};
 
 
-    const handleChange = (e) => {
+    const handleChange = (e, table_name) => {
         e.preventDefault();
         const currentVaue = { [e.currentTarget.name]: e.currentTarget.value };
-        updateFormData("listingInfo", currentVaue);
+        updateFormData(table_name, currentVaue);
     };
 
-
-    const handleForm = (e) => {
-        e.preventDefault();
-        // console.log("ListingInfoComponent -> ListingInfo: ", listingInfo);
-        // goToNext(listingInfo)
-    };
-    
     return (
         <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">
@@ -41,7 +34,9 @@ export default function PostListingInfo(props) {
                                     name="listing_type"
                                     className="form-select"
                                     value={formData.listingInfo.listing_type}
-                                    onChange={handleChange}
+                                    onChange={(e) => {
+                                        handleChange(e, "listingInfo");
+                                    }}
                                 >
                                     <option value="">{""}</option>
                                     <option value="lost">LOST</option>
@@ -59,7 +54,9 @@ export default function PostListingInfo(props) {
                                     name="published_at"
                                     className="form-control"
                                     value={formData.listingInfo.published_at}
-                                    onChange={handleChange}
+                                    onChange={(e) =>{
+                                        handleChange(e, "listingInfo");
+                                    }}
                                     disabled={true}
                                 />
                             </div>
@@ -73,8 +70,10 @@ export default function PostListingInfo(props) {
                                     type="date"
                                     name="date_lost_found"
                                     className="form-control"
-                                    value={formData.listingInfo.date_lost_found}
-                                    onChange={handleChange}
+                                    value={formData.listing.date_lost_found}
+                                    onChange={(e) =>{
+                                        handleChange(e, 'listing')
+                                    }}
                                 />
                             </div>
                         </div>
@@ -84,11 +83,13 @@ export default function PostListingInfo(props) {
                             </label>
                             <div className="col-8">
                                 <textarea
-                                    rows="5"
+                                    rows="10"
                                     name="msg_from"
                                     className="form-control"
-                                    value={formData.listingInfo.msg_from}
-                                    onChange={handleChange}
+                                    value={formData.listing.msg_from}
+                                    onChange={(e) =>{
+                                        handleChange(e, 'listing')
+                                    }}
                                 />
                             </div>
                         </div>
@@ -98,11 +99,13 @@ export default function PostListingInfo(props) {
                             </label>
                             <div className="col-8">
                                 <textarea
-                                    rows="5"
+                                    rows="10"
                                     name="description"
                                     className="form-control"
-                                    value={formData.listingInfo.description}
-                                    onChange={handleChange}
+                                    value={formData.listing.description}
+                                    onChange={(e) =>{
+                                        handleChange(e, 'listing')
+                                    }}
                                 />
                             </div>
                         </div>
