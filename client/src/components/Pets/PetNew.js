@@ -14,10 +14,8 @@ export default function PetNew(props) {
         prevStep,
         formData,
         updateFormData,
-        formTitle
+        formTitle,
     } = props || {}
-
-    const [imageFile, setImageFile] = useState(null)
 
     const loadImage = (e) => {
         e.preventDefault()
@@ -230,16 +228,22 @@ export default function PetNew(props) {
                             </div>
                         </div>
                         <div className="row mb-1">
-                            <label className="col-4 col-form-label fw-normal">
+                            <label
+                                htmlFor="image_file"
+                                className="col-4 col-form-label fw-normal"
+                            >
                                 Upload image
                             </label>
                             <div className="col-8">
                                 <input
                                     type="file"
+                                    name="image_file"
+                                    title="upload Pet image"
                                     accept="image/*"
                                     multiple={false}
                                     className="form-control"
                                     onChange={loadImage}
+                                    style={{ color: "transparent" }}
                                 />
                             </div>
                         </div>

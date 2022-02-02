@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function PostListingSuccess(props) {
@@ -6,64 +6,63 @@ export default function PostListingSuccess(props) {
         // currentIndex,
         // lastIndex,
         formData,
-        petImage
+        petImage,
+        imagePath
     } = props || {};
+
 
     const [resource , setResource] = useState()
     const [loading, setLoading] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
-
-    const postData = useCallback( async (props) =>{
+    
+    const postData = async () => {
         const resourceJS = JSON.stringify(formData);
         const controller = new AbortController();
         const config = {
-            headers: { "Content-type": "application/json" },
-            signal: controller.signal,
-        };
+            headers: {"Content-type": "application/json"},
+            signal: controller.signal
+        }
         // return axios.post('api/listing_infos/public', resourceJS, config);
         try {
-            const response = await axios.post(
-                "api/listing_infos/public",
-                resourceJS,
-                config
-            );
-            if (response.status === 200) {
+            const response = await  axios.post('api/listing_infos/public', resourceJS, config)
+            if (response.status === 200){
                 console.log("response: ", response);
                 console.log("response data: ", response.data);
                 console.log("resources values: ", resource);
                 setResource(response.data);
-                return await response.data;
-            } else {
-                console.log(response);
-            }
-        } catch (err) {console.error(err.message)}
+                return await response.data
+                } else{
+                    console.log(response)
+                }
+        } catch (err){
+            // console.error(err.message)
+        }
+    };
 
-    },[resource] )
-
-    // const postData = async () => {};
-
-    const postImage = useCallback( async(props) => {
-        const {image_file, data} = props || {}
-        const imageForm = new FormData();
+    const postImage = async (data, image_file) =>{
+        const imageForm = new FormData()
         imageForm.append("image_file", image_file);
-        imageForm.append("id", data.pet.id);
+        imageForm.append('id', data.pet.id)
         const controller = new AbortController();
         const config = {
-            headers: { "content-type": "multipart/form-data" },
+            headers: { 'content-type': 'multipart/form-data'},
             signal: controller.signal,
         };
-        try {
-            const response = await axios.patch("api/pets/image", imageForm, config);
-            if (response.status === 200) {
-                console.log("response: ", response);
-                console.log("response data: ", response);
-                return await response.data;
-            } else {
-                console.log(response);
-            }
-        } catch (err) {console.log(err.message);}
-    },[petImage] )
-    // const postImage = async (data, image_file) =>{};
+        try{
+            const response = await axios.patch("api/pets/image", imageForm, config)
+                if (response.status === 200) {
+                    console.log("response: ", response);
+                    console.log("response data: ", response);
+                    return await response.data
+                } else {
+                    console.log(response)
+                }
+
+        } catch(err) {
+            console.log(err.message)
+        }
+        
+    };
 
     useEffect( () =>{
 
@@ -71,7 +70,7 @@ export default function PostListingSuccess(props) {
             .then(formResponse => {
                 console.log(formResponse);
                 setResource(formResponse);
-                postImage(formResponse, petImage)
+                postImage(formResponse, imagePath)
                 .then(image_response =>{
                     console.log(image_response);
                     // console.log(image_response);
@@ -107,7 +106,3 @@ export default function PostListingSuccess(props) {
         </div>
     )
 }
-
-        // apiRequest.post("listing_infos/public", resourceJS, {
-        //     signal: controller.signal,
-        // });
