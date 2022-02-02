@@ -16,7 +16,7 @@ class ListingInfosController < ApplicationController
     end
 
     def new_listing
-        debugger
+        # debugger
         @pet_params = params.require(:pet).permit(:id, :species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar, :image_file)
         
         @listinginfo_params = params.require(:listingInfo).permit(:listing_type, :published, :published_at)
@@ -94,11 +94,6 @@ class ListingInfosController < ApplicationController
         render json: @all_listing_infos, status: :ok
     end
     private
-    
-    def public_params
-        params.require(:pet, :listingInfo, :listing, :listingAddress).permit(
-            :id, :listing_type, :published, :published_at, :species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar, :image_file, :listing_type, :published, :published_at, :date_lost_found, :msg_from, :description, :address1, :address2, :city, :zip_code, :state
-    end
     
     def listing_info_params
         params.permit(:id, :listing_type, :published, :published_at)
