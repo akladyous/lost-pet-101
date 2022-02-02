@@ -45,6 +45,20 @@ class PetsController < ApplicationController
         end
     end
 
+    def upload #upload image
+        if @pet
+            @pet.image_file.attach(pet_params[:image_file])
+            render json: {message: "Image successfully uploaded"}
+        end
+    end
+
+    def download #download image
+
+    end
+
+    def purge #delete image
+
+    end
 
     private
     def pet_params
