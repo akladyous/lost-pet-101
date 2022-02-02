@@ -48,7 +48,7 @@ class PetsController < ApplicationController
 
     private
     def pet_params
-        params.permit(:id, :species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar)
+        params.permit(:id, :species, :name, :age, :size, :description, :breed, :gender, :color, :microchip, :height, :weight, :coat, :collar, :image_file)
     end
     def current_pet
         @pet = Pet.find_by_id!(pet_params[:id])

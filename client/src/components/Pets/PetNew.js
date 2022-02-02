@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import { wrapper } from '../hocs/wrapper.js';
 import FormButtons from '../layout/FormButtons.js';
 
@@ -7,7 +7,7 @@ const ControlButtons = wrapper(FormButtons);
 
 export default function PetNew(props) {
     const {
-        setPetImage, 
+        loadImageFile, 
         currentIndex, 
         lastIndex, 
         nextStep, 
@@ -20,15 +20,12 @@ export default function PetNew(props) {
     const [imageFile, setImageFile] = useState(null)
 
     const loadImage = (e) => {
-        var imgBlob = URL.createObjectURL(e.currentTarget.files[0]);
-        setImageFile(e.currentTarget.files[0]);
-        setPetImage(imgBlob);
+        e.preventDefault()
+        loadImageFile(e.currentTarget.files[0])
     }
 
     const handleForm = (e) => {
         e.preventDefault();
-
-        // nextStep()
     }
     
     const handleChange = (e) => {

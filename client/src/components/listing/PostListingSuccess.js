@@ -1,25 +1,23 @@
 import { useEffect, useState } from 'react';
 import apiRequest from '../hocs/apiRequest.js';
-// import useAxiosPost from '../hocs/useAxiosPost.js';
-// import useAxiosGet from '../hocs/useAxiosGet.js';
 
-const dogImg = require('../../images/dog1.jpeg')
 export default function PostListingSuccess(props) {
     const {
-        currentIndex,
-        lastIndex,
+        // currentIndex,
+        // lastIndex,
         formData,
-        updateFormData,
+        petImage
     } = props || {};
+
 
     const [resource , setResource] = useState()
     const [loading, setLoading] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
 
-    
+
     useEffect( () =>{
         const resourceJS = JSON.stringify(formData)
-        console.log("dataJson: ", resourceJS)
+        console.log("dataJson: ", formData)
         const controller = new AbortController();
         apiRequest.post('listing_infos/public', 
             resourceJS,
@@ -30,6 +28,7 @@ export default function PostListingSuccess(props) {
                 console.log("response: ", response)
                 console.log("response data: ", response.data)
                 setResource(response.data)
+                console.log("resources values: ", resource)
             }
         })
         .catch(error =>{
@@ -51,7 +50,9 @@ export default function PostListingSuccess(props) {
             controller.abort()
         }
     },[] )
-    
+
+
+
     return(
         <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">
@@ -62,7 +63,7 @@ export default function PostListingSuccess(props) {
                     <h2 className='card-title'>
                         Pet name
                     </h2>
-                    <img src={dogImg} class="card-img-top" alt="..."/>
+                    <img src={petImage} className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

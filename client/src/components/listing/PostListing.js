@@ -6,7 +6,7 @@ import PostListingInfo from './PostListingInfo.js'
 import PostListingAddress from './PostListingAddress.js'
 import PostListingSuccess from './PostListingSuccess.js';
 
-// const formTitles = ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"];
+const formTitles = ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"];
 
 
 export default function PostListing() {
@@ -15,15 +15,17 @@ export default function PostListing() {
     const [formData, setFormData] = useState(formObject);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // const lastIndex = formTitles.length - 1;
+    const loadImageFile = useCallback( (file) =>{
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPetImage(reader.result);
+        };
+    },[petImage] )
 
     const lastIndex = useMemo( () =>{
-        return formData.formTitles.titles.length - 1
-    },[[formData.formTitles.titles]] )
-
-    const formTitles = useMemo( () => {
-        return formData.formTitles.titles
-    }, [formData.formTitles.titles] )
+        return formTitles.length - 1
+    },[[formTitles]] )
 
     const nextStep = useCallback( (e) => {
         e.preventDefault()
@@ -67,33 +69,34 @@ export default function PostListing() {
             <div className="container mt-4 px-2 border multi-step-container">
                 <div className="row h-100">
                     <div className="col-md-5 col-lg-5 px-2 mt-2">
-                        <div className="card h-100" style={{borderColor: "var(--orange)"}}>
+                        <div
+                            className="card h-100"
+                            style={{ borderColor: "var(--orange)" }}
+                        >
                             <img
-                                src={
-                                    petImage &&
-                                    "https://via.placeholder.com/150x400?text=pet%20image"
-                                }
+                                src={petImage}
                                 alt="PetImage"
+                                // "https://via.placeholder.com/150x400?text=pet%20image"
                             />
                         </div>
                     </div>
 
                     <div className="col-md-7 col-md-7 px-2 mt-2">
-                            <MultiStepForm
-                                currentIndex={currentIndex}
-                                lastIndex={lastIndex}
-                                nextStep={nextStep}
-                                prevStep={prevStep}
-                                onFinish={onFinish}
-                                formData={formData}
-                                updateFormData={updateFormData}
-                                formTitle={formTitles[currentIndex]}
-                            >
-                                <PetNew />
-                                <PostListingInfo />
-                                <PostListingAddress />
-                                <PostListingSuccess /> 
-                            </MultiStepForm>
+                        <MultiStepForm
+                            currentIndex={currentIndex}
+                            lastIndex={lastIndex}
+                            nextStep={nextStep}
+                            prevStep={prevStep}
+                            onFinish={onFinish}
+                            formData={formData}
+                            updateFormData={updateFormData}
+                            formTitle={formTitles[currentIndex]}
+                        >
+                            <PetNew loadImageFile={loadImageFile} />
+                            <PostListingInfo />
+                            <PostListingAddress />
+                            <PostListingSuccess petImage={petImage} />
+                        </MultiStepForm>
                     </div>
                 </div>
             </div>
@@ -121,7 +124,7 @@ const formObject = {
         weight: "",
         coat: "",
         collar: "",
-        image: "",
+        image_file: null,
     },
     listingInfo: {
         listing_type: "",
@@ -141,7 +144,7 @@ const formObject = {
         zip_code: "",
         state: "",
     },
-    formTitles:{titles:
-        ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"]
-    }
+    // formTitles:{titles:
+    //     ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"]
+    // }
 };
