@@ -8,19 +8,23 @@ import PostListingSuccess from './PostListingSuccess.js';
 
 const formTitles = ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"];
 
-
 export default function PostListing() {
 
     const [petImage, setPetImage] = useState(null)
     const [formData, setFormData] = useState(formObject);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [post_image, setPostImage] = useState(null)
 
-    const loadImageFile = useCallback( (file) =>{
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPetImage(reader.result);
-        };
+    const loadImageFile = useCallback( (e) =>{
+        setPetImage(e.currentTarget.files[0])
+        // const reader = new FileReader();
+        // reader.readAsDataURL(file);
+        // reader.onloadend = () => {
+        //     setPetImage(reader.result);
+        // };
+        var imageBlob = URL.createObjectURL(e.currentTarget.files[0]);
+        setPostImage(imageBlob)
+        updateFormData('pet', {'image_file': e.currentTarget.files[0]})
     },[petImage] )
 
     const lastIndex = useMemo( () =>{
@@ -74,7 +78,7 @@ export default function PostListing() {
                             style={{ borderColor: "var(--orange)" }}
                         >
                             <img
-                                src={petImage}
+                                src={post_image}
                                 alt="PetImage"
                                 // "https://via.placeholder.com/150x400?text=pet%20image"
                             />
@@ -106,7 +110,6 @@ export default function PostListing() {
 const today = () => {
     const date = new Date();
     return date.toLocaleDateString();
-    console.log(today);
 };
 
 const formObject = {

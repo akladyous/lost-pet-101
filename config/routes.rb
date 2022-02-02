@@ -19,8 +19,8 @@ Rails.application.routes.draw do
         # end
         resources :pets, except: :index do
             collection do
-                post 'image', to: 'pets#upload'
-                post 'image', to: 'pets#download'
+                patch 'image', to: 'pets#upload'
+                get 'image', to: 'pets#download'
             end
         end
 

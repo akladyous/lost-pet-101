@@ -21,7 +21,8 @@ export default function PetNew(props) {
 
     const loadImage = (e) => {
         e.preventDefault()
-        loadImageFile(e.currentTarget.files[0])
+        // loadImageFile(e.currentTarget.files[0])
+        loadImageFile(e)
     }
 
     const handleForm = (e) => {
@@ -137,7 +138,7 @@ export default function PetNew(props) {
                                 >
                                     <option value="">{""}</option>
                                     <option value="male">Male</option>
-                                    <option value="female">Femail</option>
+                                    <option value="female">Female</option>
                                 </select>
                             </div>
                         </div>

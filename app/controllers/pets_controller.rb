@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-    skip_before_action :authenticate_user, only: [:show, :create] 
+    skip_before_action :authenticate_user, only: [:show, :create, :upload] 
     before_action :current_pet, only: [:show, :update, :destroy]
 
     def show
@@ -46,9 +46,13 @@ class PetsController < ApplicationController
     end
 
     def upload #upload image
-        if @pet
-            @pet.image_file.attach(pet_params[:image_file])
-            render json: {message: "Image successfully uploaded"}
+        @pet_record = Pet.find_by_id!(pet_params[:id])
+        if @pet_record && pet_params[:image_file]
+            @pet_record.image_file.attach(pet_params[:image_file])
+            # @pet_record.update(pet_params)
+            render json: {message: "Image successfully uploaded"}, status: :ok
+        else
+            render json: {error: "No image proovided"}, status: :unprocessable_entity
         end
     end
 
