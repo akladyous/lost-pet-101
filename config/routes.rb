@@ -17,7 +17,12 @@ Rails.application.routes.draw do
         #         delete :profile, to: "pets#destroy"
         #     end
         # end
-        resources :pets, except: :index
+        resources :pets, except: :index do
+            collection do
+                post 'image', to: 'pets#upload'
+                post 'image', to: 'pets#download'
+            end
+        end
 
 
         # resources :listing_infos, except: [:create] do
