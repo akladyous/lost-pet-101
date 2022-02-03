@@ -2,6 +2,10 @@ require 'debug'
 require 'faker'
 Faker::Config.locale = :en
 
+system('clear')
+puts "How many records ?"
+total_record = gets.strip().to_i
+puts "🌱 Seeding #{total_record.to_i} Users ..."
 
 spinner = Enumerator.new do |e|
     loop do
@@ -46,18 +50,21 @@ def create_user
     return user
 end
 
-def create_pet
-    species = -> {["Dog","Cat"].sample}
+def create_pet idx
+    species = -> {["dog","cat"].sample}
+    species_temp = species.call
+    folder =  -> {"#{Rails.root.to_s}/client/src/images/#{species_temp.pluralize}".downcase}
+    images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
     colors = -> {["Black and tan", "brown and tan", "Bicolor", "Irish spotted", "Flashy", "Patched", "Tuxedo", "Tricolor", "Spotted", "Flecked", "ticked", "speckled", "Brindle", "Sable"].sample}
     gender = ->{["male","female"].sample}
     microchip = -> {rand.to_s[2..9]}
     coat = -> {["Hairless", "Curly-Coated", "Wire-Coated", "Long-Coated", "Short-Coated", "Medium-Coated", "Smooth",  "Double and Single Coated", "Silky Coated","Rough Coated", "Wire Coated", "Hairless", "Drying a silky coated", "Washing a silky coated", "Drying a double coated"].sample}
-    
+
     pet = Pet.create(
         name: Faker::Creature::Animal.name,
         age: rand(1..15),
         size: %w[small medium large].sample,
-        species: species.(),
+        species: species_temp.capitalize,
         breed: -> { species.() =="Dog" ?  Faker::Creature::Dog.breed : Faker::Creature::Cat.breed}.(),
         gender: gender.(),
         color: colors.(),
@@ -65,6 +72,8 @@ def create_pet
         collar: [true, false].sample,
         coat: coat.()
     )
+    # debugger
+    pet.image_file.attach(io: File.open("#{folder.call}/#{images.call[idx]}"), filename: images.call[idx])
     return pet
 end
 
@@ -82,18 +91,18 @@ def create_listing listing_info
     return listing
 end
 
-puts "🌱 Seeding Users..."
 
-1.upto(50) do |i|
-    progress = "=" * (i/5) unless i < 5
+1.upto(total_record) do |index|
+    progress = "=" * (index/5) unless index < 5
     printf("\rGenerating  records: %s", spinner.next)
-    # printf("\rGenerating user records: [%-20s] %d%%", progress, i)
+    printf("\rGenerating user records: [%-20s] %d%%", progress, index/5)
 
     user = create_user
-    pet = create_pet
-    # debugger
+    pet = create_pet index
     if user && pet
+
         listing_info = create_listing_info(user, pet)
+        
         if listing_info
             listing = create_listing(listing_info)
             if listing
