@@ -1,5 +1,4 @@
-// import '../css/lost_found.css'
-import {useRef} from 'react';
+import {useState, useRef} from 'react';
 import PageHeader from '../layout/PageHeader.js';
 import { Modal } from 'bootstrap';
 import {useLocation} from 'react-router-dom'
@@ -12,7 +11,6 @@ const nullToString = (input) =>{
     } else{return 'Unknown'}
 }
 export default function LostFoundInfo(params) {
-
 
     const modalRef = useRef();
     const openModal = () => {
@@ -30,7 +28,7 @@ export default function LostFoundInfo(params) {
     };
 
     const location = useLocation();
-    const listing = location.state
+    const listingInfo = location.state
     
     return (
         <div>
@@ -44,7 +42,7 @@ export default function LostFoundInfo(params) {
                     <div className="card m-2 border-0">
                         <img
                             className="img-fluid img-thumbnail d-block p-2 border-orange"
-                            src={listing.pet.image_url}
+                            src={listingInfo.pet.image_url}
                             alt="DogImage"
                             style={{
                                 height: "100%",
@@ -57,13 +55,16 @@ export default function LostFoundInfo(params) {
                     {/* ------------------------------------------------------ */}
                     <div
                         className="card my-2 border-orange"
-                        style={{border: '1px solid var(--orange)', borderRadius: '25px'}}
+                        style={{
+                            border: "1px solid var(--orange)",
+                            borderRadius: "25px",
+                        }}
                     >
                         <div
                             className="card-header fs-4 font-orange-bold"
-                            style={{border: '0px'}}
+                            style={{ border: "0px" }}
                         >
-                            {listing.pet.name.toUpperCase()}
+                            {listingInfo.pet.name.toUpperCase()}
                         </div>
 
                         <div class_name="row">
@@ -114,54 +115,70 @@ export default function LostFoundInfo(params) {
                                 <div className="col-md-9">
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {listing.listing_type.toUpperCase()}
+                                            {listingInfo.listing_type.toUpperCase()}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {listing.pet.species.capitalize()}
+                                            {listingInfo.pet.species.capitalize()}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {"Unknown" && listing.pet.age}
+                                            {"Unknown" && listingInfo.pet.age}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {listing.pet.size.capitalize()}
+                                            {listingInfo.pet.size.capitalize()}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(listing.pet.breed)}
+                                            {nullToString(
+                                                listingInfo.pet.breed
+                                            )}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(listing.pet.color)}
+                                            {nullToString(
+                                                listingInfo.pet.color
+                                            )}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {"Unknown" && listing.pet.microchip}
+                                            {"Unknown" &&
+                                                listingInfo.pet.microchip}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(listing.pet.height)}
+                                            {nullToString(
+                                                listingInfo.pet.height
+                                            )}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(listing.pet.weight)}
+                                            {nullToString(
+                                                listingInfo.pet.weight
+                                            )}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(listing.pet.coat)}
+                                            {nullToString(listingInfo.pet.coat)}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {listing.pet.collar ? "Yes" : "No"}
+                                            {listingInfo.pet.collar
+                                                ? "Yes"
+                                                : "No"}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {usDateFormat(listing.published_at)}
+                                            {usDateFormat(
+                                                listingInfo.published_at
+                                            )}
                                         </li>
                                         <li className="list-group-item border-0 text-start font-orange-bold">
                                             {`
                                             ${nullToString(
-                                                listing.listing_address.address1
+                                                listingInfo.listing_address
+                                                    .address1
                                             )} 
                                             ${nullToString(
-                                                listing.listing_address.city
+                                                listingInfo.listing_address.city
                                             )} 
                                             ${nullToString(
-                                                listing.listing_address.state
+                                                listingInfo.listing_address
+                                                    .state
                                             )}
                                             ${nullToString(
-                                                listing.listing_address.zip_code
+                                                listingInfo.listing_address
+                                                    .zip_code
                                             )}
                                             `}
                                         </li>
@@ -184,8 +201,12 @@ export default function LostFoundInfo(params) {
                     </button>
                 </div>
             </div>
+                <ContactFinder
+                    modalRef={modalRef}
+                    onClose={closeModal}
+                    listingInfo={listingInfo}
+                />
 
-            <ContactFinder modalRef={modalRef} onClose={closeModal} />
         </div>
     );
 }

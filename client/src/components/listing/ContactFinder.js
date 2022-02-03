@@ -1,7 +1,4 @@
 
-
-import React from 'react';
-
 export default function ContactFinder({modalRef, onClose}) {
     return (
 
@@ -30,16 +27,11 @@ export default function ContactFinder({modalRef, onClose}) {
                         <input type="text" className="form-control" id="recipient-phone" />
                     </div>
 
-
-
-
                     <div className="form-group text-start">
                         <label htmlFor="message-text" className="col-form-label">Message</label>
                         <textarea className="form-control" id="message-text"></textarea>
                     </div>
                 </form>
-
-
 
                 </div>
                 <div className="modal-footer">
