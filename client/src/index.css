@@ -29,6 +29,29 @@ body {
     height: var(--header-height)
 }
 
+.bg-orange{
+    background: var(--orange);
+}
+.border-orange{
+    border: 1px solid var(--orange);
+    border-radius: 25px;
+}
+
+.font-orange{
+    color: var(--orange);
+}
+
+.font-orange-bold{ 
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--orange);
+}
+.font-bold{
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
 .header-image{
     background-image: url(./images/bradcam.png);
     opacity: 0.8;

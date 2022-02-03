@@ -31,10 +31,14 @@ export default function LostFound() {
             />
 
             <div className="container mt-4 search-container">
-                <div className="card" style={{ borderRadius: "15px" }}>
+                <div className="card border-orange">
                     <div
-                        className="card-header"
-                        style={{ backgroundColor: "hsl(25,100%,50%)" }}
+                        className="card-header custom-header"
+                        style={{
+                            background: "var(--orange)",
+                            borderTopLeftRadius: "25px",
+                            borderTopRightRadius: "25px",
+                        }}
                     >
                         Featured
                     </div>
@@ -128,11 +132,15 @@ export default function LostFound() {
                         </div>
                     </div>
                 </div>
-                
+
                 {listingInfo && (
                     <div
-                        className="container border rounded-4 my-3 overflow-scroll"
-                        style={{ height: "700px", borderRadius: "15px" }}
+                        className="container my-3 overflow-scroll"
+                        style={{
+                            height: "700px",
+                            borderRadius: "25px",
+                            border: " 1px solid var(--orange)",
+                        }}
                     >
                         <ListingtContainer>
                             {listingInfo && (

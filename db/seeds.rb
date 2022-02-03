@@ -16,9 +16,11 @@ spinner = Enumerator.new do |e|
     end
 end
 
-def create_user
+def create_user idx
+    first_name = Faker::Name.first_name
     user = User.new(
-        user_name: Faker::Internet.username,
+        # user_name: Faker::Internet.username,
+        user_name: "#{first_name}#{idx}",
         email: Faker::Internet.email, 
         password: "00000",
         password_confirmation: "00000" 
@@ -28,7 +30,8 @@ def create_user
     if user.valid?
         if user.save
             user.create_user_profile(
-                first_name: Faker::Name.first_name,
+                # first_name: Faker::Name.first_name,
+                first_name: first_name,
                 last_name: Faker::Name.last_name ,
                 home_phone: Faker::PhoneNumber.phone_number,
                 cell_phone: Faker::PhoneNumber.cell_phone,
@@ -92,12 +95,12 @@ def create_listing listing_info
 end
 
 
-1.upto(total_record) do |index|
+1.upto(total_record-1) do |index|
     progress = "=" * (index/5) unless index < 5
     printf("\rGenerating  records: %s", spinner.next)
-    printf("\rGenerating user records: [%-20s] %d%%", progress, index/5)
+    # printf("\rGenerating user records: [%-20s] %d%%", progress, index/5)
 
-    user = create_user
+    user = create_user index
     pet = create_pet index
     if user && pet
 

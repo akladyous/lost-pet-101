@@ -27,25 +27,28 @@ export default function ListingCard({listing}) {
             style={{
                 minWidth: "20rem",
                 maxWidth: "20rem",
-                borderRadius: "15px",
+                borderRadius: "25px",
+                border: "1px solid var(--orange)",
             }}
         >
             {/* <img src="..." className="card-img-top" alt="..."> */}
             <div className="card-body">
-                <h5 className="card-title fs-4 fw-bold text-center">
+                <h5 className="card-title fs-4 fw-bold text-center font-orange-bold">
                     {listing.pet.name.toUpperCase()}
                 </h5>
                 {/* <p className="card-text">Some quick example text.</p> */}
             </div>
-            <ul className="list-group list-group-flush">
+            <ul className="list-group list-group-flush"
+                style={{border: '0px'}}
+            >
                 <li className="list-group-item d-flex flex-column">
                     <p>
-                        {`${listing.listing_type} ${
-                            listing.pet.species
-                        } ${listing.pet.gender}`}
+                        {`${listing.listing_type} ${listing.pet.species} ${listing.pet.gender}`}
                     </p>
                     <p>
-                        {`${'' || listing.listing_address.city} ${'' || listing.listing_address.state } ${'' || listing.listing_address.zip_code}`}
+                        {`${"" || listing.listing_address.city} ${
+                            "" || listing.listing_address.state
+                        } ${"" || listing.listing_address.zip_code}`}
                     </p>
                     <p>{usDateFormat(listing.listing.date_lost_found)}</p>
                 </li>
@@ -54,7 +57,7 @@ export default function ListingCard({listing}) {
                 {/* <Link className="btn btn-lg btn-light" to={`/lost_found/${listing.id}`} key={listing.id}> */}
                 {/* <Link className="btn btn-lg btn-light" to={`/lost_found/${listing.id}`} key={listing.id} listing={listing}> */}
                 <Link
-                    className="btn btn-lg btn-light"
+                    className="btn btn-lg btn-light border-orange"
                     to="/detail"
                     key={listing.id}
                     state={listing}

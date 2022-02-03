@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_224014) do
   create_table "listing_infos", force: :cascade do |t|
     t.string "listing_type"
     t.boolean "published"
-    t.datetime "published_at", precision: 6, default: "2022-02-02 19:30:36"
+    t.datetime "published_at", precision: 6, default: "2022-02-03 17:03:00"
     t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_224014) do
     t.string "gender"
     t.string "color"
     t.integer "microchip"
-    t.integer "height"
-    t.integer "weight"
+    t.string "height"
+    t.string "weight"
     t.string "coat"
     t.boolean "collar"
     t.datetime "created_at", precision: 6, null: false

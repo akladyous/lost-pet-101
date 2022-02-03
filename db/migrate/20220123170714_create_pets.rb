@@ -10,8 +10,8 @@ class CreatePets < ActiveRecord::Migration[7.0]
       t.string :gender
       t.string :color
       t.integer :microchip
-      t.integer :height
-      t.integer :weight
+      t.string :height
+      t.string :weight
       t.string :coat
       t.boolean :collar
 
