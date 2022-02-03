@@ -25,32 +25,66 @@ export default function ListingCard({listing}) {
         <div
             className="card m-2"
             style={{
-                minWidth: "20rem",
-                maxWidth: "20rem",
+                maxWidth: "300px",
+                maxHeight: "750px",
                 borderRadius: "25px",
                 border: "1px solid var(--orange)",
+                padding: "0px",
             }}
         >
-            {/* <img src="..." className="card-img-top" alt="..."> */}
-            <div className="card-body">
+            <img
+                className="card-img-top img-fluid"
+                src={listing.pet.image_url}
+                alt={listing.pet.name}
+                style={{
+                    height: "400px",
+                    borderTopLeftRadius: "25px",
+                    borderTopRightRadius: "25px",
+                    border: "none",
+                    objectFit: "cover",
+                }}
+            />
+
+            <div className="card-body py-2 h">
                 <h5 className="card-title fs-4 fw-bold text-center font-orange-bold">
                     {listing.pet.name.toUpperCase()}
                 </h5>
                 {/* <p className="card-text">Some quick example text.</p> */}
             </div>
-            <ul className="list-group list-group-flush"
-                style={{border: '0px'}}
-            >
-                <li className="list-group-item d-flex flex-column">
-                    <p>
-                        {`${listing.listing_type} ${listing.pet.species} ${listing.pet.gender}`}
-                    </p>
-                    <p>
-                        {`${"" || listing.listing_address.city} ${
-                            "" || listing.listing_address.state
-                        } ${"" || listing.listing_address.zip_code}`}
-                    </p>
-                    <p>{usDateFormat(listing.listing.date_lost_found)}</p>
+
+            <ul
+                className="list-group list-group-flush border-0">
+                <li className="list-group-item border-0">
+                    <div className="d-flex justify-content-start align-items-center">
+                        <div className="px-2" style={{borderRadius: "25px", background: "var(--orange)",}}>
+                            <p className="fw-bold fs-5 mb-1">
+                                {`${listing.listing_type.toUpperCase()}`}
+                            </p>
+                        </div>
+                        <div className="mx-2">
+                            <p className=" fs-5 mb-1">
+                                {`${listing.pet.species.toUpperCase()} ${listing.pet.gender.toUpperCase()}`}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li className="list-group-item border-0">
+                    <div className="d-flex justify-content-start align-items-center">
+                        <p className="fs-5">
+                            {`${"" || listing.listing_address.city} ${
+                                "" || listing.listing_address.state
+                            }`}
+                        </p>
+                    </div>
+                </li>
+                <li className="list-group-item border-0">
+                    <div className="d-flex justify-content-start align-items-center">
+                        <p className="fs-5">
+                            {`Last Seen ${usDateFormat(
+                                listing.listing.date_lost_found
+                            )}`}
+                        </p>
+                    </div>
                 </li>
             </ul>
             <div className="card-body">

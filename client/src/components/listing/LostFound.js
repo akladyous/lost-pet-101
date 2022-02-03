@@ -134,14 +134,7 @@ export default function LostFound() {
                 </div>
 
                 {listingInfo && (
-                    <div
-                        className="container my-3 overflow-scroll"
-                        style={{
-                            height: "700px",
-                            borderRadius: "25px",
-                            border: " 1px solid var(--orange)",
-                        }}
-                    >
+
                         <ListingtContainer>
                             {listingInfo && (
                                 <ListingMapper
@@ -151,7 +144,6 @@ export default function LostFound() {
                             )}
                             {/* <ListingMapper itemComponent={PetCards} listingInfo={listingInfo} /> */}
                         </ListingtContainer>
-                    </div>
                 )}
 
                 <div className="container"></div>
