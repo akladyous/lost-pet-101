@@ -4,7 +4,7 @@ import { Modal } from 'bootstrap';
 import {useLocation} from 'react-router-dom'
 import { usDateFormat } from "../hocs/util.jsx";
 import ContactFinder from './ContactFinder.js';
-import ResourceWrapper from '../hocs/ResourceWrapper.js';
+import ContainerComponentGet from "../hocs/ContainerComponentGet.js";
 import { userContext } from "../user/UserProvider.js";
 
 const nullToString = (input) =>{
@@ -12,7 +12,7 @@ const nullToString = (input) =>{
         return input.capitalize()
     } else{return 'Unknown'}
 }
-export default function LostFoundInfo(params) {
+export default function LostFoundInfo({params}) {
 
     const { userState } = useContext(userContext);
     const modalButton = useRef()
@@ -218,14 +218,14 @@ export default function LostFoundInfo(params) {
             </div>
             {
                 userState && 
-            <ResourceWrapper path={"api/users/profile"}>
+            <ContainerComponentGet path={"api/users/profile"}>
                 <ContactFinder
                     modalRef={modalRef}
                     onClose={closeModal}
                     path={"api/users/profile"}
-                    // listingInfo={listingInfo}
+                    listingInfo={listingInfo}
                 />
-            </ResourceWrapper>
+            </ContainerComponentGet>
             }
         </div>
     );

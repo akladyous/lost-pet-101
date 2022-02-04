@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
-export default function ResourceWrapper({ children, path}) {
+export default function ContainerComponentGet({ children, path}) {
 
     const [resource, setResource] = useState(null)
     const [loading, setLoading] = useState(false);
