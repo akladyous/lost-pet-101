@@ -1,9 +1,11 @@
-import {useState, useRef} from 'react';
+import { useRef, useContext } from "react";
 import PageHeader from '../layout/PageHeader.js';
 import { Modal } from 'bootstrap';
 import {useLocation} from 'react-router-dom'
 import { usDateFormat } from "../hocs/util.jsx";
 import ContactFinder from './ContactFinder.js';
+import ResourceWrapper from '../hocs/ResourceWrapper.js';
+import { userContext } from "../user/UserProvider.js";
 
 const nullToString = (input) =>{
     if(typeof input === 'string'){
@@ -12,6 +14,9 @@ const nullToString = (input) =>{
 }
 export default function LostFoundInfo(params) {
 
+    const { userState } = useContext(userContext);
+    const modalButton = useRef()
+    
     const modalRef = useRef();
     const openModal = () => {
         const modalX = new Modal(modalRef.current, {
@@ -29,6 +34,14 @@ export default function LostFoundInfo(params) {
 
     const location = useLocation();
     const listingInfo = location.state
+
+    const userLogged = () =>{
+        if(userState){
+            return true
+        } else{
+            return false
+        }
+    }
     
     return (
         <div>
@@ -190,6 +203,8 @@ export default function LostFoundInfo(params) {
                 </div>
                 <div className="d-grid gap-2 mx-2">
                     <button
+                        disabled={userState === true ? "" : "disable"}
+                        // ref={modalButton}
                         type="button"
                         className="btn"
                         data-toggle="modal"
@@ -201,12 +216,17 @@ export default function LostFoundInfo(params) {
                     </button>
                 </div>
             </div>
+            {
+                userState && 
+            <ResourceWrapper path={"api/users/profile"}>
                 <ContactFinder
                     modalRef={modalRef}
                     onClose={closeModal}
-                    listingInfo={listingInfo}
+                    path={"api/users/profile"}
+                    // listingInfo={listingInfo}
                 />
-
+            </ResourceWrapper>
+            }
         </div>
     );
 }
