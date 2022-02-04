@@ -45,6 +45,9 @@ class ApplicationController < ActionController::API
     def render_unprocessable
         render json: {error: "Unprocessable request"}, status: :unprocessable_entity
     end
+    def render_not_found
+        render json: {error: "Record not Found"}, status: :not_found
+    end
     def render_ok obj
         render json: obj, status: :ok
     end

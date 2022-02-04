@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_224014) do
+ActiveRecord::Schema.define(version: 2022_02_04_053009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 2022_02_01_224014) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pet_id"], name: "index_listing_infos_on_pet_id"
     t.index ["user_id"], name: "index_listing_infos_on_user_id"
+  end
+
+  create_table "listing_requests", force: :cascade do |t|
+    t.text "message", null: false
+    t.bigint "pet_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_listing_requests_on_pet_id"
+    t.index ["user_id"], name: "index_listing_requests_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -148,6 +158,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_224014) do
   add_foreign_key "listing_comments", "listings"
   add_foreign_key "listing_infos", "pets"
   add_foreign_key "listing_infos", "users"
+  add_foreign_key "listing_requests", "pets"
+  add_foreign_key "listing_requests", "users"
   add_foreign_key "listings", "listing_infos"
   add_foreign_key "user_addresses", "users"
   add_foreign_key "user_profiles", "users"

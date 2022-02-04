@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-    # resources :listing_comments
     
     scope :api do
         resources :users, only: [:create] do
@@ -44,7 +43,10 @@ Rails.application.routes.draw do
 
 
 
-        # resource :listing_addresses
+        # resources :listing_requests, only: [:create] do 
+        # end
+        resources :listing_requests
+
 
     end
 
