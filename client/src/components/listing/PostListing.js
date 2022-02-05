@@ -1,4 +1,4 @@
-import {useState, useCallback, useMemo, useEffect} from 'react';
+import {useState, useCallback, useMemo, useRef} from 'react';
 import PageHeader from '../layout/PageHeader.js';
 import MultiStepForm from '../hocs/MultiStepForm.js';
 import PetNew from '../Pets/PetNew.js';
@@ -6,12 +6,31 @@ import PostListingInfo from './PostListingInfo.js'
 import PostListingAddress from './PostListingAddress.js'
 import PostListingSuccess from './PostListingSuccess.js';
 
-const formTitles = ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"];
+const today = () => {
+    const date = new Date();
+    return date.toLocaleDateString();
+};
 
 export default function PostListing() {
+    const formTitles = useRef([
+        "PET PROFILE",
+        "LISTING INFORMATION",
+        "LISTING ADDRESS",
+        "Listing posted successfully",
+    ]);
+
+    const formObject = useRef({
+        pet: {name: "",species: "",age: "",size: "",description: "",breed: "",gender: "",color: "",
+        microchip: "",height: "",weight: "",coat: "",collar: "",image_file: null},
+        listingInfo: { listing_type: "", published: true, published_at: today() },
+        listing: { date_lost_found: "", msg_from: "", description: "" },
+        listingAddress: {address1: "",address2: "",city: "",zip_code: "",state: ""}
+    });
+
+    const lastIndex = useRef(formTitles.current.length - 1);
 
     const [imagePath, setImagePath] = useState(null)
-    const [formData, setFormData] = useState(formObject);
+    const [formData, setFormData] = useState(formObject.current);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [post_image, setPostImage] = useState(null)
 
@@ -26,13 +45,9 @@ export default function PostListing() {
         setPostImage(imageBlob)
     },[imagePath] )
 
-    const lastIndex = useMemo( () =>{
-        return formTitles.length - 1
-    },[[formTitles]] )
-
     const nextStep = useCallback( (e) => {
         e.preventDefault()
-        if (currentIndex < lastIndex) {
+        if (currentIndex < lastIndex.current) {
             setCurrentIndex(currentIndex + 1);
         } else if (currentIndex === lastIndex) {
             onFinish();
@@ -69,16 +84,12 @@ export default function PostListing() {
                 subTitle="CREATE LISTING & FIND YOUR LOST PET"
             />
 
-            <div className="container mt-4 px-2 border multi-step-container">
+            <div className="container mt-4 px-2 multi-step-container border-0">
                 <div className="row h-100">
                     <div className="col-md-5 col-lg-5 px-2 mt-2">
-                        <div
-                            className="card h-100"
-                            style={{ borderColor: "var(--orange)" }}
-                        >
-                            <img
-                                src={post_image}
-                                alt="PetImage"
+                        <div className="card h-100" id="card-container">
+                            <img src={post_image} alt="PetImage"
+                                style={{backgroundSize: 'fill', height: '100%', objectFit:'cover', borderRadius:'25px', padding: '5px'}}
                                 // "https://via.placeholder.com/150x400?text=pet%20image"
                             />
                         </div>
@@ -87,13 +98,13 @@ export default function PostListing() {
                     <div className="col-md-7 col-md-7 px-2 mt-2">
                         <MultiStepForm
                             currentIndex={currentIndex}
-                            lastIndex={lastIndex}
+                            lastIndex={lastIndex.current}
                             nextStep={nextStep}
                             prevStep={prevStep}
                             onFinish={onFinish}
                             formData={formData}
                             updateFormData={updateFormData}
-                            formTitle={formTitles[currentIndex]}
+                            formTitle={formTitles.current[currentIndex]}
                         >
                             <PetNew
                                 loadImageFile={loadImageFile}
@@ -109,47 +120,3 @@ export default function PostListing() {
         </div>
     );
 }
-const today = () => {
-    const date = new Date();
-    return date.toLocaleDateString();
-};
-
-const formObject = {
-    pet: {
-        name: "",
-        species: "",
-        age: "",
-        size: "",
-        description: "",
-        breed: "",
-        gender: "",
-        color: "",
-        microchip: "",
-        height: "",
-        weight: "",
-        coat: "",
-        collar: "",
-        image_file: null,
-    },
-    listingInfo: {
-        listing_type: "",
-        published: true,
-        published_at: today(),
-        
-    },
-    listing: {
-        date_lost_found: "",
-        msg_from: "",
-        description: "",
-    },
-    listingAddress: {
-        address1: "",
-        address2: "",
-        city: "",
-        zip_code: "",
-        state: "",
-    },
-    // formTitles:{titles:
-    //     ["Pet Profile", "Listing Information", "Listing Address", "Listing Success"]
-    // }
-};

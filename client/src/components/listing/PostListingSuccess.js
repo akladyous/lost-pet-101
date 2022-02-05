@@ -7,7 +7,8 @@ export default function PostListingSuccess(props) {
         // lastIndex,
         formData,
         petImage,
-        imagePath
+        imagePath,
+        formTitle
     } = props || {};
 
 
@@ -90,7 +91,7 @@ export default function PostListingSuccess(props) {
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">
                 <div className='card text-center'>
                     <div className='card-header'>
-                        Listing posted successfully
+                        {formTitle}
                     </div>
                     <h2 className='card-title'>
                         Pet name

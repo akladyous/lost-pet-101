@@ -11,6 +11,7 @@ export default function PostListingInfo(props) {
         prevStep,
         formData,
         updateFormData,
+        formTitle
     } = props || {};
 
 
@@ -21,7 +22,12 @@ export default function PostListingInfo(props) {
     };
 
     return (
-        <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
+        <div className="card h-100" id="card-container">
+
+            <div className="card-header" id='card-container-header'>
+                {formTitle}
+            </div>
+
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">
                 <div className="container px-4 py-2">
                     <form className="">
@@ -83,7 +89,7 @@ export default function PostListingInfo(props) {
                             </label>
                             <div className="col-8">
                                 <textarea
-                                    rows="10"
+                                    rows="7"
                                     name="msg_from"
                                     className="form-control"
                                     value={formData.listing.msg_from}
@@ -99,7 +105,7 @@ export default function PostListingInfo(props) {
                             </label>
                             <div className="col-8">
                                 <textarea
-                                    rows="10"
+                                    rows="7"
                                     name="description"
                                     className="form-control"
                                     value={formData.listing.description}

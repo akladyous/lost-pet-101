@@ -90,7 +90,7 @@ class ListingInfosController < ApplicationController
     end
 
     def public
-        @all_listing_infos = ListingInfo.all #.includes(:listing).includes(:listing_address, :listing_comment)
+        @all_listing_infos = ListingInfo.all.limit(10) #.includes(:listing).includes(:listing_address, :listing_comment)
         render json: @all_listing_infos, status: :ok
     end
     private

@@ -21,9 +21,7 @@ export default function FormButtons({currentIndex, lastIndex, prevStep, nextStep
 
                 <div className="col-2">
                     <div className="d-grid">
-                        <button
-                            type="button"
-                            className="btn w-100"
+                        <button type="button" className="btn w-100"
                             // disabled={currentIndex === steps.length -1}
                             // disabled={currentIndex === lastIndex}
                             onClick={nextStep}
@@ -31,7 +29,7 @@ export default function FormButtons({currentIndex, lastIndex, prevStep, nextStep
                                 backgroundColor: "hsl(25,100%,50%)",
                             }}
                         >
-                            {currentIndex >= lastIndex ? "Submit" : "Next"}
+                            {lastIndex - currentIndex === 1 ? "Submit" : "Next"}
                         </button>
                     </div>
                 </div>

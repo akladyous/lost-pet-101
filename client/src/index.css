@@ -22,8 +22,23 @@ body {
     height: calc(100% - calc(var(--navbar-height) + var(--header-height)));
 }
 
+#card-container{
+    border-radius: 25px;
+    border-color: var(--orange);
+    height: 100%;
+}
+#card-container-header{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-color: var(--orange);
+    background: var(--orange);
+}
+
+
 .multi-step-container{
-    height: calc(920px - calc(var(--navbar-height) + var(--header-height)));
+    /* height: calc(920px - calc(var(--navbar-height) + var(--header-height))); */
+    min-height: 720px;
+    height: 720px;
 }
 .page-header{
     height: var(--header-height)
@@ -50,6 +65,13 @@ body {
     font-size: 17px;
     font-weight: bold;
     color: black;
+}
+#pet-image{
+    height: "100%";
+    background-size: cover;
+    object-fit: cover;
+    border-radius: 25px;
+    padding: 5px;
 }
 
 .header-image{

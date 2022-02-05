@@ -11,6 +11,7 @@ export default function PostListingAddress(props) {
         prevStep,
         formData,
         updateFormData,
+        formTitle,
     } = props || {};
 
     // const setCurrentValue = (e) => {
@@ -27,7 +28,11 @@ export default function PostListingAddress(props) {
     };
 
     return (
-        <div className="card h-100" style={{ borderColor: "var(--orange)" }}>
+        <div className="card h-100" id="card-container">
+            <div className="card-header" id="card-container-header">
+                {formTitle}
+            </div>
+
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">
                 <div className="container px-4 py-2">
                     <form className="">
