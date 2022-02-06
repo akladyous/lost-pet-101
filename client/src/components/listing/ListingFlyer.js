@@ -39,7 +39,7 @@ export default function ListingFlyer() {
                         })
                 } catch(error){console.error(error.message)}
             })();
-            navigate('/')
+            // navigate('/')
     },[])
     
     return user ? (
