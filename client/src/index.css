@@ -27,11 +27,19 @@ body {
     border-color: var(--orange);
     height: 100%;
 }
+
+#button-orange{
+    border-radius: 25px;
+    background: var(--orange);
+    color: white;
+}
+
 #card-container-header{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border-color: var(--orange);
     background: var(--orange);
+    color: white;
 }
 
 
