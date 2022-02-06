@@ -29,6 +29,7 @@ body {
 }
 
 #button-orange{
+    border: 0;
     border-radius: 25px;
     background: var(--orange);
     color: white;
@@ -94,3 +95,38 @@ body {
     background-position: center;
     background-position: bottom;
 }
+
+/* -------------------------------- */
+
+.content-area{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.header-bg{
+    background-image: url(./images/bradcam.png);
+}
+.header-area{
+    background-size: cover;
+    background-position: center center;
+    padding: 50px 0;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 170px;
+}
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .footer_top {
+    height: 170px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #7a7a7a;
+    line-height: 28px;
+    font-family: "Poppins", sans-serif;
+}
+/* -------------------------------- */

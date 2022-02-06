@@ -104,7 +104,7 @@ export default function PostListing() {
                             onFinish={onFinish}
                             formData={formData}
                             updateFormData={updateFormData}
-                            formTitle={formTitles.current[currentIndex]}
+                            formTitles={formTitles.current[currentIndex]}
                         >
                             <PetNew
                                 loadImageFile={loadImageFile}

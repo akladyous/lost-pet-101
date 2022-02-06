@@ -8,7 +8,7 @@ export default function Header() {
 
     
     const handleLogout = ()=>{
-        fetch("api/users/logout", {
+        fetch("users/logout", {
             method: "DELETE",
             headers: {
                 Accept: "application/json",
@@ -100,7 +100,10 @@ export default function Header() {
                     </button>
                     <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-star">
                         <Link
-                            className={`dropdown-item ${userState === false ? "" : "disabled"}`} to="login">
+                            className={`dropdown-item ${userState === false ? "" : "disabled"}`}
+                            to="users/login"
+                            state={'User Login'}
+                        >
                             Login
                         </Link>
                         <li>
@@ -112,11 +115,17 @@ export default function Header() {
                         <li>
                             <hr className="dropdown-divider" />
                         </li>
-                        <Link className={`dropdown-item ${userState === true ? "" : "disabled"}`} to="account">
+                        <Link className={`dropdown-item ${userState === true ? "" : "disabled"}`}
+                            to="users/account"
+                            state={'User Account'}
+                        >
                             Account
                         </Link>
 
-                        <Link className={`dropdown-item ${userState === false ? "" : "disabled"}`} to="Signup">
+                        <Link className={`dropdown-item ${userState === false ? "" : "disabled"}`}
+                            to="users/signup"
+                            state={'User Signup'}
+                        >
                             Signup Now
                         </Link>
                     </ul>

@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
     
-    scope :api do
-        resources :users, only: [:create] do
-            collection do
-                get :profile, to: "users#show"
-                post :login, to: "sessions#create"
-                delete :logout, to: "sessions#destroy"
-            end
+    resources :users, only: [:create] do
+        collection do
+            get :profile, to: "users#show"
+            post :login, to: "sessions#create"
+            delete :logout, to: "sessions#destroy"
         end
+    end
+    scope :api do
         
         # resources :pets, only: [:create] do
         #     collection do
