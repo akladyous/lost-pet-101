@@ -28,5 +28,4 @@ export default function MultiStepForm(props) {
     } else{
         return null
     }
-    return currentChild;
 }

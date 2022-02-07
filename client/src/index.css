@@ -22,11 +22,6 @@ body {
     height: calc(100% - calc(var(--navbar-height) + var(--header-height)));
 }
 
-#card-container{
-    border-radius: 25px;
-    border-color: var(--orange);
-    height: 100%;
-}
 
 #button-orange{
     border: 0;
@@ -35,6 +30,11 @@ body {
     color: white;
 }
 
+#card-container{
+    border-radius: 25px;
+    border-color: var(--orange);
+    /* height: 100%; */
+}
 #card-container-header{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;

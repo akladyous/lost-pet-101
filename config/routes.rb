@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
     
-    resources :users, only: [:create] do
-        collection do
+    # resources :users, only: [:create] do
+    #     collection do
+    #         get :profile, to: "users#show"
+    #         post :login, to: "sessions#create"
+    #         delete :logout, to: "sessions#destroy"
+    #     end
+    # end
+    scope :users do
             get :profile, to: "users#show"
             post :login, to: "sessions#create"
             delete :logout, to: "sessions#destroy"
-        end
+            post :signup, to: "users#create"
+            post :profile, to: "users#create_user_profile"
+            patch :profile, to: "users#update_user_profile"
     end
+
     scope :api do
         
         # resources :pets, only: [:create] do

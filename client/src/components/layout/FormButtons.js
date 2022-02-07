@@ -14,7 +14,7 @@ export default function FormButtons({currentIndex, lastIndex, prevStep, nextStep
                             disabled={currentIndex === 0}
                             style={{ backgroundColor: "var(--orange)" }}
                         >
-                            previous
+                            Previous
                         </button>
                     </div>
                 </div>

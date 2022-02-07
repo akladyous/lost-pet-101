@@ -1,30 +1,33 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
 import { useLocation } from 'react-router-dom';
 import MultiStepForm from '../hocs/MultiStepForm.js';
+import AccountAccountInfo from './UserAccountInfo.js';
+import UserProfile from './UserProfile.js';
+import UserAddress from './UserAddress.js';
+import RegistrationSuccess from "./RegistrationSuccess.js";
 
 export default function UserSignup() {
 
-    const formTitles = useRef(["Account Information", "User Profile", "User Address"])
-    const UserObj = useRef({ 
-        user_name: "", email: "", password: "", password_confirmation: "",  
+    const formTitles = useRef(["Account Information", "User Profile", "User Address", "Account Successfully Created"])
+    const UserObj = useRef({
+        user: { user_name: "", email: "", password: "", password_confirmation: ""},  
         user_profile: { first_name: "", last_name: "", home_phone: "", cell_phone: "", job_title: "", company: "", website: "",blog: ""},
         user_address: { address1: "", address2: "", city: "", zip_code: "",state: ""}
     })
-    
-    const location = useLocation()
     const lastIndex = useRef(formTitles.current.length - 1)
     const avatarFile = useRef(null)
+    const location = useLocation()
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const [formData, setFormData] = useState(UserObj.current)
     const [avatar, setAvatar] = useState(null)
 
 
-    const loadImageFile = useCallback(
-        (e) => {
-            avatarFile(e.currentTarget.files[0]);
-            var imageBlob = URL.createObjectURL(e.currentTarget.files[0]);
-            setAvatar(imageBlob);
+    const loadImageFile = useCallback( (e) => {
+        e.preventDefault();
+        avatarFile.current = e.target.files[0];
+        var imageBlob = URL.createObjectURL(avatarFile.current);
+        setAvatar(imageBlob);
         },[avatar]);
 
     const nextStep = useCallback( (e) => {
@@ -54,24 +57,90 @@ export default function UserSignup() {
     },[] )
 
     return (
-        <div container>
-            {/* Progress Bar Star */}
-            {/* Progress Bar End */}
-
-
-            <MultiStepForm 
-                currentIndex={currentIndex}  
-                lastIndex={lastIndex.current}
-                nextStep={nextStep} 
-                prevStep={prevStep}
-                formData={formData}
-                updateFormData={updateFormData}
-                formTitles={formTitles.current[currentIndex]}
-                onFinish={onFinish}
+        <div
+            className="container mt-3 signup-container"
+            style={{ width: "450px", height: "625px" }}
+        >
+            <div
+                className="row progress-container mx-0"
+                style={{ height: "25px" }}
             >
+                <div className="progress">
+                    <div
+                        className="progress-bar bg-orange"
+                        role="progressbar"
+                        style={{ width: "80%" }}
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        // style={{}}
+                    >
+                        25%
+                    </div>
+                </div>
+            </div>
 
-            </MultiStepForm>
+            <div
+                className="container"
+                style={{
+                    height: "600px",
+                    border: "1px solid var(--orange)",
+                    borderRadius: "25px",
+                }}
+            >
+                <div
+                    className="container py-2 avatar-container"
+                    style={{ height: "100px" }}
+                >
+                    <label className="d-flex" htmlFor="input-file">
+                        <img
+                            className="mx-auto "
+                            src={
+                                avatar
+                                    ? avatar
+                                    : require("../../images/user_placeholder.png")
+                            }
+                            alt="user_placeholder"
+                            style={{
+                                height: "100px",
+                                width: "100px",
+                                borderRadius: "50%",
+                                backgroundSize: "cover",
+                            }}
+                        />
+                        <input
+                            id="input-file"
+                            type="file"
+                            name="image_file"
+                            title="upload Pet image"
+                            accept="image/*"
+                            multiple={false}
+                            style={{ display: "none" }}
+                            onChange={loadImageFile}
+                        />
+                    </label>
+                </div>
+
+                <div className="container" id="accountInformationMain" style={{ height: "430px" }}>
+                    <MultiStepForm
+                        currentIndex={currentIndex}
+                        lastIndex={lastIndex.current}
+                        nextStep={nextStep}
+                        prevStep={prevStep}
+                        formData={formData}
+                        updateFormData={updateFormData}
+                        formTitles={formTitles.current[currentIndex]}
+                        onFinish={onFinish}
+                    >
+                        <AccountAccountInfo />
+                        <UserProfile />
+                        <UserAddress />
+                        <RegistrationSuccess avatarFile={avatarFile} />
+                    </MultiStepForm>
+                </div>
+            </div>
+
+            {/* <div className="row"></div> */}
         </div>
     );
-}
-
+};
