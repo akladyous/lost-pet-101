@@ -15,6 +15,8 @@ import UserSignup from './components/user/UserSignup.js'
 import UserAccount from './components/user/UserAccount.js'
 import './App.css';
 
+import ModalParent from './components/test/ModalParent.js'
+
 function App() {
     return (
         <div className="App">
@@ -30,10 +32,11 @@ function App() {
                     <Route path="flyer" element={<ListingFlyer />} />
                     <Route path="users" element={<UserHeader />}>
                         <Route path="login" element={<UserLogin />} />
-                        <Route path="logout" element={< null/>} />
+                        <Route path="logout" element={<null />} />
                         <Route path="signup" element={<UserSignup />} />
                         <Route path="account" element={<UserAccount />} />
                     </Route>
+                    <Route path="test" element={<ModalParent />} />
                 </Routes>
             </Root>
         </div>

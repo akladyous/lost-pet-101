@@ -15,7 +15,7 @@ const nullToString = (input) =>{
 export default function LostFoundInfo({params}) {
 
     const { userState } = useContext(userContext);
-    const modalButton = useRef()
+    // const modalButton = useRef()
     
     const modalRef = useRef();
     const openModal = () => {
@@ -216,17 +216,16 @@ export default function LostFoundInfo({params}) {
                     </button>
                 </div>
             </div>
-            {
-                userState && 
-            <ContainerComponentGet path={"api/users/profile"}>
-                <ContactFinder
-                    modalRef={modalRef}
-                    onClose={closeModal}
-                    path={"api/users/profile"}
-                    listingInfo={listingInfo}
-                />
-            </ContainerComponentGet>
-            }
+            {userState && (
+                <ContainerComponentGet path={"api/users/profile"}>
+                    <ContactFinder
+                        modalRef={modalRef}
+                        onClose={closeModal}
+                        path={"api/users/profile"}
+                        listingInfo={listingInfo}
+                    />
+                </ContainerComponentGet>
+            )}
         </div>
     );
 }

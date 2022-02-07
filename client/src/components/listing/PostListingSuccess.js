@@ -18,7 +18,7 @@ export default function PostListingSuccess(props) {
     const {
         formData,
         imagePath,
-        formTitle
+        formTitles
     } = props || {};
 
     const [flyerState, setFlyerState] = useState(false)
@@ -123,7 +123,7 @@ export default function PostListingSuccess(props) {
         <>
             <div className="card h-100" id="card-container">
                 <div className="card-header fs-4" id="card-container-header">
-                    {formTitle}
+                    {formTitles}
                 </div>
                 <div className="card-body px-0">
                     <div class_name="row h-100">

@@ -21,19 +21,18 @@ export default function ContainerComponentGet({ children, path}) {
                         setLoading(false)
                         }
                 } catch(error){setError(error.message)}
-            })();
-
-            return ()=>{
-                setLoading(false)
-                controller.abort()
-            }
+            })()
+            .finally(()=>{
+                setLoading(false);
+                controller.abort();
+            })
     },[] )
 
     return (
             <>
             {React.Children.map(children, child =>{
                 if (React.isValidElement(child)){
-                    return React.cloneElement(child, {resource, loading, error})
+                    return React.cloneElement(child, {...child.props, resource, loading, error})
                 }
                 return child;
             })}

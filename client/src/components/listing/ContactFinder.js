@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 
-export default function ContactFinder({modalRef, onClose, resource, listingInfo}) {
+export default function ContactFinder({modalRef, onClose,listingInfo}) {
     
     const [message, setMessage] = useState('')
     const [status, setStatus] = useState(false)
@@ -35,11 +35,12 @@ export default function ContactFinder({modalRef, onClose, resource, listingInfo}
 
     }; //handleForm
 
-    return resource ? (
+    // return resource ? (
+    return (
         <div
             className="modal fade"
             ref={modalRef}
-            id="contact-finder-modal"
+            id="contactFinderModal"
             tabIndex="-1"
             role="dialog"
             aria-labelledby="contactFinderModal"
@@ -67,90 +68,29 @@ export default function ContactFinder({modalRef, onClose, resource, listingInfo}
                         </button>
                     </div>
                     <div className="modal-body">
-                        {status === true ? (
-                            <div className="card border-0">
-                                <div className="card-body text-center fs-4">
-                                    {status === true
-                                        ? "Request Successfully Completed"
-                                        : "Unable to process your request"}
-                                </div>
+                        {/* ---------------------- */}
+                        <form>
+                            <div className="form-group text-start">
+                                <label
+                                    htmlFor="message-text"
+                                    className="col-form-label"
+                                >
+                                    {status
+                                        ? "Request has been Successfully Completed"
+                                        : "Message"}
+                                </label>
+                                <textarea
+                                    disabled={status === true ? "disabled" : ""}
+                                    rows={5}
+                                    className="form-control"
+                                    onChange={(e) => {
+                                        e.preventDefault();
+                                        setMessage(e.currentTarget.value);
+                                    }}
+                                    value={message}
+                                ></textarea>
                             </div>
-                        ) : (
-                            <form>
-                                <div className="form-group text-start">
-                                    <label
-                                        htmlFor="sender-name"
-                                        className="col-form-label"
-                                    >
-                                        Full Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        readOnly
-                                        onChange={null}
-                                        value={
-                                            `${resource.user_profile.first_name} ${resource.user_profile.last_name}` ||
-                                            ""
-                                        }
-                                    />
-                                </div>
-                                <div className="form-group text-start">
-                                    <label
-                                        htmlFor="recipient-email"
-                                        className="col-form-label"
-                                    >
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        readOnly
-                                        onChange={null}
-                                        value={resource.email || ""}
-                                    />
-                                </div>
-                                <div className="form-group text-start">
-                                    <label
-                                        htmlFor="recipient-phone"
-                                        className="col-form-label"
-                                    >
-                                        Phone Number
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        readOnly
-                                        onChange={null}
-                                        value={
-                                            resource.user_profile.cell_phone ||
-                                            ""
-                                        }
-                                    />
-                                </div>
-
-                                <div className="form-group text-start">
-                                    <label
-                                        htmlFor="message-text"
-                                        className="col-form-label"
-                                    >
-                                        Message
-                                    </label>
-                                    <textarea
-                                        className="form-control"
-                                        // onChange={(e) => {setMessage(e.currentTarget.value)}}
-                                        onChange={(e) => {
-                                            e.preventDefault();
-                                            setMessage(e.currentTarget.value);
-                                        }}
-                                        value={message}
-                                    ></textarea>
-                                </div>
-                            </form>
-                        )}
-                        {/* ---------------------- */}
-
-                        {/* ---------------------- */}
+                        </form>
                     </div>
                     <div className="modal-footer">
                         <button
@@ -175,7 +115,6 @@ export default function ContactFinder({modalRef, onClose, resource, listingInfo}
                 </div>
             </div>
         </div>
-    ) : (
-        <p>Loading...</p>
-    );
+    ); 
+    // : (<></>);
 }

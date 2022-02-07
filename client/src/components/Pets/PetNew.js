@@ -14,7 +14,7 @@ export default function PetNew(props) {
         prevStep,
         formData,
         updateFormData,
-        formTitle,
+        formTitles,
     } = props || {}
 
     const loadImage = (e) => {
@@ -34,9 +34,9 @@ export default function PetNew(props) {
     }
 
     return (
-        <div className="card h-100" id="card-container">
-            <div className="card-header" id='card-container-header'>
-                {formTitle}
+        <div className="card h-100 petContainer" id="card-container">
+            <div className="card-header  border-0" id='card-container-header'>
+                {formTitles}
             </div>
 
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">

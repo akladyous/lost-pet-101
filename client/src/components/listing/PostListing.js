@@ -16,7 +16,7 @@ export default function PostListing() {
         "PET PROFILE",
         "LISTING INFORMATION",
         "LISTING ADDRESS",
-        "Listing posted successfully",
+        "LISTING POST",
     ]);
 
     const formObject = useRef({
@@ -88,9 +88,10 @@ export default function PostListing() {
                 <div className="row h-100">
                     <div className="col-md-5 col-lg-5 px-2 mt-2">
                         <div className="card h-100" id="card-container">
-                            <img src={post_image} alt="PetImage"
+                            <img 
+                            alt="PetImage"
+                            src={post_image || require('../../images/pet_blank.png')} 
                                 style={{backgroundSize: 'fill', height: '100%', objectFit:'cover', borderRadius:'25px', padding: '5px'}}
-                                // "https://via.placeholder.com/150x400?text=pet%20image"
                             />
                         </div>
                     </div>

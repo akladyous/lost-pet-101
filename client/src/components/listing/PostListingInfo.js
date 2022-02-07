@@ -11,7 +11,7 @@ export default function PostListingInfo(props) {
         prevStep,
         formData,
         updateFormData,
-        formTitle
+        formTitles
     } = props || {};
 
 
@@ -25,7 +25,7 @@ export default function PostListingInfo(props) {
         <div className="card h-100" id="card-container">
 
             <div className="card-header" id='card-container-header'>
-                {formTitle}
+                {formTitles}
             </div>
 
             <div className="row w-100 h-100 mx-auto d-flex align-content-between">
