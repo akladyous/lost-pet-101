@@ -1,5 +1,4 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
-import { useLocation } from 'react-router-dom';
 import MultiStepForm from '../hocs/MultiStepForm.js';
 import AccountAccountInfo from './UserAccountInfo.js';
 import UserProfile from './UserProfile.js';
@@ -8,7 +7,7 @@ import RegistrationSuccess from "./RegistrationSuccess.js";
 
 export default function UserSignup() {
 
-    const formTitles = useRef(["Account Information", "User Profile", "User Address", "Account Successfully Created"])
+    const formTitles = useRef(["Account Information", "User Profile", "User Address", "Account Registration"])
     const UserObj = useRef({
         user: { user_name: "", email: "", password: "", password_confirmation: ""},  
         user_profile: { first_name: "", last_name: "", home_phone: "", cell_phone: "", job_title: "", company: "", website: "",blog: ""},
@@ -16,7 +15,7 @@ export default function UserSignup() {
     })
     const lastIndex = useRef(formTitles.current.length - 1)
     const avatarFile = useRef(null)
-    const location = useLocation()
+    const progressRef = useRef(null)
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const [formData, setFormData] = useState(UserObj.current)
@@ -34,6 +33,7 @@ export default function UserSignup() {
         e.preventDefault()
         if (currentIndex < lastIndex.current) {
             setCurrentIndex(currentIndex + 1);
+            progressRef.current.setAttribute("style", `width:${(currentIndex + 1) * 33}%`);
         } else if (currentIndex === lastIndex) {
             onFinish();
         }
@@ -43,6 +43,9 @@ export default function UserSignup() {
         e.preventDefault()
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
+            progressRef.current.setAttribute("style", `width:${(currentIndex -1) * 33}%`);
+        }else{
+            // progressRef.current.setAttribute("style", `width:${(currentIndex ) * 33}%`);
         }
     },[currentIndex] )
 
@@ -65,17 +68,19 @@ export default function UserSignup() {
                 className="row progress-container mx-0"
                 style={{ height: "25px" }}
             >
-                <div className="progress">
+                <div className="progress"
+                style={{boxShadow: 'none', overflow: 'hidden', backgroundColor: 'transparent', WebkitBoxShadow: 'none', borderRadius: '15px'}}
+                >
                     <div
+                        ref={progressRef}
                         className="progress-bar bg-orange"
                         role="progressbar"
-                        style={{ width: "80%" }}
+                        style={{ width: "0%", borderRadius: '15px' }}
                         aria-valuenow="25"
                         aria-valuemin="0"
                         aria-valuemax="100"
-                        // style={{}}
                     >
-                        25%
+                        
                     </div>
                 </div>
             </div>
@@ -121,7 +126,11 @@ export default function UserSignup() {
                     </label>
                 </div>
 
-                <div className="container" id="accountInformationMain" style={{ height: "430px" }}>
+                <div
+                    className="container"
+                    id="accountInformationMain"
+                    style={{ height: "430px" }}
+                >
                     <MultiStepForm
                         currentIndex={currentIndex}
                         lastIndex={lastIndex.current}

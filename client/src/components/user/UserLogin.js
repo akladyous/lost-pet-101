@@ -37,69 +37,81 @@ export default function Login({children}) {
                 console.error("error: ", err);
             });
     }
-
+    const avatar = null
     return (
-        <div className="container cols-xs-12 col-sm-12 col-md-4 mt-5 content-area">
-            <div className="card" id="card-container">
-                <div className="card-header" id="card-container-header">
-                    Sign in
-                </div>
-                <div className="card-body">
-                    <h5 className="card-title">Login</h5>
-
-                    <form>
-                        <div className="mb-3">
-                            <label htmlFor="user_name" className="form-label">
-                                User Name
-                            </label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="user_name"
-                                aria-describedby="userName"
-                                onChange={(e) => {
-                                    setUserName(e.currentTarget.value);
-                                }}
-                                value={userName}
-                            />
-                            <div id="emailHelp" className="form-text">
-                                We'll never share your User Name with anyone
-                                else.
-                            </div>
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="password" className="form-label">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="password"
-                                onChange={(e) => {
-                                    setPassword(e.currentTarget.value);
-                                }}
-                                value={password}
-                            />
-                        </div>
-                        <button
-                            className="btn btn-primary"
-                            id="button-orange"
-                            type="submit"
-                            onClick={handleForm}
-                        >
-                            Submit
-                        </button>
-                    </form>
-                </div>
+        <div
+            className="container mt-5 login-container"
+            style={{
+                height: "425px",
+                width: "425px",
+                border: "1px solid var(--orange)",
+                borderRadius: "25px",
+            }}
+        >
+            <div className="d-flex justify-content-center py-2 avatar-container" style={{ height: "125px" }}>
+                <img className="mx-auto" alt="userAvatar"
+                    src={ avatar ? avatar : require("../../images/user_placeholder.png")}
+                    style={{height: "100px", width: "100px", borderRadius: "50%", backgroundSize: "cover",}}
+                />
             </div>
-            <div className="container">
-                <p className="text">
-                    Don't have an account?&nbsp;
-                    <Link className="link-primary" to="Signup" state={"User Signup"}>
-                        Signup Now
-                    </Link>
-                </p>
+            {/*  */}
+            <div className="container mt-3" id="login" style={{ height: "225px" }}>
+                <div className="card border-0" style={{ height: "225px" }}>
+                    <div className="card-title text-center fs-4">
+                        Login
+                    </div>
+                    <div className="card-body py-1">
+                        {/* ----------------------- */}
+                                <form>
+                                    <div className="mb-3">
+                                        <input
+                                            type="text"
+                                            placeholder="User Name"
+                                            className="form-control"
+                                            id="user_name"
+                                            aria-describedby="userName"
+                                            onChange={(e) => {
+                                                setUserName(e.currentTarget.value);
+                                            }}
+                                            value={userName}
+                                        />
+                                        <div id="emailHelp" className="form-text">
+                                            We'll never share your User Name with
+                                            anyone else.
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <input
+                                            type="password"
+                                            placeholder="Password"
+                                            className="form-control"
+                                            id="password"
+                                            onChange={(e) => {
+                                                setPassword(e.currentTarget.value);
+                                            }}
+                                            value={password}
+                                        />
+                                    </div>
+                                </form>
+                        {/* ----------------------- */}
+                    </div>
+                </div>
+                <div className="container my-1 buttons-container" style={{height: '35px'}}>
+                    <div className="row g-12" style={{height: '35px'}}>
+                        <div className="col-6 mx-auto">
+                            <button
+                                type="submit"
+                                id="button-orange"
+                                className="btn w-100"
+                                onClick={handleForm}
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {/*  */}
             </div>
         </div>
     );

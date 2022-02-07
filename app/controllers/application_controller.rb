@@ -37,7 +37,7 @@ class ApplicationController < ActionController::API
         render json: {error: "Unprocessable request"}, status: :unprocessable_entity
     end
     def failed_to_save
-        render json: {error: "Failed to save the record"}, status: unprocessable_entity
+        render json: {error: "Failed to save the record"}, status: :unprocessable_entity
     end
     def interal_error
         render json: {error: "Internal Error"}, status: :unprocessable_entity

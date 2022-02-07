@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticate_user, only: [:show, :create] #, :email
+    skip_before_action :authenticate_user, only: [:show, :create, :create_user_profile] #, :email
 
 
     def show
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def create_user_profile
-
+        # debugger
         if current_user
             if params.has_key?(:user_profile)
                 @profile_params = params.require(:user_profile).permit(:first_name, :last_name, :home_phone, :cell_phone, :job_title, :company, :website, :blog)
