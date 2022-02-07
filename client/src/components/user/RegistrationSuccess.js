@@ -102,25 +102,6 @@ export default function RegistrationSuccess(props) {
                 // setShowChild(true);
             });
 
-        
-        // if(userAccount){
-        //     userProfileRequest()
-        //         .then(async (response) => {
-        //             setUserProfile(response.data)
-        //             setMessage("Registration has ben Successfully completed")
-        //         })
-        //         .catch((error) => {
-        //             setMessage(error.response.data.error);
-        //         })
-        //         .finally(() => {
-        //             setLoading(false);
-        //             controller.abort();
-        //             console.log("Clean function - UsrAccountRequest");
-        //             setShowChild(true);
-        //         });
-        // }
-        
-
 
     },[] )
 
