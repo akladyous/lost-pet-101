@@ -104,7 +104,7 @@ body {
     overflow-y: scroll;
 }
 
-.header-bg{
+/* .header-bg{
     background-image: url(./images/bradcam.png);
 }
 .header-area{
@@ -114,7 +114,7 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     height: 170px;
-}
+} */
 .footer{
     position: relative;
     left: 0;

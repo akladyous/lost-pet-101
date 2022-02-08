@@ -1,4 +1,5 @@
-import '../../index.css'
+// import '../../index.css'
+import '../css/header.css'
 import { Outlet, useLocation } from 'react-router-dom';
 import PageFooter from '../layout/PageFooter.js';
 

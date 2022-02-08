@@ -1,0 +1,22 @@
+.header-bg{
+    background-image: url(../../images/bradcam.png);
+}
+.header-area{
+    background-size: cover;
+    background-position: center center;
+    padding: 125px 0;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 170px;
+}
+
+.about_btn{
+    border: 1px solid var(--orange);
+    border-radius: 25px;
+    background: var(--orange);
+    color: white;
+}
+.icons{
+    width: 100px;
+}
+
