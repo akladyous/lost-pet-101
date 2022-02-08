@@ -51,9 +51,10 @@ class UsersController < ApplicationController
             end
             session[:user_id] = @user.id
             # send welcome email
+            UserMailer.welcome(@user).deliver_now
             render json: @user, status: :created
             # render json: {message: "Account successfully created", date_time: Time.now, email: current_user.email}, status: :ok
-        else
+        elsew
             # render json: {error: "Registration Error"}, status: :unprocessable_entity
             render json: {error: @user.errors.full_messages}, status: :unprocessable_entity
         end
