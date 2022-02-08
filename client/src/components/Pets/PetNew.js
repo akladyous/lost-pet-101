@@ -35,7 +35,7 @@ export default function PetNew(props) {
 
     return (
         <div className="card h-100 petContainer" id="card-container">
-            <div className="card-header  border-0" id='card-container-header'>
+            <div className="card-header border-0" id='card-container-header'>
                 {formTitles}
             </div>
 
