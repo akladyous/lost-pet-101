@@ -90,7 +90,11 @@ end
 def create_listing listing_info
     random_date = -> {rand(1.year.ago..2.month.ago)}
     # debugger
-    listing = Listing.create(date_lost_found: random_date.(), msg_from: Faker::Quote.matz, description: Faker::Quote.matz, listing_info: listing_info)
+    # sentence = Faker::Lorem.sentence(word_count: 10)
+    # sentence = Faker::Lorem.paragraph(sentence_count: 5)
+    sentence = "#{Faker::Quote.matz} #{Faker::Quote.yoda} #{Faker::Lorem.paragraph}"
+    sentence = "#{Faker::Quote.matz} #{Faker::Lorem.paragraph}"
+    listing = Listing.create(date_lost_found: random_date.(), msg_from: Faker::Quote.matz, description: sentence, listing_info: listing_info)
     return listing
 end
 

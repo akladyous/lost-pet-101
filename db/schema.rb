@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_053009) do
   create_table "listing_infos", force: :cascade do |t|
     t.string "listing_type"
     t.boolean "published"
-    t.datetime "published_at", precision: 6, default: "2022-02-03 17:03:00"
+    t.datetime "published_at", precision: 6, default: "2022-02-08 16:51:39"
     t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -34,7 +34,7 @@ export default function Header() {
             <div className="container-fluid">
                 
                 <img src={logo} alt="logo" style={{ height: "35px" }} />
-                <Link className="navbar-brand" to="home">&nbsp;Lot Pets</Link>
+                <Link className="navbar-brand" to="home">&nbsp;PET FINDER</Link>
                 <button
                     className="navbar-toggler"
                     type="button"

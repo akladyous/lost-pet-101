@@ -30,6 +30,7 @@ body {
     color: white;
 }
 
+
 #card-container{
     border-radius: 25px;
     border-color: var(--orange);
@@ -115,7 +116,7 @@ body {
     height: 170px;
 }
 .footer{
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -129,4 +130,23 @@ body {
     line-height: 28px;
     font-family: "Poppins", sans-serif;
 }
-/* -------------------------------- */
+
+.footer {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: #f8f8f8;
+    position: relative;
+    z-index: 0;
+}
+
+.footer .footer_top {
+  padding-top: 130px;
+  padding-bottom: 110px;
+}
+
+
+
+
+

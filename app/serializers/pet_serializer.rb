@@ -5,7 +5,8 @@ class PetSerializer < ActiveModel::Serializer
     def image_url
         # debugger
         if object.is_attached?
-            Rails.application.routes.url_helpers.rails_blob_url(self.object.image_file.blob, only_path: true)
+            # Rails.application.routes.url_helpers.rails_blob_url(self.object.image_file.blob, only_path: true)
+            object.image_file.blob.url
         else
             nil
         end

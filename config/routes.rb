@@ -44,6 +44,7 @@ Rails.application.routes.draw do
             collection do
                 get 'public(/:total)', to: "listing_infos#public"
                 post 'public', to: "listing_infos#new_listing"
+                get 'sample(/:total)', to: "listing_infos#sample"
             end
         end
 

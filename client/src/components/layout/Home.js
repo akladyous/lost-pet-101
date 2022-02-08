@@ -1,4 +1,8 @@
 import React from 'react';
+import ContainerComponentGet from '../hocs/ContainerComponentGet.js';
+import PageSlides from './PageSlides.js';
+import ContactUs from './ContactUs.js';
+import PageFooter from './PageFooter.js'
 import '../css/home.css'
 
 const dog = require('../../images/dog.png')
@@ -50,34 +54,45 @@ export default function Home({children}) {
                         How it works <br />
                     </h3>
 
-                    <div className="container d-flex justify-content-between">
+                    <div className="container d-flex justify-content-between mt-4">
                         <div
                             className="card"
-                            style={{ width: "20rem", height: "350px" }}
+                            style={{
+                                width: "20rem",
+                                height: "350px",
+                                borderRadius: "25px",
+                            }}
                         >
                             <div className="card-body">
-                                <img
-                                    className="card-img-top mx-auto d-block mt-3"
-                                    src={logo1}
-                                    alt="logo1"
-                                    style={{ width: "75px" }}
-                                />
+                                <div id="home-card">
+                                    <img
+                                        className="card-img-top mx-auto d-block mt-3"
+                                        src={logo1}
+                                        alt="logo1"
+                                        style={{ width: "75px" }}
+                                    />
+                                </div>
                             </div>
 
                             <div className="card-body ">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">
-                                    Speak with neighbors, postal carriers and
-                                    landscapers about your missing pet. Put your
-                                    lost pet flyer in local vet offices and
-                                    other community establishments.
+                                <h5 className="card-title text-center fs-5 fw-bold">
+                                    FREE LISTING
+                                </h5>
+                                <p className="text-center">
+                                    Speak with neighbors, about your missing
+                                    pet. Put your lost pet flyer in local vet
+                                    offices and other community establishments.
                                 </p>
                             </div>
                         </div>
 
                         <div
                             className="card"
-                            style={{ width: "20rem", height: "350px" }}
+                            style={{
+                                width: "20rem",
+                                height: "350px",
+                                borderRadius: "25px",
+                            }}
                         >
                             <div className="card-body">
                                 <img
@@ -88,19 +103,24 @@ export default function Home({children}) {
                                 />
                             </div>
                             <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">
-                                    Upload a picture of your lost pet, search
-                                    the Petco Love Lost database, then sign up
-                                    to receive alerts about your pet and create
-                                    a lost pet flyer.
+                                <h5 className="text-center fs-5 fw-bold">
+                                    FLYER GENERATOR
+                                </h5>
+                                <p className="text-center">
+                                    Create a lost or found pet flyer with all
+                                    pertinent information will make it easy to
+                                    help tracking down your pet.
                                 </p>
                             </div>
                         </div>
 
                         <div
                             className="card"
-                            style={{ width: "20rem", height: "350px" }}
+                            style={{
+                                width: "20rem",
+                                height: "350px",
+                                borderRadius: "25px",
+                            }}
                         >
                             <div className="card-body">
                                 <img
@@ -111,18 +131,23 @@ export default function Home({children}) {
                                 />
                             </div>
                             <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">
-                                    While most shelters are listing found pets
-                                    on Petco Love Lost, we cannot guarantee that
-                                    every shelter in your area participates.
+                                <h5 className="text-center fs-3">Reunite</h5>
+                                <p className="text-center">
+                                    Help reuniting lost pets by placing lost and
+                                    found pet flyers in your neghbourhood. Get
+                                    your pet home sooner.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <ContainerComponentGet path="api/listing_infos/sample">
+                <PageSlides />
+            </ContainerComponentGet>
 
+            <ContactUs />
+            <PageFooter />
             {children}
         </div>
     );

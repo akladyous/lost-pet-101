@@ -5,7 +5,7 @@ export default function ContainerComponentGet({ children, path}) {
 
     const [resource, setResource] = useState(null)
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [error, setError] = useState(false);
 
     useEffect( ()=>{
         const controller = new AbortController();
@@ -24,18 +24,19 @@ export default function ContainerComponentGet({ children, path}) {
             })()
             .finally(()=>{
                 setLoading(false);
+                setError(false)
                 controller.abort();
             })
     },[] )
 
     return (
-            <>
+        <>
             {React.Children.map(children, child =>{
                 if (React.isValidElement(child)){
                     return React.cloneElement(child, {...child.props, resource, loading, error})
                 }
                 return child;
             })}
-    </>
+        </>
     )
 }

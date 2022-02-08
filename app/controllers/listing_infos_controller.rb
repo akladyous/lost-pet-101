@@ -1,7 +1,17 @@
 class ListingInfosController < ApplicationController
     # skip_before_action :authenticate_user, only: [:show, :create, :update, :destroy]
-    skip_before_action :authenticate_user, only: [:public]
+    skip_before_action :authenticate_user, only: [:public, :sample]
     before_action :load_listing_info, only: [:show, :update, :destroy]
+
+
+    def sample
+        # debugger
+        @sample_params = params.permit(:total)
+        @sample_params[:total]= 10 unless @sample_params.has_key?(:total)
+        @random_sample = ListingInfo.limit(@sample_params[:total].to_i).order("RANDOM()")
+        render json: @random_sample, status: :ok
+    end
+
 
     def index
         render json: ListingInfo.where(id: current_user.listing_infos.ids).includes(:user, :pet), status: :ok

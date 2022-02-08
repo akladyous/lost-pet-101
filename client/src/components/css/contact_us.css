@@ -1,0 +1,14 @@
+/* -------------------------------- */
+.contact_bg{
+    /* background-image: url(../../images/contact_bg.png); */
+    background-image: url('../../images/contact_bg.png');
+    /* border-radius: 15% 15% 0 0 ; */
+}
+.contact_area {
+    background-position: center;
+    /* background-size: cover; */
+    padding-top: 70px;
+    padding-bottom: 160px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
