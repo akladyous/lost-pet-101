@@ -116,17 +116,17 @@ body {
     height: 170px;
 } */
 .footer{
-    position: relative;
+    /* position: relative; */
     left: 0;
     bottom: 0;
     width: 100%;
 }
 
 .footer .footer_top {
-    height: 170px;
+    height: 120px;
     font-size: 16px;
     font-weight: 400;
-    color: #7a7a7a;
+    /* color: #7a7a7a; */
     line-height: 28px;
     font-family: "Poppins", sans-serif;
 }
@@ -136,14 +136,14 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background: #f8f8f8;
+    /* background: #f8f8f8; */
     position: relative;
     z-index: 0;
 }
 
 .footer .footer_top {
-  padding-top: 130px;
-  padding-bottom: 110px;
+  padding-top: 150px;
+  padding-bottom: 25px;
 }
 
 

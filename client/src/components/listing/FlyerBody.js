@@ -1,5 +1,7 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
+import html2canvas from "html2canvas";
 import { usDateFormat } from "../hocs/util.jsx";
+import axios from 'axios';
 
 const nullToString = (input) => {
     if (typeof input === "string") {
@@ -9,7 +11,50 @@ const nullToString = (input) => {
     }
 };
 
-export default function FlyerBody({resource, user, imagePath}) {
+
+
+
+export default function FlyerBody({resource, user,imagePath}) {
+    // console.log("test")
+    // const [errorState, setErrorState] = useState(false);
+    // const [status, setStatus] = useState(false);
+    // const [user, setUser] = useState(null)
+
+    // const generateFlyer = () => {
+    //     const fylerTag = document.getElementById("flyer");
+    //     html2canvas(fylerTag).then((canvas) => {
+    //         const canvasData = canvas.toDataURL("fyler-image", 0.9);
+    //         const imageTag = document.createElement("a");
+    //         imageTag.href = canvasData;
+    //         imageTag.download = `petfinder-${resource.pet.name}.png`;
+    //         imageTag.click();
+    //         setStatus(true);
+    //     });
+    // };
+
+
+    // useEffect(() => {
+    //     const controller = new AbortController()
+    //         (async () => {
+    //             const response = await axios.get("users/profile", {
+    //                 headers: { "Content-type": "application/json" },
+    //                 signal: controller.signal});
+    //                 return response
+    //             })()
+    //             .then((response) => {
+    //                 setUser(response.data)
+    //             })
+    //             .finally(() => {
+    //                 setErrorState(false);
+    //                 controller.abort();
+    //             })
+    //     return ()=>{
+    //         if (user) {
+    //             generateFlyer();
+    //         }
+    //     }
+    // }, []);
+
     return (
         <div className='container' style={{width: '1296px', height: '1296px'}} id='flyer'>
             <div className="container" style={{width: '1024px', height: '1024px'}}>

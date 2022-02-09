@@ -74,7 +74,7 @@ export default function About() {
                             <div className="adapt_about">
                                 <div className="row align-items-center ">
                                     <div className="col-lg-6 col-md-6 d-flex flex-column justify-content-center" style={{height: '408px'}}>
-                                        <div className="text-center shadow" style={{height: '200px', width: '260px' ,borderRadius: '25px'}}>
+                                        <div className="text-center shadow" style={{height: '200px', width: '200px' ,borderRadius: '25px'}}>
                                             <div className='my-5 d-flex justify-content-center' style={{}}>
                                                 <img className='icons' src={require("../../images/bootstrap.png")} alt="bootstrap" style={{height: '100px', objectFit:'fill'}}/>
                                                 {/* <h3>Bootstrap</h3> */}
@@ -82,13 +82,13 @@ export default function About() {
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-md-6 d-flex flex-column justify-content-center" style={{height: '408px'}}>
-                                        <div className="text-center shadow" style={{height: '200px', width: '260px' ,borderRadius: '25px'}}>
+                                        <div className="text-center shadow" style={{height: '200px', width: '200px' ,borderRadius: '25px'}}>
                                             <div className='my-5 d-flex justify-content-center' style={{}}>
                                                 <img className='icons' src={require("../../images/react.png")} alt="react" style={{height: '100px', objectFit:'fill'}}/>
                                                 {/* <h3>React</h3> */}
                                             </div>
                                         </div>
-                                        <div className="text-center shadow" style={{height: '200px', width: '260px' ,borderRadius: '25px'}}>
+                                        <div className="text-center shadow" style={{height: '200px', width: '200px' ,borderRadius: '25px'}}>
                                             <div className='my-5 d-flex justify-content-center' style={{}}>
                                                 <img className='icons' src={require("../../images/rails.png")} alt="rails" style={{height: '100px', objectFit:'fill'}}/>
                                                 {/* <h3>Rails</h3> */}

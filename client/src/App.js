@@ -1,3 +1,4 @@
+import './App.css';
 // import logo from './logo.svg';
 import { Routes, Route} from "react-router-dom";
 import util from './components/hocs/util.jsx'
@@ -13,9 +14,7 @@ import UserHeader from "./components/user/UserHeader.js";
 import UserLogin from './components/user/UserLogin.js'
 import UserSignup from './components/user/UserSignup.js'
 import UserAccount from './components/user/UserAccount.js'
-import './App.css';
-
-import ModalParent from './components/test/ModalParent.js'
+import Feedback from './components/layout/Feedback.js';
 
 function App() {
     return (
@@ -26,6 +25,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="home" element={<Home />} />
                     <Route path="about" element={<About />} />
+                    <Route path="feedback" element={<Feedback />} />
                     <Route path="lost_found" element={<LostFound />} />
                     <Route path="detail" element={<LostFoundInfo />} />
                     <Route path="create_listing" element={<PostListing />} />
@@ -36,7 +36,6 @@ function App() {
                         <Route path="signup" element={<UserSignup />} />
                         <Route path="account" element={<UserAccount />} />
                     </Route>
-                    <Route path="test" element={<ModalParent />} />
                 </Routes>
             </Root>
         </div>

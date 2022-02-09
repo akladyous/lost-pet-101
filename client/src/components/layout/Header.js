@@ -55,6 +55,12 @@ export default function Header() {
                         <li className="nav-item">
                             <Link className="nav-link active" to="about">About</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="about">Contact Us</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="Feedback">Feedback</Link>
+                        </li>
 
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="/services" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
@@ -67,18 +73,11 @@ export default function Header() {
                                 <li>
                                     <Link className="dropdown-item" to="lost_found">Lost & Found</Link>
                                 </li>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
+                                {/* <li><hr className="dropdown-divider" /></li> */}
                                 <li>
                                     <Link className="dropdown-item" to="create_listing">Create Listing</Link>
                                 </li>
 
-
-
-                                <li>
-                                    <Link className="dropdown-item" to="test">test</Link>
-                                </li>
                             </ul>
                         </li>
                     </ul>

@@ -1,5 +1,4 @@
-Rails.application.routes.draw do
-    
+Rails.application.routes.draw do    
     # resources :users, only: [:create] do
     #     collection do
     #         get :profile, to: "users#show"
@@ -51,13 +50,10 @@ Rails.application.routes.draw do
         resources :listings, except: [:index, :destroy]
         resources :listing_addresses, except: [:index, :destroy]
 
-
-
         # resources :listing_requests, only: [:create] do 
         # end
         resources :listing_requests
-
-
     end
-
+    resources :feedbacks, only: [:create]
+    # resources :contact_us
 end

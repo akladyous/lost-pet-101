@@ -5,6 +5,7 @@ import PetNew from '../Pets/PetNew.js';
 import PostListingInfo from './PostListingInfo.js'
 import PostListingAddress from './PostListingAddress.js'
 import PostListingSuccess from './PostListingSuccess.js';
+import PageFooter from '../layout/PageFooter.js'
 
 const today = () => {
     const date = new Date();
@@ -118,6 +119,8 @@ export default function PostListing() {
                     </div>
                 </div>
             </div>
+
+            <PageFooter></PageFooter>
         </div>
     );
 }

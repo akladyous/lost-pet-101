@@ -88,18 +88,20 @@ export default function PostListingSuccess(props) {
                     setLoading(false)
                 });
 
+            }).finally(()=>{
+                setLoading(false)
+                setErrorMsg(false)
+                // controller.abort()
+
             })
-        return ()=>{
-            setLoading(false)
-            setErrorMsg(false)
-            // controller.abort()
-        }
+        // return ()=>{
+        // }
     },[] )
     
     const generateFlyer = useCallback( async ()=>{
         setFlyerState(true);
         try{
-            const response = await axios.get('api/users/profile', 
+            const response = await axios.get('users/profile', 
             {headers: {"Content-type": "application/json"}})
             if (response.status === 200) {
                 setUser(response.data);
@@ -110,7 +112,8 @@ export default function PostListingSuccess(props) {
                     const canvasData = canvas.toDataURL("fyler-image", 0.9);
                     const imageTag = document.createElement("a");
                     imageTag.href = canvasData;
-                    imageTag.download = `petfinder-${resource.pet.name}.png`;
+                    // imageTag.download = `petfinder-${resource.pet.name}.png`;
+                    imageTag.download = "flyer.png";
                     imageTag.click();
                     setFlyerState(false);
                 });
@@ -243,16 +246,16 @@ export default function PostListingSuccess(props) {
                 </div>
 
                 <div className="card-footer bg-none" style={{ background: "none", border: "0px" }}>
-                    {/* <Link className="btn" id="button-orange" to="/flyer" key={resource.id} state={{resource, imagePath}}>
+                    <Link className="btn" id="button-orange" to="/flyer" key={resource.id} state={{resource, imagePath}}>
+                        Generate Flyer....
+                    </Link>
+                    {/* <button className="btn" id="button-orange" onClick={generateFlyer}>
                         Generate Flyer
-                    </Link> */}
-                    <button className="btn" id="button-orange" onClick={generateFlyer}>
-                        Generate Flyer
-                    </button>
+                    </button> */}
                 </div>
             </div>
             {
-                flyerState && <FlyerBody resource={resource} user={user} imagePath={imagePath}/>
+                // flyerState && <FlyerBody resource={resource} user={user} imagePath={imagePath}/>
             }
         </>
     ) : (

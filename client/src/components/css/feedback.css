@@ -1,0 +1,9 @@
+.feedback-area{
+    border-radius: 25px;
+    border-color: var(--orange);
+    padding: 0;
+}
+
+.inputs{
+    border-radius: 25px;
+}
