@@ -174,7 +174,7 @@ export default function Feedback() {
                                     onClick={prova}
                                     disabled={loading || errorState || !render || false}
                                 >
-                                    {isCompleted ? "Home Page" : "Submit"}
+                                    {isCompleted ? "Home" : "Submit"}
                                 </button>
                             </div>
 
