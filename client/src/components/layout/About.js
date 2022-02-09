@@ -64,7 +64,7 @@ export default function About() {
                                     <h3>Flatiron Capstone Project</h3>
                                     {/* <p></p> */}
                                     <p>February 18, 2022, New York</p>
-                                    <Link to="/about" className="btn btn-lg about_btn" id='about_btns' role='button'>
+                                    <Link to="/feedback" className="btn btn-lg about_btn" id='about_btns' role='button'>
                                         Feedback
                                     </Link>
                                 </div>

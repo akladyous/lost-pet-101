@@ -24,147 +24,170 @@ export default function LostFound() {
     };
 
     return (
-        <div>
-            <div className="container mt-4 mh-70 overflow-scroll main-container">
-                <PageHeader
-                    title="LOST & FOUND PETS"
-                    subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
-                />
-
-                <div className="container mt-4 search-container">
-                    <div className="card border-orange">
-                        <div
-                            className="card-header custom-header"
-                            style={{
-                                background: "var(--orange)",
-                                borderTopLeftRadius: "25px",
-                                borderTopRightRadius: "25px",
-                            }}
-                        >
-                            Featured
-                        </div>
-                        <div className="card-body">
-                            <div className="">
-                                <div className="row">
-                                    <div className="col-md-3">
-                                        <label
-                                            className="text-start"
-                                            htmlFor="pet_type"
-                                        >
-                                            Pet Type
-                                        </label>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <label htmlFor="pet_name">
-                                            Pet Name
-                                        </label>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <label htmlFor="pet_breed">Breed</label>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <label htmlFor="pet_color">Color</label>
-                                    </div>
-                                </div>
+        <>
+            <PageHeader
+                title="LOST & FOUND PETS"
+                subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
+            />
+            <div>
+                <div className="container mt-0 mh-70 overflow-scroll main-container">
+                    <div className="container mt-4 search-container">
+                        <div className="card border-orange">
+                            <div
+                                className="card-header custom-header"
+                                style={{
+                                    background: "var(--orange)",
+                                    borderTopLeftRadius: "25px",
+                                    borderTopRightRadius: "25px",
+                                }}
+                            >
+                                Featured
                             </div>
-
-                            <div className="">
-                                <form>
+                            <div className="card-body">
+                                <div className="">
                                     <div className="row">
                                         <div className="col-md-3">
-                                            <select
-                                                className="form-select"
-                                                aria-label="select pet"
+                                            <label
+                                                className="text-start"
+                                                htmlFor="pet_type"
                                             >
-                                                <option defaultValue>
-                                                    dog
-                                                </option>
-                                                <option value="1">cat</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+                                                Pet Type
+                                            </label>
                                         </div>
                                         <div className="col-md-3">
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                placeholder="pet name"
-                                                aria-label="pet name"
-                                                aria-describedby="basic-addon2"
-                                            />
+                                            <label htmlFor="pet_name">
+                                                Pet Name
+                                            </label>
                                         </div>
                                         <div className="col-md-3">
-                                            <select
-                                                className="form-select"
-                                                aria-label="select pet"
-                                            >
-                                                <option defaultValue>
-                                                    all
-                                                </option>
-                                                <option value="1">dog</option>
-                                                <option value="1">cat</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+                                            <label htmlFor="pet_breed">
+                                                Breed
+                                            </label>
                                         </div>
                                         <div className="col-md-3">
-                                            <select
-                                                className="form-select"
-                                                aria-label="select pet"
-                                            >
-                                                <option defaultValue>
-                                                    all
-                                                </option>
-                                                <option value="1">cat</option>
-                                                <option value="1">cat</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+                                            <label htmlFor="pet_color">
+                                                Color
+                                            </label>
                                         </div>
                                     </div>
-                                    <div className="card-body">
-                                        <div className="d-grid gap-2 col-6 mx-auto">
-                                            <button
-                                                type="submit"
-                                                className="btn"
-                                                style={{
-                                                    backgroundColor:
-                                                        "hsl(25,100%,50%)",
-                                                }}
-                                                onClick={handleForm}
-                                            >
-                                                Search
-                                            </button>
+                                </div>
+
+                                <div className="">
+                                    <form>
+                                        <div className="row">
+                                            <div className="col-md-3">
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="select pet"
+                                                >
+                                                    <option defaultValue>
+                                                        dog
+                                                    </option>
+                                                    <option value="1">
+                                                        cat
+                                                    </option>
+                                                    <option value="2">
+                                                        Two
+                                                    </option>
+                                                    <option value="3">
+                                                        Three
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    placeholder="pet name"
+                                                    aria-label="pet name"
+                                                    aria-describedby="basic-addon2"
+                                                />
+                                            </div>
+                                            <div className="col-md-3">
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="select pet"
+                                                >
+                                                    <option defaultValue>
+                                                        all
+                                                    </option>
+                                                    <option value="1">
+                                                        dog
+                                                    </option>
+                                                    <option value="1">
+                                                        cat
+                                                    </option>
+                                                    <option value="2">
+                                                        Two
+                                                    </option>
+                                                    <option value="3">
+                                                        Three
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="select pet"
+                                                >
+                                                    <option defaultValue>
+                                                        all
+                                                    </option>
+                                                    <option value="1">
+                                                        cat
+                                                    </option>
+                                                    <option value="1">
+                                                        cat
+                                                    </option>
+                                                    <option value="2">
+                                                        Two
+                                                    </option>
+                                                    <option value="3">
+                                                        Three
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        <div className="card-body">
+                                            <div className="d-grid gap-2 col-6 mx-auto">
+                                                <button
+                                                    type="submit"
+                                                    className="btn"
+                                                    style={{
+                                                        backgroundColor:
+                                                            "hsl(25,100%,50%)",
+                                                    }}
+                                                    onClick={handleForm}
+                                                >
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
 
-                    <div style={{height: '750px'}}>
-
-                    {listingInfo && (
-                        <ListingtContainer>
+                        <div style={{ height: "750px" }}>
                             {listingInfo && (
-                                <ListingMapper
-                                    itemComponent={ListingCard}
-                                    listingInfo={listingInfo}
-                                />
+                                <ListingtContainer>
+                                    {listingInfo && (
+                                        <ListingMapper
+                                            itemComponent={ListingCard}
+                                            listingInfo={listingInfo}
+                                        />
+                                    )}
+                                    {/* <ListingMapper itemComponent={PetCards} listingInfo={listingInfo} /> */}
+                                </ListingtContainer>
                             )}
-                            {/* <ListingMapper itemComponent={PetCards} listingInfo={listingInfo} /> */}
-                        </ListingtContainer>
-                    )}
+                        </div>
+
+                        <div className="container"></div>
                     </div>
-
-
-                    <div className="container"></div>
                 </div>
-            </div>
 
-            <PageFooter></PageFooter>
-        </div>
-        
+                <PageFooter></PageFooter>
+            </div>
+        </>
     );
 }

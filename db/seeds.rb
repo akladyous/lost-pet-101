@@ -92,7 +92,7 @@ def create_listing listing_info
     # debugger
     # sentence = Faker::Lorem.sentence(word_count: 10)
     # sentence = Faker::Lorem.paragraph(sentence_count: 5)
-    sentence = "#{Faker::Quote.matz} #{Faker::Quote.yoda} #{Faker::Lorem.paragraph}"
+    # sentence = "#{Faker::Quote.matz} #{Faker::Quote.yoda} #{Faker::Lorem.paragraph}"
     sentence = "#{Faker::Quote.matz} #{Faker::Lorem.paragraph}"
     listing = Listing.create(date_lost_found: random_date.(), msg_from: Faker::Quote.matz, description: sentence, listing_info: listing_info)
     return listing

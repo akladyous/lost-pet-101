@@ -21,6 +21,8 @@ export default function UserHeader() {
 
             {/* <PageFooter></PageFooter> */}
             <Outlet />
+
+            <PageFooter></PageFooter>
         </>
     );
     
