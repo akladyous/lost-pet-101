@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import { wrapper } from '../hocs/wrapper.js';
 import FormButtons from '../layout/FormButtons.js';
 
@@ -261,22 +261,6 @@ export default function PetNew(props) {
                         nextStep={nextStep}
                     />
                 </div>
-                {/* <div className="row mx-0 px-1 mb-2 progress-container">
-                    <div className="container">
-                        <div className="progress">
-                            <div
-                                className="progress-bar"
-                                role="progressbar"
-                                aria-valuenow="25"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                style={{ width: "25%", backgroundColor: "var(--orange)" }}
-                                >
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </div>
     );

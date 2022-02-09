@@ -1,7 +1,9 @@
-
-import React from 'react';
+import React, {useContext} from 'react';
+import { userContext } from "../user/UserProvider.js";
 
 export default function FormButtons({currentIndex, lastIndex, prevStep, nextStep}) {
+    const { userState } = useContext(userContext);
+
     return (
         <div className="container mt-2 px-1 multi-step-buttons">
             <div className="row">
@@ -24,6 +26,7 @@ export default function FormButtons({currentIndex, lastIndex, prevStep, nextStep
                         <button type="button" className="btn w-100"
                             // disabled={currentIndex === steps.length -1}
                             // disabled={currentIndex === lastIndex}
+                            disabled={!userState}
                             onClick={nextStep}
                             style={{
                                 backgroundColor: "hsl(25,100%,50%)",
