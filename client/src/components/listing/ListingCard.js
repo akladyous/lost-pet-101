@@ -1,6 +1,6 @@
 import React from 'react';
 import { usDateFormat } from "../hocs/util.jsx";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // String.prototype.capitalize = function () {
 //     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -105,7 +105,6 @@ export default function ListingCard({listing}) {
                         e.stopPropagation();
                         e.preventDefault();
                         navigate("detail", { state: listing });
-                        console.log("click");
                     }}
                 >
                     View Details

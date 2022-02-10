@@ -11,7 +11,7 @@ export default function OnboardingData({children, onFinish}) {
             ...onBoardingData,
             ...stepData
         }
-        console.log(updatedData)
+        // console.log(updatedData)
 
         if (nextIndex < children.length){
             setCurrentIndex(nextIndex)

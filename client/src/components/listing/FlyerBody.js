@@ -15,7 +15,7 @@ const nullToString = (input) => {
 
 
 export default function FlyerBody({resource, user,imagePath}) {
-    // console.log("test")
+
     // const [errorState, setErrorState] = useState(false);
     // const [status, setStatus] = useState(false);
     // const [user, setUser] = useState(null)

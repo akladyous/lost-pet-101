@@ -15,6 +15,8 @@ import UserLogin from './components/user/UserLogin.js'
 import UserSignup from './components/user/UserSignup.js'
 import UserAccount from './components/user/UserAccount.js'
 import Feedback from './components/layout/Feedback.js';
+import withResource from './components/hocs/withResource.js'
+const WithUser = withResource(ListingFlyer, 'users/profile')
 
 function App() {
     return (
@@ -29,7 +31,7 @@ function App() {
                     <Route path="lost_found" element={<LostFound />} />
                     <Route path="detail" element={<LostFoundInfo />} />
                     <Route path="create_listing" element={<PostListing />} />
-                    <Route path="flyer" element={<ListingFlyer />} />
+                    <Route path="flyer" element={<WithUser />} />
                     <Route path="users" element={<UserHeader />}>
                         <Route path="login" element={<UserLogin />} />
                         <Route path="logout" element={<null />} />

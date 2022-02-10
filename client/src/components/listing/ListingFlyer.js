@@ -1,6 +1,5 @@
-import {useEffect, useState} from 'react';
-import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import { usDateFormat } from "../hocs/util.jsx";
 
@@ -12,40 +11,31 @@ const nullToString = (input) => {
     }
 };
 
-export default function ListingFlyer() {
+export default function ListingFlyer(props) {
+    const {data: user, loading, error} = props || {}
     
-    const navigate = useNavigate()
-    const [user, setUser] = useState(null)
+
     const location = useLocation()
     const {resource, imagePath} = location.state
 
-
     useEffect(()=>{
-            ( async ()=>{
-                try{
-                    const response = await axios.get('users/profile', 
-                        {headers: {"Content-type": "application/json"}})
-                    if(response.status === 200){
-                        setUser(response.data)
-                        console.log(user)}
-
-                        const fylerTag = document.getElementById('flyer');
-                        html2canvas(fylerTag).then(canvas =>{
-                            const canvasData = canvas.toDataURL("fyler-image", 0.9)
-                            const imageTag = document.createElement('a')
-                            imageTag.href = canvasData;
-                            imageTag.download = `petfinder-${resource.pet.name}.png`
-                            imageTag.click()
-                        })
-                } catch(error){console.error(error.message)}
-            })();
-            // navigate('/')
+        if (resource && user && !loading && !error){
+            const fylerTag =
+                document.getElementById("flyer");
+            html2canvas(fylerTag).then((canvas) => {
+                const canvasData = canvas.toDataURL("fyler-image", 0.9);
+                const imageTag = document.createElement("a");
+                imageTag.href  = canvasData;
+                imageTag.download = `petfinder-${resource.pet.name}.png`;
+                imageTag.click();
+            });
+        }
     },[])
     
-    return user ? (
+    return (user && resource) ? (
         <div
             className="container"
-            style={{ width: "1296px", height: "1296px" }}
+            style={{ width: "1296px", height: "1296px", marginTop: '15px' }}
             id="flyer"
         >
             <div
@@ -160,75 +150,41 @@ export default function ListingFlyer() {
                                                         {resource.pet.species.capitalize()}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {"Unknown" &&
-                                                            resource.pet.age}
+                                                        {"Unknown" && resource.pet.age}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
                                                         {resource.pet.size.capitalize()}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {nullToString(
-                                                            resource.pet.breed
-                                                        )}
+                                                        {nullToString(resource.pet.breed)}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {nullToString(
-                                                            resource.pet.color
-                                                        )}
+                                                        {nullToString(resource.pet.color)}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {"Unknown" &&
-                                                            resource.pet
-                                                                .microchip}
+                                                        {"Unknown" && resource.pet.microchip}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {nullToString(
-                                                            resource.pet.height
-                                                        )}
+                                                        {nullToString(resource.pet.height)}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {nullToString(
-                                                            resource.pet.weight
-                                                        )}
+                                                        {nullToString(resource.pet.weight)}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {nullToString(
-                                                            resource.pet.coat
-                                                        )}
+                                                        {nullToString(resource.pet.coat)}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {resource.pet.collar
-                                                            ? "Yes"
-                                                            : "No"}
+                                                        {resource.pet.collar ? "Yes" : "No"}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
-                                                        {usDateFormat(
-                                                            resource.listing
-                                                                .date_lost_found
-                                                        )}
+                                                        {usDateFormat(resource.listing.date_lost_found)}
                                                     </li>
                                                     <li className="list-group-item border-0 text-start font-orange-bold fs-6">
                                                         {`
-                                                            ${nullToString(
-                                                                resource
-                                                                    .listing_address
-                                                                    .address1
-                                                            )}
-                                                            ${nullToString(
-                                                                resource
-                                                                    .listing_address
-                                                                    .city
-                                                            )} 
-                                                            ${nullToString(
-                                                                resource
-                                                                    .listing_address
-                                                                    .state
-                                                            )}
-                                                            ${nullToString(
-                                                                resource
-                                                                    .listing_address
-                                                                    .zip_code
-                                                            )}
+                                                            ${nullToString(resource.listing_address.address1)}
+                                                            ${nullToString(resource.listing_address.city)} 
+                                                            ${nullToString(resource.listing_address.state)}
+                                                            ${nullToString(resource.listing_address.zip_code)}
                                                             `}
                                                     </li>
                                                 </ul>
@@ -275,5 +231,5 @@ export default function ListingFlyer() {
                 {/* ------- */}
             </div>
         </div>
-    ) : null;
+    ) : <></>;
 }

@@ -12,7 +12,7 @@ export const LogoutUser = () => {
                 if (response.ok) {
                     response.json()
                     setUserState(true);
-                    console.log("logout");
+                    // console.log("logout");
                 } else {
                     setUserState(false);
                 }

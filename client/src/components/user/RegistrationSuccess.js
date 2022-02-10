@@ -37,7 +37,7 @@ export default function RegistrationSuccess(props) {
                 signal: userAccountRequestController.signal,
             };
             const response = await axios.post("signup", userObj, config);
-            console.log("userProfileRequest-respone: ", response);
+            // console.log("userProfileRequest-respone: ", response);
             return response;
         };
 
@@ -52,7 +52,7 @@ export default function RegistrationSuccess(props) {
                 signal: userProfileRequestController.signal,
             };
             const response = await axios.post("profile", resourceJS, config);
-            console.log("userAccountRequest-response: ", response);
+            // console.log("userAccountRequest-response: ", response);
             return response;
         };
 
@@ -74,7 +74,7 @@ export default function RegistrationSuccess(props) {
                     }
                 userProfileRequest()
                     .then(async (response) => {
-                        console.log("userProfileRequest-response : inside useeffect: ", response)
+                        // console.log("userProfileRequest-response : inside useeffect: ", response)
                         setUserProfile(response.data);
                         setMessage(
                             "Registration has ben Successfully completed"
@@ -86,9 +86,7 @@ export default function RegistrationSuccess(props) {
                         .finally(() => {
                             setLoading(false);
                             userProfileRequestController.abort();
-                            console.log(
-                                "Clean function - UsrAccountRequest"
-                                );
+                            // console.log("Clean function - UsrAccountRequest");
                                 setShowChild(true);
                             });
             })
@@ -98,7 +96,7 @@ export default function RegistrationSuccess(props) {
             .finally(() => {
                 setLoading(false);
                 userAccountRequestController.abort();
-                console.log("Clean function - UsrAccountRequest")
+                // console.log("Clean function - UsrAccountRequest")
                 // setShowChild(true);
             });
 

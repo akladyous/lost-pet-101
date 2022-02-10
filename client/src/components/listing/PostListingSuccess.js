@@ -38,9 +38,6 @@ export default function PostListingSuccess(props) {
         try {
             const response = await  axios.post('api/listing_infos/public', resourceJS, config)
             if (response.status === 200){
-                // console.log("response: ", response);
-                // console.log("response data: ", response.data);
-                // console.log("resources values: ", resource);
                 setResource(response.data);
                 return await response.data
                 } else{
@@ -249,14 +246,8 @@ export default function PostListingSuccess(props) {
                     <Link className="btn" id="button-orange" to="/flyer" key={resource.id} state={{resource, imagePath}}>
                         Generate Flyer....
                     </Link>
-                    {/* <button className="btn" id="button-orange" onClick={generateFlyer}>
-                        Generate Flyer
-                    </button> */}
                 </div>
             </div>
-            {
-                // flyerState && <FlyerBody resource={resource} user={user} imagePath={imagePath}/>
-            }
         </>
     ) : (
         <p>Loading</p>

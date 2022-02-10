@@ -2,20 +2,20 @@ import { useRef, useContext } from "react";
 import PageHeader from '../layout/PageHeader.js';
 import { Modal } from 'bootstrap';
 import {useLocation} from 'react-router-dom'
+import { userContext } from "../user/UserProvider.js";
 import { usDateFormat } from "../hocs/util.jsx";
 import ContactFinder from './ContactFinder.js';
-import ContainerComponentGet from "../hocs/ContainerComponentGet.js";
-import { userContext } from "../user/UserProvider.js";
 
 const nullToString = (input) =>{
     if(typeof input === 'string'){
         return input.capitalize()
     } else{return 'Unknown'}
 }
-export default function LostFoundInfo({params}) {
 
+export default function LostFoundInfo() {
     const { userState } = useContext(userContext);
-    // const modalButton = useRef()
+    const location = useLocation();
+    const listingInfo = location.state
     
     const modalRef = useRef();
     const openModal = () => {
@@ -32,23 +32,9 @@ export default function LostFoundInfo({params}) {
         modalX.hide();
     };
 
-    const location = useLocation();
-    const listingInfo = location.state
-
-    const userLogged = () =>{
-        if(userState){
-            return true
-        } else{
-            return false
-        }
-    }
-    
     return (
         <div>
-            <PageHeader
-                title="LOST & FOUND PETS"
-                subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
-            />
+            <PageHeader title="LOST & FOUND PETS" subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA" />
 
             <div className="container">
                 <div className="card-group">
@@ -57,26 +43,17 @@ export default function LostFoundInfo({params}) {
                             className="img-fluid img-thumbnail d-block p-2 border-orange"
                             src={listingInfo.pet.image_url}
                             alt="DogImage"
-                            style={{
-                                height: "100%",
-                                width: "100%",
-                                objectFit: "cover",
-                            }}
+                            style={{height: "100%",width: "100%",objectFit: "cover",}}
                         />
                     </div>
 
                     {/* ------------------------------------------------------ */}
                     <div
                         className="card my-2 border-orange"
-                        style={{
-                            border: "1px solid var(--orange)",
-                            borderRadius: "25px",
-                        }}
+                        style={{border: "1px solid var(--orange)", borderRadius: "25px",}}
                     >
                         <div
-                            className="card-header fs-4 font-orange-bold"
-                            style={{ border: "0px" }}
-                        >
+                            className="card-header fs-4 font-orange-bold" style={{ border: "0px" }} >
                             {listingInfo.pet.name.toUpperCase()}
                         </div>
 
@@ -84,45 +61,19 @@ export default function LostFoundInfo({params}) {
                             <div className="container d-flex">
                                 <div className="col-md-3">
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item border-0 font-bold">
-                                            Listing Type
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Species
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Age
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Size
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Breed
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Color
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Microchip
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Height
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Weight
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Coat
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Collar
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Published At
-                                        </li>
-                                        <li className="list-group-item border-0 font-bold">
-                                            Last Seen
-                                        </li>
+                                        <li className="list-group-item border-0 font-bold">Listing Type</li>
+                                        <li className="list-group-item border-0 font-bold">Species</li>
+                                        <li className="list-group-item border-0 font-bold">Age</li>
+                                        <li className="list-group-item border-0 font-bold">Size</li>
+                                        <li className="list-group-item border-0 font-bold">Breed</li>
+                                        <li className="list-group-item border-0 font-bold">Color</li>
+                                        <li className="list-group-item border-0 font-bold">Microchip</li>
+                                        <li className="list-group-item border-0 font-bold">Height</li>
+                                        <li className="list-group-item border-0 font-bold">Weight</li>
+                                        <li className="list-group-item border-0 font-bold">Coat</li>
+                                        <li className="list-group-item border-0 font-bold">Collar</li>
+                                        <li className="list-group-item border-0 font-bold">Published At</li>
+                                        <li className="list-group-item border-0 font-bold">Last Seen</li>
                                     </ul>
                                 </div>
                                 <div className="col-md-9">
@@ -217,15 +168,13 @@ export default function LostFoundInfo({params}) {
                 </div>
             </div>
             {userState && (
-                <ContainerComponentGet path={"api/users/profile"}>
                     <ContactFinder
                         modalRef={modalRef}
                         onClose={closeModal}
                         path={"api/users/profile"}
                         listingInfo={listingInfo}
                     />
-                </ContainerComponentGet>
             )}
         </div>
     );
-}
+};

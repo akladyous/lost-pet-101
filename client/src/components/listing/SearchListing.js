@@ -20,7 +20,6 @@ export default function SearchListing() {
         .then(response => response.json())
         .then(data => {
             setListingInfo(data);
-            // console.log(data)
         })
     };
     return (

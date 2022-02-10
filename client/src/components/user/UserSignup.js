@@ -56,7 +56,7 @@ export default function UserSignup() {
     }, [formData] );
 
     const onFinish = useCallback( ()=>{
-        console.log(currentIndex)
+        // console.log(currentIndex)
     },[] )
 
     return (
