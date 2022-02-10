@@ -4,13 +4,14 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(user_name: params[:user_name])
         if @user.nil?
-            render json: {error: "User Name not found"}, status: :not_found
+            render json: {error: "User not found"}, status: :not_found
         elsif !@user.authenticate(params[:password])
             render json: {error: "Invalid password"}, status: :unprocessable_entity
         elsif
             session[:user_id] = @user.id
             render json: {message: "logged in successfully", 
-                date_time: Time.now, email: current_user.email}, status: :ok
+                date_time: Time.now, email: current_user.email,
+                image_url: current_user.avatar.blob.url}, status: :ok
         else
             render json: {error: "Unauthorized user"}, status: :unauthorized
         end
