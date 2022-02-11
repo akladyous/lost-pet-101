@@ -56,4 +56,7 @@ Rails.application.routes.draw do
     end
     resources :feedbacks, only: [:create]
     # resources :contact_us
+
+
+    get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

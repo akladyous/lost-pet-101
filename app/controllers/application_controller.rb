@@ -8,6 +8,12 @@ class ApplicationController < ActionController::API
     rescue_from AbstractController::DoubleRenderError, with: :interal_error
     rescue_from ActiveRecord::RecordNotSaved, with: :failed_to_save
 
+
+    # config.api_ony = true
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Session::CookieStore
+    # config.action_dispatch.cookies_same_site_protection = :strict
+
     private
     def authenticate_user
         unless current_user
