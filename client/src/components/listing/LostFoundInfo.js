@@ -61,73 +61,60 @@ export default function LostFoundInfo() {
                             <div className="container d-flex">
                                 <div className="col-md-3">
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item border-0 font-bold">Listing Type</li>
-                                        <li className="list-group-item border-0 font-bold">Species</li>
-                                        <li className="list-group-item border-0 font-bold">Age</li>
-                                        <li className="list-group-item border-0 font-bold">Size</li>
-                                        <li className="list-group-item border-0 font-bold">Breed</li>
-                                        <li className="list-group-item border-0 font-bold">Color</li>
-                                        <li className="list-group-item border-0 font-bold">Microchip</li>
-                                        <li className="list-group-item border-0 font-bold">Height</li>
-                                        <li className="list-group-item border-0 font-bold">Weight</li>
-                                        <li className="list-group-item border-0 font-bold">Coat</li>
-                                        <li className="list-group-item border-0 font-bold">Collar</li>
-                                        <li className="list-group-item border-0 font-bold">Published At</li>
-                                        <li className="list-group-item border-0 font-bold">Last Seen</li>
+                                        <li className="list-group-item border-0 ">Listing Type</li>
+                                        <li className="list-group-item border-0 ">Species</li>
+                                        <li className="list-group-item border-0 ">Age</li>
+                                        <li className="list-group-item border-0 ">Size</li>
+                                        <li className="list-group-item border-0 ">Breed</li>
+                                        <li className="list-group-item border-0 ">Color</li>
+                                        <li className="list-group-item border-0 ">Microchip</li>
+                                        <li className="list-group-item border-0 ">Height</li>
+                                        <li className="list-group-item border-0 ">Weight</li>
+                                        <li className="list-group-item border-0 ">Coat</li>
+                                        <li className="list-group-item border-0 ">Collar</li>
+                                        <li className="list-group-item border-0 ">Published At</li>
+                                        <li className="list-group-item border-0 ">Last Seen</li>
                                     </ul>
                                 </div>
                                 <div className="col-md-9">
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
+                                        <li className="list-group-item border-0 text-start font-orange">
                                             {listingInfo.listing_type.toUpperCase()}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
+                                        <li className="list-group-item border-0 text-start font-orange">
                                             {listingInfo.pet.species.capitalize()}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
+                                        <li className="list-group-item border-0 text-start font-orange">
                                             {"Unknown" && listingInfo.pet.age}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
+                                        <li className="list-group-item border-0 text-start font-orange">
                                             {listingInfo.pet.size.capitalize()}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(
-                                                listingInfo.pet.breed
-                                            )}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {nullToString(listingInfo.pet.breed)}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(
-                                                listingInfo.pet.color
-                                            )}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {nullToString(listingInfo.pet.color)}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {"Unknown" &&
-                                                listingInfo.pet.microchip}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {"Unknown" && listingInfo.pet.microchip}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(
-                                                listingInfo.pet.height
-                                            )}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {nullToString(listingInfo.pet.height)}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {nullToString(
-                                                listingInfo.pet.weight
-                                            )}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {nullToString(listingInfo.pet.weight)}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
+                                        <li className="list-group-item border-0 text-start font-orange">
                                             {nullToString(listingInfo.pet.coat)}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {listingInfo.pet.collar
-                                                ? "Yes"
-                                                : "No"}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {listingInfo.pet.collar ? "Yes" : "No"}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
-                                            {usDateFormat(
-                                                listingInfo.published_at
-                                            )}
+                                        <li className="list-group-item border-0 text-start font-orange">
+                                            {usDateFormat(listingInfo.published_at)}
                                         </li>
-                                        <li className="list-group-item border-0 text-start font-orange-bold">
+                                        <li className="list-group-item border-0 text-start font-orange">
                                             {`
                                             ${nullToString(
                                                 listingInfo.listing_address

@@ -14,7 +14,7 @@ const nullToString = (input) => {
 export default function ListingFlyer(props) {
     const {data: user, loading, error} = props || {}
     
-
+    // console.log(user)
     const location = useLocation()
     const {resource, imagePath} = location.state
 

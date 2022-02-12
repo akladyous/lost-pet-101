@@ -35,7 +35,7 @@ export default function PetNew(props) {
 
     return (
         <div className="card h-100 petContainer" id="card-container">
-            <div className="card-header border-0" id='card-container-header'>
+            <div className="card-header border-0" id="card-container-header">
                 {formTitles}
             </div>
 
@@ -62,13 +62,24 @@ export default function PetNew(props) {
                                 Species
                             </label>
                             <div className="col-8">
-                                <input
+                                {/* <input
                                     type="text"
                                     name="species"
                                     className="form-control"
                                     value={formData.pet.species}
                                     onChange={handleChange}
-                                />
+                                /> */}
+
+                                <select
+                                    name="species"
+                                    className="form-select"
+                                    value={formData.pet.species}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">{""}</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="cat">Cat</option>
+                                </select>
                             </div>
                         </div>
                         <div className="row mb-1">
