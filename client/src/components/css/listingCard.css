@@ -1,0 +1,26 @@
+
+.card-area{
+    width: 340px;
+    height: 600px;
+    border-radius: 25px;
+    border: 1px solid var(--orange);
+    padding: 0;
+}
+
+.pet-image-area{
+    width: 325px;
+    height: 400px;
+}
+
+.pet-image-area img{
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border: none;
+    object-fit: cover;
+}
+.card-area-detail{
+    height: 150px;
+    padding: 5px 10px;
+}

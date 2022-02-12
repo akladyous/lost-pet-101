@@ -8,3 +8,7 @@ export const usDateFormat = (date) => {
         day: "2-digit",
     });
 };
+
+export const capitalize = (input)=>{
+    return input.charAt(0).toUpperCase() + this.slice(1);
+}
