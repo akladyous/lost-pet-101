@@ -101,13 +101,24 @@ export default function PetNew(props) {
                                 Size
                             </label>
                             <div className="col-8">
-                                <input
+                                {/* <input
                                     type="text"
                                     name="size"
                                     className="form-control"
                                     value={formData.pet.size}
                                     onChange={handleChange}
-                                />
+                                /> */}
+                                <select
+                                    name="size"
+                                    className="form-select"
+                                    value={formData.pet.size}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">{""}</option>
+                                    <option value="small">Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
                             </div>
                         </div>
                         <div className="row mb-1">
