@@ -4,10 +4,17 @@ class ListingInfosController < ApplicationController
     before_action :load_listing_info, only: [:show, :update, :destroy]
 
 
+    def listing_founds
+        @sample_params = params.permit(:total)
+        @sample_params[:total]= 15 unless @sample_params.has_key?(:total)
+        @random_sample = ListingInfo.all_founds.limit(@sample_params[:total].to_i).order("RANDOM()")
+        render json: @random_sample, status: :ok
+    end
+
     def sample
         # debugger
         @sample_params = params.permit(:total)
-        @sample_params[:total]= 10 unless @sample_params.has_key?(:total)
+        @sample_params[:total]= 15 unless @sample_params.has_key?(:total)
         @random_sample = ListingInfo.limit(@sample_params[:total].to_i).order("RANDOM()")
         render json: @random_sample, status: :ok
     end
@@ -18,6 +25,7 @@ class ListingInfosController < ApplicationController
     end
 
     def show
+        debugger
         if @listing_info && current_user.listing_infos.ids.include?(@listing_info.id)
             render json: @listing_info, status: :ok
         else
@@ -104,7 +112,7 @@ class ListingInfosController < ApplicationController
         render json: @all_listing_infos, status: :ok
     end
     private
-    
+
     def listing_info_params
         params.permit(:id, :listing_type, :published, :published_at)
     end

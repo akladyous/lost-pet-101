@@ -16,7 +16,10 @@ import UserSignup from './components/user/UserSignup.js'
 import UserAccount from './components/user/UserAccount.js'
 import Feedback from './components/layout/Feedback.js';
 import withResource from './components/hocs/withResource.js'
+import TestimonialsHome from './components/testimonials/TestimonialsHome.js'
+import Testimonials from './components/testimonials/Testimonials.js';
 const WithUser = withResource(ListingFlyer, 'users/profile')
+const WithListingInfos = withResource(Testimonials, "listing_founds");
 
 function App() {
     return (
@@ -37,6 +40,9 @@ function App() {
                         <Route path="logout" element={<null />} />
                         <Route path="signup" element={<UserSignup />} />
                         <Route path="account" element={<UserAccount />} />
+                    </Route>
+                    <Route path="testimonials" element={<TestimonialsHome />}>
+                        <Route index element={<WithListingInfos />} />
                     </Route>
                 </Routes>
             </Root>

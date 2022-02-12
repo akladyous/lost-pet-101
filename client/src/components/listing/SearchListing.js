@@ -3,7 +3,7 @@ import {useState} from 'react';
 import ListingMapper from './ListingMapper.js';
 import ListingCard from './ListingCard.js';
 import ListingtContainer from './ListingContainer.js';
-import {useLocation, Outlet} from 'react-router-dom'
+// import {useLocation, Outlet} from 'react-router-dom'
 
 export default function SearchListing() {
 

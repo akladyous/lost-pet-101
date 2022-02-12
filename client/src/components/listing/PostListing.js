@@ -1,4 +1,4 @@
-import {useState, useCallback, useMemo, useRef} from 'react';
+import {useState, useCallback, useRef} from 'react';
 import PageHeader from '../layout/PageHeader.js';
 import MultiStepForm from '../hocs/MultiStepForm.js';
 import PetNew from '../Pets/PetNew.js';

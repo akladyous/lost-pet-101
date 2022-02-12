@@ -1,9 +1,9 @@
 // import '../../index.css'
-import '../css/header.css'
+import '../css/testimonials.css'
 import { Outlet, useLocation } from 'react-router-dom';
 import PageFooter from '../layout/PageFooter.js';
 
-export default function UserHeader() {
+export default function Testimonials() {
     const location = useLocation()
     const title = location.state
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     #         delete :logout, to: "sessions#destroy"
     #     end
     # end
+
     scope :users do
             get :profile, to: "users#show"
             post :login, to: "sessions#create"
@@ -44,6 +45,7 @@ Rails.application.routes.draw do
                 get 'public(/:total)', to: "listing_infos#public"
                 post 'public', to: "listing_infos#new_listing"
                 get 'sample(/:total)', to: "listing_infos#sample"
+                get 'listing_founds(/:total)', to: "listing_infos#listing_founds"
             end
         end
 
@@ -57,6 +59,9 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:create]
     # resources :contact_us
 
-
-    get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+    # namespace :testimonials, path: "api/listing_infos" do
+    namespace :testimonials do
+        get 'listing_founds(/:total)', to: redirect("api/listing_infos/listing_founds")
+        # get 'listing_founds(/:total)', to: redirect { |path_params, req|  "api/listing_infos/listing_founds/#{path_params[:total]}"}
+    end
 end

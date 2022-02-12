@@ -68,7 +68,7 @@ export default function Header() {
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <Link className="dropdown-item" to="stories">Our Stories</Link>
+                                    <Link className="dropdown-item" to="testimonials/" state={"Testimonials"}>Testimonials</Link>
                                 </li>
                                 <li>
                                     <Link className="dropdown-item" to="lost_found">Lost & Found</Link>

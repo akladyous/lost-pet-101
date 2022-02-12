@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import html2canvas from "html2canvas";
 import { usDateFormat } from "../hocs/util.jsx";
-import FlyerBody from './FlyerBody.js';
+// import FlyerBody from './FlyerBody.js';
 
 const nullToString = (input) => {
     if (typeof input === "string") {
@@ -244,7 +244,7 @@ export default function PostListingSuccess(props) {
 
                 <div className="card-footer bg-none" style={{ background: "none", border: "0px" }}>
                     <Link className="btn" id="button-orange" to="/flyer" key={resource.id} state={{resource, imagePath}}>
-                        Generate Flyer....
+                        Generate Flyer
                     </Link>
                 </div>
             </div>
