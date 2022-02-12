@@ -1,23 +1,6 @@
-// import {useState, useEffect} from 'react';
-// import SlideWrapper from './SlideWrapper.js';
+import '../css/slides.css'
 import {usDateFormat} from '../hocs/util.jsx'
 export default function PageSlides({resource, loading, error}) {
-    console.log(resource)
-    // const [slides, setSlides] = useState(null)
-    // const [slidesState, setSlidesState] = useState(null)
-
-    // const SlideCard = ({item, index})=>{
-    //     const activeSlide = index === 0 ? 'active' : ''
-    //     return(
-    //         <div className={`carousel-item${activeSlide}`}>
-    //             <img src={item.pet.image} className="d-block w-100" alt={item.pet.name}/>
-    //         </div>
-    //     )
-    // };, height: '250px'
-
-
-
-    // const SlideImage = SlideWrapper(SlideCard)
 
     return resource? (
     <div className="container my-4 w-90">
@@ -35,12 +18,12 @@ export default function PageSlides({resource, loading, error}) {
                                     />
                             </div>
                             <div className="col-md-8">
-                                <div className="card-body">
+                                <div className="card-body px-1">
                                     <h5 className="card-title fs-1 font-orange">{resource[0].pet.name.toUpperCase()}</h5>
-                                    <p className="card-text">{`${resource[0].listing_type.toUpperCase()} ${resource[0].pet.species.toUpperCase()}`}</p>
-                                    <p className="card-text">{`Last Seen ${usDateFormat(resource[0].listing.date_lost_found)}`}</p>
-                                    <p className="card-text">{`Breed ${resource[0].pet.breed}`}</p>
-                                    <p className="word-break">{resource[0].listing.description}</p>
+                                    <p className="text-start mb-2">{`${resource[0].listing_type.toUpperCase()} ${resource[0].pet.species.toUpperCase()}`}</p>
+                                    <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[0].listing.date_lost_found)}`}</p>
+                                    <p className="text-start mb-2">{`Breed ${resource[0].pet.breed}`}</p>
+                                    <p className="text-start description">{resource[0].listing.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -57,12 +40,12 @@ export default function PageSlides({resource, loading, error}) {
                                     />
                             </div>
                             <div className="col-md-8">
-                                <div className="card-body">
+                                <div className="card-body px-1">
                                     <h5 className="card-title fs-1 font-orange">{resource[0].pet.name.toUpperCase()}</h5>
-                                    <p className="card-text">{`${resource[1].listing_type.toUpperCase()} ${resource[1].pet.species.toUpperCase()}`}</p>
-                                    <p className="card-text">{`Last Seen ${usDateFormat(resource[1].listing.date_lost_found)}`}</p>
-                                    <p className="card-text">{`Breed ${resource[1].pet.breed}`}</p>
-                                    <p className="word-break">{resource[1].listing.description}</p>
+                                    <p className="text-start mb-2">{`${resource[1].listing_type.toUpperCase()} ${resource[1].pet.species.toUpperCase()}`}</p>
+                                    <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[1].listing.date_lost_found)}`}</p>
+                                    <p className="text-start mb-2">{`Breed ${resource[1].pet.breed}`}</p>
+                                    <p className="text-start description">{resource[1].listing.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -79,12 +62,12 @@ export default function PageSlides({resource, loading, error}) {
                                     />
                             </div>
                             <div className="col-md-8">
-                                <div className="card-body">
+                                <div className="card-body px-1">
                                     <h5 className="card-title fs-1 font-orange">{resource[2].pet.name.toUpperCase()}</h5>
-                                    <p className="card-text">{`${resource[2].listing_type.toUpperCase()} ${resource[2].pet.species.toUpperCase()}`}</p>
-                                    <p className="card-text">{`Last Seen ${usDateFormat(resource[2].listing.date_lost_found)}`}</p>
-                                    <p className="card-text">{`Breed ${resource[2].pet.breed}`}</p>
-                                    <p className="word-break">{resource[2].listing.description}</p>
+                                    <p className="text-start mb-2">{`${resource[2].listing_type.toUpperCase()} ${resource[2].pet.species.toUpperCase()}`}</p>
+                                    <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[2].listing.date_lost_found)}`}</p>
+                                    <p className="text-start mb-2">{`Breed ${resource[2].pet.breed}`}</p>
+                                    <p className="text-start description">{resource[2].listing.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -102,12 +85,12 @@ export default function PageSlides({resource, loading, error}) {
                                     />
                             </div>
                             <div className="col-md-8">
-                                <div className="card-body">
+                                <div className="card-body px-1">
                                     <h5 className="card-title fs-1 font-orange">{resource[3].pet.name.toUpperCase()}</h5>
-                                    <p className="card-text">{`${resource[3].listing_type.toUpperCase()} ${resource[3].pet.species.toUpperCase()}`}</p>
-                                    <p className="card-text">{`Last Seen ${usDateFormat(resource[3].listing.date_lost_found)}`}</p>
-                                    <p className="card-text">{`Breed ${resource[3].pet.breed}`}</p>
-                                    <p className="word-break">{resource[3].listing.description}</p>
+                                    <p className="text-start mb-2">{`${resource[3].listing_type.toUpperCase()} ${resource[3].pet.species.toUpperCase()}`}</p>
+                                    <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[3].listing.date_lost_found)}`}</p>
+                                    <p className="text-start mb-2">{`Breed ${resource[3].pet.breed}`}</p>
+                                    <p className="text-start description">{resource[3].listing.description}</p>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 class ListingInfosController < ApplicationController
     # skip_before_action :authenticate_user, only: [:show, :create, :update, :destroy]
-    skip_before_action :authenticate_user, only: [:public, :sample]
+    skip_before_action :authenticate_user, only: [:public, :sample, :listing_founds]
     before_action :load_listing_info, only: [:show, :update, :destroy]
 
 

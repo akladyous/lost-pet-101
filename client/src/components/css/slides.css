@@ -1,0 +1,7 @@
+.description{
+    word-break: break-all;
+    word-wrap: break-word;
+    /* max-height:150px;
+    max-width:750px; */
+    overflow-x: auto;
+}
