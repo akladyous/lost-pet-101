@@ -41,7 +41,7 @@
 }
 .testimonial-detail .badge{
     background: rgb(200, 200, 200);
-    font-size: 12px;
+    font-size: 10px;
 }
 .testimonial-detail .fa-solid{
     color: var(--orange);
@@ -61,35 +61,3 @@
     border: 1px solid gray;
     border-radius: 25px;
 }
-
-/* .testimonial-img{
-    height: 200px;
-} */
-
-/* --------------- */
-/* .comment-info li {
-  float: left;
-  font-size: 14px;
-}
-.comment-info li a {
-  color: #999999;
-}
-.comment-info li i,
-.comment-info li span {
-  font-size: 13px;
-  margin-right: 5px;
-}
-.comment-info li::after {
-  content: "|";
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.comment-info li:last-child::after {
-  display: none;
-}
-.comment-info::after {
-  content: "";
-  display: block;
-  clear: both;
-  display: table;
-} */
