@@ -1,15 +1,17 @@
 import '../css/about.css'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import PageFooter from './PageFooter.js'
 
 export default function About() {
+    const location = useLocation();
+    const title = location.state;
     return (
         <div className="main_container">
             <header className="header-area header-bg">
                 <div className="container">
                     <div className="row">
                         <h2 className="display-5 text-light text-center">
-                            About Us
+                            {title}
                         </h2>
                     </div>
                 </div>

@@ -33,10 +33,10 @@ export default function Header() {
                             <Link className="nav-link active" aria-current="page" to="home">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" to="about">About</Link>
+                            <Link className="nav-link active" to="about" state={"About Us"}>About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" to="about">Contact Us</Link>
+                            <Link className="nav-link active" to="about" state={"Contact Us"}>Contact Us</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" to="Feedback">Feedback</Link>
