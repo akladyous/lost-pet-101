@@ -20,8 +20,19 @@ Rails.application.configure do
     # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
     # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
+    # ------------------------------------------------------------------------------
     # Store uploaded files on the local file system (see config/storage.yml for options).
-    config.active_storage.service = :amazon
+    # config.active_storage.service = :amazon
+    config.active_storage.service = {
+        service: S3,
+        access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+        secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
+        region: Rails.application.credentials.dig(:aws, :region),
+        bucket: Rails.application.credentials.dig(:aws, :bucket),
+    }
+    
+
+    # ------------------------------------------------------------------------------
 
     # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
     # config.force_ssl = true
