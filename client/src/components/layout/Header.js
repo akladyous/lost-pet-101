@@ -4,27 +4,7 @@ import { userContext } from "../user/UserProvider.js";
 const logo = require('../../images/logo.png')
 
 export default function Header() {
-    const {userEmail, handleUserEmail, userState, handleUserState} = useContext(userContext)
-
-    
-    const handleLogout = ()=>{
-        fetch("users/logout", {
-            method: "DELETE",
-            headers: {
-                Accept: "application/json",
-                "Content-type": "application/json"
-            }
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("data: ", data)
-                handleUserEmail('')
-                handleUserState(false)
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-    }
+    const {userEmail, userState,} = useContext(userContext)
 
     return (
         <nav
@@ -106,10 +86,9 @@ export default function Header() {
                             Login
                         </Link>
                         <li>
-                            <button
-                                className={`dropdown-item ${userState === true ? "" : "disabled"}`} onClick={handleLogout}>
+                            <Link className={`dropdown-item ${userState === true ? "" : "disabled"}`} to="users/logout" state={'User Account'}>
                                 Logout
-                            </button>
+                            </Link>
                         </li>
                         <li>
                             <hr className="dropdown-divider" />

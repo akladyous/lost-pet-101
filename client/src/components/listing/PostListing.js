@@ -76,7 +76,6 @@ export default function PostListing() {
 
     const onFinish = () =>{
         // to be implementaed later
-        // console.log(formData.pet);
     } 
 
     return (

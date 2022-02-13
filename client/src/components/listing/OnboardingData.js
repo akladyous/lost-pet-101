@@ -11,16 +11,14 @@ export default function OnboardingData({children, onFinish}) {
             ...onBoardingData,
             ...stepData
         }
-        // console.log(updatedData)
-
         if (nextIndex < children.length){
             setCurrentIndex(nextIndex)
         } else{
             onFinish(updatedData)
         }
-
         setOnboardingDate(updatedData)
-    }
+    };
+    
     const currentChild = React.Children.toArray(children)[currentIndex];
 
     if(React.isValidElement(currentChild)){

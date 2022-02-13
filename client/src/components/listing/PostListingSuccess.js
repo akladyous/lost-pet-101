@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import html2canvas from "html2canvas";
 import { usDateFormat } from "../hocs/util.jsx";
-// import FlyerBody from './FlyerBody.js';
 
 const nullToString = (input) => {
     if (typeof input === "string") {

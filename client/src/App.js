@@ -12,14 +12,17 @@ import PostListing from "./components/listing/PostListing.js";
 import ListingFlyer from "./components/listing/ListingFlyer.js";
 import UserHeader from "./components/user/UserHeader.js";
 import UserLogin from './components/user/UserLogin.js'
+import UserLogout from './components/user/UserLogout.js';
 import UserSignup from './components/user/UserSignup.js'
 import UserAccount from './components/user/UserAccount.js'
 import Feedback from './components/layout/Feedback.js';
 import withResource from './components/hocs/withResource.js'
+import withResourceDelete from './components/hocs/withResourceDelete.js';
 import TestimonialsHome from './components/testimonials/TestimonialsHome.js'
 import Testimonials from './components/testimonials/Testimonials.js';
 const WithUser = withResource(ListingFlyer, 'users/profile')
 const WithListingInfos = withResource(Testimonials, "listing_founds");
+const Logout = withResourceDelete(UserLogout ,'logout')
 
 function App() {
     return (
@@ -37,7 +40,7 @@ function App() {
                     <Route path="flyer" element={<WithUser />} />
                     <Route path="users" element={<UserHeader />}>
                         <Route path="login" element={<UserLogin />} />
-                        <Route path="logout" element={<null />} />
+                        <Route path="logout" element={<Logout />} />
                         <Route path="signup" element={<UserSignup />} />
                         <Route path="account" element={<UserAccount />} />
                     </Route>

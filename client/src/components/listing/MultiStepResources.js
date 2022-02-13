@@ -16,5 +16,5 @@ export default function MultiStepResources({children, currentIndex, onNext, onPr
     } else{
         return null
     }
-    return currentChild;
+    // return currentChild;
 }

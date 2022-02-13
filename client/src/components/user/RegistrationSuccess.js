@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext, Fragment, useRef} from 'react';
+import {useState, useEffect, useContext, Fragment} from 'react';
 import axios from 'axios';
 import { userContext } from "./UserProvider.js";
 // import { Link } from 'react-router-dom';
@@ -16,8 +16,6 @@ export default function RegistrationSuccess(props) {
     const [message, setMessage] = useState(null)
     const [userAccount, setUserAccount] = useState(null)
     const [userProfile, setUserProfile] = useState(null)
-    // const userAccountStatus = useRef(null)
-    // const userProfileStatus = useRef(null)
 
         const userAccountRequestController = new AbortController();
         const userAccountRequest = async () => {

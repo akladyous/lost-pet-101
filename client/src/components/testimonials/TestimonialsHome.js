@@ -1,4 +1,3 @@
-// import '../../index.css'
 import '../css/testimonials.css'
 import { Outlet, useLocation } from 'react-router-dom';
 import PageFooter from '../layout/PageFooter.js';

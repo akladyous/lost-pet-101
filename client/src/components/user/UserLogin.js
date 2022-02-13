@@ -49,7 +49,7 @@ export default function Login({children}) {
                     setMessage("User successfully logged in");
                     setResource(response.data);
                     setAvatar(response.data.image_url)
-                    console.log(response.data)
+                    // console.log(response.data)
                 } else {
                     setError(true);
                     setMessage("Error");

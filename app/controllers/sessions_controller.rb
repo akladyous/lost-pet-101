@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             render json: {error: "Invalid password"}, status: :unprocessable_entity
         elsif
             session[:user_id] = @user.id
-            render json: {message: "logged in successfully", 
+            render json: {message: "Login successfully completed", 
                 date_time: Time.now, email: current_user.email,
                 image_url: current_user.avatar.blob.url}, status: :ok
         else
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
-        render json: {message: "logged out successfully", date_time: Time.now}, status: :ok
+        render json: {message: "Logout successfully completed", date_time: Time.now}, status: :ok
     end
 
     def session_params
