@@ -23,9 +23,9 @@ export default function PetNew(props) {
         loadImageFile(e)
     }
 
-    const handleForm = (e) => {
-        e.preventDefault();
-    }
+    // const handleForm = (e) => {
+    //     e.preventDefault();
+    // }
     
     const handleChange = (e) => {
         e.preventDefault();

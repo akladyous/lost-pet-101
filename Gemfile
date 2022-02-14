@@ -8,7 +8,7 @@ gem "puma", "~> 5.0"
 gem "bootsnap", require: false
 gem "pg", "~> 1.1"
 gem "bcrypt", "~> 3.1.7"
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 gem "active_model_serializers", "~> 0.10.12"
 
 # group :development, :test do

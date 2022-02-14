@@ -1,11 +1,9 @@
 import React from 'react';
 import { usDateFormat } from "../hocs/util.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../css/listingCard.css'
 
 export default function ListingCard({listing}) {
-
-    const navigate = useNavigate()
 
     return (
         <div className="card m-2 card-area">

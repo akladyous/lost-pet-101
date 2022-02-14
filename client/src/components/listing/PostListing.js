@@ -44,7 +44,7 @@ export default function PostListing() {
         // };
         var imageBlob = URL.createObjectURL(e.currentTarget.files[0]);
         setPostImage(imageBlob)
-    },[imagePath] )
+    },[] )
 
     const nextStep = useCallback( (e) => {
         e.preventDefault()
