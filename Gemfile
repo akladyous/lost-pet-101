@@ -10,13 +10,13 @@ gem "pg", "~> 1.1"
 gem "bcrypt", "~> 3.1.7"
 gem 'aws-sdk-s3', require: false
 gem "active_model_serializers", "~> 0.10.12"
-
+gem 'faker', '~> 1.6', '>= 1.6.6', require: false
 # group :development, :test do
 #     gem "debug", platforms: %i[ mri mingw x64_mingw ]
 # end
 
 group :development do
     gem "debug", platforms: %i[ mri mingw x64_mingw ]
-    gem 'faker', '~> 1.6', '>= 1.6.6'
+    # gem 'faker', '~> 1.6', '>= 1.6.6'
 end
 
