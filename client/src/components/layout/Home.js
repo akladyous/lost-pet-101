@@ -17,14 +17,16 @@ export default function Home({children}) {
             <div className="bradcam_area breadcam_bg pt-5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3 col-lg-3 mt-5">
+                        <div className="col-md-4 col-lg-4 mt-5">
                             <div className="bradcam_text text-center">
-                                <h3 className="display-2 text-light">
-                                    We Care <br />
-                                </h3>
+                                <h4 className="display-2 text-light">
+                                    We Care
+                                </h4>
                                 <h1 className="display3 text-light fw-bold">
                                     Your Pets
                                 </h1>
+                                <br />
+                                <br />
                                 <p className="text-white">
                                     Create a free lost or found pet listing that
                                     is emailed faxed to over 25 local shelters,
@@ -32,7 +34,7 @@ export default function Home({children}) {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-md-9 col-lg-9">
+                        <div className="col-md-8 col-lg-8">
                             <div className="dog_thumb dog_area d-none d-lg-block">
                                 <img
                                     src={dog}
