@@ -17,9 +17,10 @@ spinner = Enumerator.new do |e|
 end
 
 def create_user idx
-    
     folder =  -> {"#{Rails.root.to_s}/client/src/images/avatars".downcase}
     images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
+    # folder =  -> {"#{Rails.root.to_s}/client/src/images/avatars".downcase}
+    # images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
 
     first_name = Faker::Name.first_name
     user = User.new(
@@ -52,7 +53,6 @@ def create_user idx
                 state: Faker::Address.state
             )
             # country: Faker::Address.country_name_to_code(name: 'united_states')
-
             user.avatar.attach(io: File.open("#{folder.call}/#{images.call[idx]}"), filename: images.call[idx])
         end
     end
