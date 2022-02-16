@@ -2,6 +2,14 @@ import '../css/slides.css'
 import {usDateFormat} from '../hocs/util.jsx'
 export default function PageSlides({resource, loading, error}) {
 
+    const trimText = (text, maxLength)=>{
+        if(text.length < maxLength){
+            return text
+        } else {
+            return text.substring(0, maxLength).trimEnd().padEnd(maxLength+3, '...')
+        }
+    }
+
     return resource? (
     <div className="container my-4 w-90">
         <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel"
@@ -23,7 +31,7 @@ export default function PageSlides({resource, loading, error}) {
                                     <p className="text-start mb-2">{`${resource[0].listing_type.toUpperCase()} ${resource[0].pet.species.toUpperCase()}`}</p>
                                     <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[0].listing.date_lost_found)}`}</p>
                                     <p className="text-start mb-2">{`Breed ${resource[0].pet.breed}`}</p>
-                                    <p className="text-start description">{resource[0].listing.description}</p>
+                                    <p className="description">{trimText(resource[0].listing.description, 475)}</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +53,7 @@ export default function PageSlides({resource, loading, error}) {
                                     <p className="text-start mb-2">{`${resource[1].listing_type.toUpperCase()} ${resource[1].pet.species.toUpperCase()}`}</p>
                                     <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[1].listing.date_lost_found)}`}</p>
                                     <p className="text-start mb-2">{`Breed ${resource[1].pet.breed}`}</p>
-                                    <p className="text-start description">{resource[1].listing.description}</p>
+                                    <p className="text-start description">{trimText(resource[0].listing.description, 475)}</p>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +75,7 @@ export default function PageSlides({resource, loading, error}) {
                                     <p className="text-start mb-2">{`${resource[2].listing_type.toUpperCase()} ${resource[2].pet.species.toUpperCase()}`}</p>
                                     <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[2].listing.date_lost_found)}`}</p>
                                     <p className="text-start mb-2">{`Breed ${resource[2].pet.breed}`}</p>
-                                    <p className="text-start description">{resource[2].listing.description}</p>
+                                    <p className="text-start description">{trimText(resource[0].listing.description, 475)}</p>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +98,7 @@ export default function PageSlides({resource, loading, error}) {
                                     <p className="text-start mb-2">{`${resource[3].listing_type.toUpperCase()} ${resource[3].pet.species.toUpperCase()}`}</p>
                                     <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[3].listing.date_lost_found)}`}</p>
                                     <p className="text-start mb-2">{`Breed ${resource[3].pet.breed}`}</p>
-                                    <p className="text-start description">{resource[3].listing.description}</p>
+                                    <p className="text-start description">{trimText(resource[0].listing.description, 475)}</p>
                                 </div>
                             </div>
                         </div>
