@@ -1,4 +1,4 @@
-require 'debug'
+# require 'debug'
 require 'faker'
 Faker::Config.locale = :en
 
