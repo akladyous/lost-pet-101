@@ -24,7 +24,7 @@ class UsersController < ApplicationController
                 @user_address.save!
             end
             if @user_profile.persisted? || @user_address.persisted?
-                render json: current_user, status: :ok
+                render json: current_user, status: :created
             else
                 render_unprocessable
             end
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
             UserMailer.welcome(@user).deliver_now
             render json: @user, status: :created
             # render json: {message: "Account successfully created", date_time: Time.now, email: current_user.email}, status: :ok
-        elsew
+        else
             # render json: {error: "Registration Error"}, status: :unprocessable_entity
             render json: {error: @user.errors.full_messages}, status: :unprocessable_entity
         end

@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-    default from: 'no-reply@petfinder.com'
+    # default from: 'no-reply@petfinder.com'
 
     def welcome user
         @user = User.find(user.id)
