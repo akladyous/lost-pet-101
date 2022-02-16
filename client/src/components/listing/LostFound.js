@@ -25,10 +25,7 @@ export default function LostFound() {
 
     return (
         <>
-            <PageHeader
-                title="LOST & FOUND PETS"
-                subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
-            />
+            <PageHeader subTitle="Search Lost & Found Pets" />
             <div>
                 <div className="container mt-0 mh-70 overflow-scroll main-container">
                     <div className="container mt-4 search-container">
@@ -168,7 +165,7 @@ export default function LostFound() {
                             </div>
                         </div>
 
-                        <div style={{ height: "750px" }}>
+                        <div style={{ height: "600px" }}>
                             {listingInfo && (
                                 <ListingtContainer>
                                     {listingInfo && (

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import PageHeader from './PageHeader.js';
 import PageFooter from './PageFooter.js';
 import '../css/feedback.css'
 
@@ -92,17 +93,10 @@ export default function Feedback() {
 
     return render ? (
         <div className='mb-6'>
-            <header className="header-area header-bg card-container">
-                <div className="container">
-                    <div className="row">
-                        <h2 className="display-5 text-light text-center">
-                            Feedback
-                        </h2>
-                    </div>
-                </div>
-            </header>
 
-            <div className="container mt-4" style={{width: '500px', height: '650px'}}>
+            <PageHeader subTitle="Feedback" />
+
+            <div className="container mt-4" style={{width: '500px', height: '600px'}}>
                 
                 <div className="col-12 mx-auto">
                     <div className="card feedback-area">

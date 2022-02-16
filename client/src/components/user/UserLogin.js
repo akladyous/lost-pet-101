@@ -78,7 +78,7 @@ export default function Login({children}) {
     }, [status]);
         
         return (
-            <>
+            <div style={{height: '600px'}}>
             <div
                 className="container mt-5 login-container"
                 style={{
@@ -156,6 +156,6 @@ export default function Login({children}) {
                     {/*  */}
                 </div>
             </div>
-        </>
+        </div>
     );
 };

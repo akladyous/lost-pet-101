@@ -62,7 +62,7 @@ export default function UserSignup() {
     return (
         <div
             className="container mt-3 signup-container"
-            style={{ width: "450px", height: "625px" }}
+            style={{ width: "450px", height: "600px" }}
         >
             <div
                 className="row progress-container mx-0"

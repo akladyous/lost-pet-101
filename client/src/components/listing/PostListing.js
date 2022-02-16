@@ -80,10 +80,7 @@ export default function PostListing() {
 
     return (
         <div className="lost_found_main">
-            <PageHeader
-                title="LOST & FOUND PETS"
-                subTitle="CREATE LISTING & FIND YOUR LOST PET"
-            />
+            <PageHeader subTitle="Create Listing" />
 
             <div className="container mt-4 px-2 multi-step-container border-0">
                 <div className="row h-100">
