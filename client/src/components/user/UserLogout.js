@@ -1,4 +1,3 @@
-import '../css/logout.css'
 import {useContext, useState, useEffect} from 'react'
 import { userContext } from "../user/UserProvider.js";
 import { Link } from 'react-router-dom';
@@ -22,20 +21,31 @@ export default function UserLogout({data, loading, error, message}) {
     },[loading])
 
     return (
-        <div className='container logout-main'>
-            <div className="logout-area">
+        <div className='logout-main'>
+            <div
+                className="container mt-5"
+                style={{
+                    height: "425px",
+                    width: "425px",
+                    border: "1px solid var(--orange)",
+                    borderRadius: "25px",
+                }}
+            >
                 <div className="container d-flex flex-column justify-content-between">
 
-                    <div className="d-flex justify-content-center py-2 avatar-container">
-                        {isLoading && <div className="spinner-border user-avatar" role="status"></div>}
-                        <img className="mx-auto user-image" alt="userAvatar"
+                    <div className="d-flex justify-content-center py-2 avatar-container" style={{ height: "125px", position: 'relative' }}>
+                        {isLoading && 
+                            <div className="spinner-border" role="status" style={{color: 'var(--orange)', height: '101px', width: '101px'}}></div>
+                        }
+                        <img className="mx-auto center-block" alt="userAvatar"
                             src={require("../../images/user_placeholder.png")}
+                            style={{height: "100px", width: "100px", borderRadius: "50%", backgroundSize: "cover", position: 'absolute'}}
                         />
                     </div>
 
 
-                    <div className="container mt-1 d-flex flex-column justify-content-between card-content" >
-                        <div className="card border-0" >
+                    <div className="container mt-3" id="login" style={{ height: "225px" }} >
+                        <div className="card border-0" style={{ height: "225px" }}>
                             <h2 className="card-title text-center fs-4">
                                 Account Logout
                             </h2>
@@ -54,20 +64,21 @@ export default function UserLogout({data, loading, error, message}) {
                         </div>
                     </div>
 
+                    <div className="row g-12">
+                        <div className="col-6 mx-auto">
+                            <Link
+                                type="submit"
+                                id="button-orange"
+                                className="btn w-100"
+                                to="/home"
+                            >
+                                Home
+                            </Link>
+                        </div>
+                    </div>
 
                 </div>
-                <div className="row g-12 my-auto">
-                    <div className="col-6 mx-auto">
-                        <Link
-                            type="submit"
-                            id="button-orange"
-                            className="btn w-100"
-                            to="/home"
-                        >
-                            Home
-                        </Link>
-                    </div>
-                </div>
+                    
                     
             </div>
         </div>
