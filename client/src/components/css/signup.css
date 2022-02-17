@@ -1,9 +1,8 @@
-.signup-container{
-    height: 625px;
-    width: 427px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    padding: auto 0px;
+.signup-main{
+    height: 600px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .signup-area{
     height: 527px;

@@ -60,17 +60,9 @@ export default function UserSignup() {
     },[] )
 
     return (
-        <div
-            className="container mt-3"
-            style={{ width: "450px", height: "600px" }}
-        >
-            <div
-                className="row progress-container mx-0"
-                style={{ height: "25px" }}
-            >
-                <div className="progress"
-                style={{boxShadow: 'none', overflow: 'hidden', backgroundColor: 'transparent', WebkitBoxShadow: 'none', borderRadius: '15px'}}
-                >
+        <div className="container mt-3" style={{ width: "450px", height: "600px" }}>
+            <div className="row progress-container mx-0" style={{ height: "25px" }}>
+                <div className="progress" style={{boxShadow: 'none', overflow: 'hidden', backgroundColor: 'transparent', WebkitBoxShadow: 'none', borderRadius: '15px'}}>
                     <div
                         ref={progressRef}
                         className="progress-bar bg-orange"
@@ -80,38 +72,18 @@ export default function UserSignup() {
                         aria-valuemin="0"
                         aria-valuemax="100"
                     >
-                        
                     </div>
                 </div>
             </div>
 
-            <div
-                className="container"
-                style={{
-                    height: "600px",
-                    border: "1px solid var(--orange)",
-                    borderRadius: "25px",
-                }}
-            >
-                <div
-                    className="container py-2 text-center avatar-container"
-                    style={{ height: "100px" }}
-                >
+            <div className="container"
+                style={{ height: "600px", border: "1px solid var(--orange)", borderRadius: "25px"}}>
+                <div className="container py-2 text-center" style={{height: "100px"}}>
                     <label className="d-flex" htmlFor="input-file">
-                        <img
-                            className="mx-auto "
-                            src={
-                                avatar
-                                    ? avatar
-                                    : require("../../images/user_placeholder.png")
-                            }
+                        <img className="mx-auto center-block"
+                            src={avatar ? avatar : require("../../images/user_placeholder.png")}
                             alt="user_placeholder"
-                            style={{
-                                height: "100px",
-                                width: "100px",
-                                borderRadius: "50%",
-                                backgroundSize: "cover",
-                            }}
+                            style={{ height: "100px", width: "100px", borderRadius: "50%", backgroundSize: "cover"}}
                         />
                         <input
                             id="input-file"
@@ -126,11 +98,7 @@ export default function UserSignup() {
                     </label>
                 </div>
 
-                <div
-                    className="container"
-                    id="accountInformationMain"
-                    style={{ height: "430px" }}
-                >
+                <div className="container" id="accountInformationMain" style={{ height: "430px" }} >
                     <MultiStepForm
                         currentIndex={currentIndex}
                         lastIndex={lastIndex.current}
@@ -147,9 +115,10 @@ export default function UserSignup() {
                         <RegistrationSuccess avatarFile={avatarFile} />
                     </MultiStepForm>
                 </div>
+
+
             </div>
 
-            {/* <div className="row"></div> */}
         </div>
     );
 };
