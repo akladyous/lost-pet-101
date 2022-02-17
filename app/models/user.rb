@@ -9,8 +9,8 @@ class User < ApplicationRecord
     has_one  :listing, through: :listing_infos
     has_one  :pet, through: :listing_infos, dependent: :destroy
 
-    has_many :listing_requests
-    has_many :pets, through: :listing_requests
+    has_many :listing_requests, dependent: :destroy
+    has_many :pets, through: :listing_requests, dependent: :destroy
 
     validates :user_name, presence: true, length: {maximum: 25}, uniqueness: { case_sensitive: false }
     validates :email, presence: true, uniqueness: { case_sensitive: false }

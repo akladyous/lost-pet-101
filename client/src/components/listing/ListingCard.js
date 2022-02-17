@@ -7,8 +7,8 @@ export default function ListingCard({listing}) {
 
     return (
         <div className="card m-2 card-area">
-            <div className="pet-image-area">
-                <img className="card-img-top img-fluid" src={listing.pet.image_url} alt={listing.pet.name}/>
+            <div className="pet-image-area" style={{width: '100%'}}>
+                <img className="card-img-top img-fluid" src={listing.pet.image_url} alt={listing.pet.name} />
             </div>
 
             <div className="card-area-detail">
