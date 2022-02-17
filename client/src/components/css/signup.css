@@ -1,0 +1,36 @@
+.signup-container{
+    height: 625px;
+    width: 427px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: auto 0px;
+}
+.signup-area{
+    height: 527px;
+    width: 426;
+    border: 1px solid var(--orange);
+    border-radius: 25px;
+}
+.progress-container{
+    height: 25px;
+
+}
+.progress{
+    box-shadow: none;
+    overflow: hidden;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 15px;
+}
+.image-container{
+    /* position: relative; */
+    height: 105px;
+}
+.user-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    /* position: absolute;   */
+
+}

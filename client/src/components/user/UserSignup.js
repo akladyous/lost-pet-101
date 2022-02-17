@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect, useCallback} from 'react';
+import {useState, useRef, useCallback} from 'react';
 import MultiStepForm from '../hocs/MultiStepForm.js';
 import AccountAccountInfo from './UserAccountInfo.js';
 import UserProfile from './UserProfile.js';
@@ -61,7 +61,7 @@ export default function UserSignup() {
 
     return (
         <div
-            className="container mt-3 signup-container"
+            className="container mt-3"
             style={{ width: "450px", height: "600px" }}
         >
             <div
@@ -94,7 +94,7 @@ export default function UserSignup() {
                 }}
             >
                 <div
-                    className="container py-2 avatar-container"
+                    className="container py-2 text-center avatar-container"
                     style={{ height: "100px" }}
                 >
                     <label className="d-flex" htmlFor="input-file">
