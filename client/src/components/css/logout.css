@@ -1,0 +1,32 @@
+.logout-main{
+    height: 600px;
+    width: 425px;
+    margin-top: 25px;
+}
+
+.logout-area{
+    height: 425px;
+    width: 425;
+    border: 1px solid var(--orange);
+    border-radius: 25px;
+}
+.avatar-container{
+    height: 125px;
+    position: relative;
+}
+.user-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    position: absolute;
+}
+.user-avatar{
+    color: var(--orange);
+    height: 101px;
+    width: 101px;
+}
+.card-content{
+    height: 250px;
+}
+

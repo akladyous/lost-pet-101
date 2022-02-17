@@ -19,9 +19,7 @@ end
 def create_user idx
     folder =  -> {"#{Rails.root.to_s}/client/src/images/avatars".downcase}
     images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
-    # folder =  -> {"#{Rails.root.to_s}/client/src/images/avatars".downcase}
-    # images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
-
+    
     first_name = Faker::Name.first_name
     user = User.new(
         # user_name: Faker::Internet.username,

@@ -31,7 +31,7 @@ export default function PageSlides({resource, loading, error}) {
                                     <p className="text-start mb-2">{`${resource[0].listing_type.toUpperCase()} ${resource[0].pet.species.toUpperCase()}`}</p>
                                     <p className="text-start mb-2">{`Last Seen ${usDateFormat(resource[0].listing.date_lost_found)}`}</p>
                                     <p className="text-start mb-2">{`Breed ${resource[0].pet.breed}`}</p>
-                                    <p className="description">{trimText(resource[0].listing.description, 475)}</p>
+                                    <p className="description">{trimText(resource[0].listing.description, 375)}</p>
                                 </div>
                             </div>
                         </div>
