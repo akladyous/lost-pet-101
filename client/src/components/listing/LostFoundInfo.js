@@ -37,9 +37,9 @@ export default function LostFoundInfo() {
         <div>
             <PageHeader
                 title="LOST & FOUND PETS"
-                subTitle="SEARCH LOST & FOUND PETS IN YOUR AREA"
+                subTitle="Pet Profile"
             />
-            <div className="container">
+            <div className="container mt-4">
                 <div className="card-group">
                     <div className="card m-2 border-0">
                         <img
@@ -47,7 +47,7 @@ export default function LostFoundInfo() {
                             src={listingInfo.pet.image_url}
                             alt="DogImage"
                             style={{
-                                height: "100%",
+                                height: "608px",
                                 width: "100%",
                                 objectFit: "cover",
                             }}

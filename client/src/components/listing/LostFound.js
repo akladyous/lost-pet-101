@@ -165,7 +165,7 @@ export default function LostFound() {
                             </div>
                         </div>
 
-                        <div style={{ height: "600px" }}>
+                        <div style={{ height: "500px" }}>
                             {listingInfo && (
                                 <ListingtContainer>
                                     {listingInfo && (
