@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_08_230734) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_02_08_230734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -33,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum"
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -47,16 +46,16 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "name"
     t.string "email"
     t.text "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "listing_addresses", force: :cascade do |t|
@@ -66,8 +65,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "zip_code"
     t.string "state"
     t.bigint "listing_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_listing_addresses_on_listing_id"
   end
 
@@ -76,19 +75,19 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.integer "likes"
     t.string "tags"
     t.bigint "listing_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_listing_comments_on_listing_id"
   end
 
   create_table "listing_infos", force: :cascade do |t|
     t.string "listing_type"
     t.boolean "published"
-    t.datetime "published_at", precision: 6, default: "2022-02-12 17:08:10"
+    t.datetime "published_at", default: "2022-02-23 18:48:57"
     t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pet_id"], name: "index_listing_infos_on_pet_id"
     t.index ["user_id"], name: "index_listing_infos_on_user_id"
   end
@@ -97,19 +96,19 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.text "message", null: false
     t.bigint "pet_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pet_id"], name: "index_listing_requests_on_pet_id"
     t.index ["user_id"], name: "index_listing_requests_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
-    t.datetime "date_lost_found", precision: 6
+    t.datetime "date_lost_found"
     t.text "msg_from"
     t.text "description"
     t.bigint "listing_info_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["listing_info_id"], name: "index_listings_on_listing_info_id"
   end
 
@@ -127,8 +126,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "weight"
     t.string "coat"
     t.boolean "collar"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_addresses", force: :cascade do |t|
@@ -138,8 +137,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "zip_code"
     t.string "state"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_addresses_on_user_id"
   end
 
@@ -153,8 +152,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "website"
     t.string "blog"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
@@ -162,8 +161,8 @@ ActiveRecord::Schema.define(version: 2022_02_08_230734) do
     t.string "user_name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["user_name"], name: "index_users_on_user_name", unique: true
   end
