@@ -21,9 +21,9 @@ export default function UserLogout({data, loading, error, message}) {
     },[loading])
 
     return (
-        <div className='logout-main'>
+        <div className='container mt-5'>
             <div
-                className="container mt-5"
+                className="container"
                 style={{
                     height: "425px",
                     width: "425px",

@@ -40,7 +40,7 @@ export default function PostListingSuccess(props) {
                 setResource(response.data);
                 return await response.data
                 } else{
-                    console.log(response)
+                    // console.log(response)
                 }
         } catch (err){
             console.error(err.message)
@@ -59,15 +59,15 @@ export default function PostListingSuccess(props) {
         try{
             const response = await axios.patch("api/pets/image", imageForm, config)
                 if (response.status === 200) {
-                    console.log("response: ", response);
-                    console.log("response data: ", response);
+                    // console.log("response: ", response);
+                    // console.log("response data: ", response);
                     return await response.data
                 } else {
-                    console.log(response)
+                    // console.log(response)
                 }
 
         } catch(err) {
-            console.log(err.message)
+            // console.log(err.message)
         }
         
     };
@@ -75,11 +75,11 @@ export default function PostListingSuccess(props) {
     useEffect( () =>{
         postData()
             .then(formResponse => {
-                console.log(formResponse);
+                // console.log(formResponse);
                 setResource(formResponse);
                 postImage(formResponse, imagePath)
                 .then(image_response =>{
-                    console.log(image_response);
+                    // console.log(image_response);
                     // console.log(image_response);
                     setLoading(false)
                 });
@@ -101,7 +101,7 @@ export default function PostListingSuccess(props) {
             {headers: {"Content-type": "application/json"}})
             if (response.status === 200) {
                 setUser(response.data);
-                console.log(user);
+                // console.log(user);
 
                 const fylerTag = document.getElementById("flyer");
                 html2canvas(fylerTag).then((canvas) => {
