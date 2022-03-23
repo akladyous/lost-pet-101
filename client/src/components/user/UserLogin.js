@@ -2,7 +2,7 @@ import { useState, useEffect, useContext} from "react"
 import axios from "axios";
 // import { Routes, Route } from "react-router-dom";
 // import { Link } from "react-router-dom";
-import PageFooter from "../layout/PageFooter.js";
+// import PageFooter from "../layout/PageFooter.js";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "./UserProvider.js";
 
@@ -39,7 +39,7 @@ export default function Login({children}) {
                     headers: { "content-type": "application/json" },
                     signal: controller.signal
                 }
-                const response = await axios.post("login", resourceJS, config);
+                const response = await axios.post("/users/login", resourceJS, config);
                 return response;
             })()
             .then((response) => {

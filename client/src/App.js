@@ -21,7 +21,7 @@ import withResourceDelete from './components/hocs/withResourceDelete.js';
 import TestimonialsHome from './components/testimonials/TestimonialsHome.js'
 import Testimonials from './components/testimonials/Testimonials.js';
 const WithUser = withResource(ListingFlyer, 'users/profile')
-const WithListingInfos = withResource(Testimonials, "listing_founds");
+const WithListingInfos = withResource(Testimonials, "/api/listing_infos/testimonials");
 const Logout = withResourceDelete(UserLogout ,'logout')
 
 function App() {
@@ -38,14 +38,15 @@ function App() {
                     <Route path="detail" element={<LostFoundInfo />} />
                     <Route path="create_listing" element={<PostListing />} />
                     <Route path="flyer" element={<WithUser />} />
+                    <Route path="testimonials" element={<TestimonialsHome />}>
+                        <Route index element={<WithListingInfos />} />
+                    </Route>
+
                     <Route path="users" element={<UserHeader />}>
                         <Route path="login" element={<UserLogin />} />
                         <Route path="logout" element={<Logout />} />
                         <Route path="signup" element={<UserSignup />} />
                         <Route path="account" element={<UserAccount />} />
-                    </Route>
-                    <Route path="testimonials" element={<TestimonialsHome />}>
-                        <Route index element={<WithListingInfos />} />
                     </Route>
                 </Routes>
             </Root>

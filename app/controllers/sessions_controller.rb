@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             render json: {message: "Login successfully completed", 
                 date_time: Time.now, email: current_user.email,
-                image_url: current_user.avatar.blob.url}, status: :ok
+                image_url: current_user.avatar_url}, status: :ok
         else
             render json: {error: "Unauthorized user"}, status: :unauthorized
         end

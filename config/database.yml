@@ -14,24 +14,27 @@
 # Configure Using Gemfile
 # gem "pg"
 #
+
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: lost_pet_101
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: lost_pet_101
-  password: '02310'
+  database: petfinder
+  username: petfinder_user
+  password: paolo
+  timeout: 5000
+  host: pg_host
+  # host: 127.0.0.1
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: lost_pet_101
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: lost_pet_101
-  password: '02310'
+  <<: *default
+
+production:
+  <<: *default
+
 
 # development:
 #   <<: *default
@@ -91,11 +94,4 @@ development:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-  <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: lost_pet_101
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: lost_pet_101
-  password: '02310'
+

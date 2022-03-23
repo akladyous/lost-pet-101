@@ -38,7 +38,7 @@ export default function Feedback() {
                 const config = {
                 headers: { "Content-type": "application/json" },
                 signal: controller.signal};
-                const response = await axios.post('feedbacks', feedbackJson, config);
+                const response = await axios.post('/api/feedbacks', feedbackJson, config);
                 return response
             })()
             .then( response =>{

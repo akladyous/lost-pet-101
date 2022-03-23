@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d9405787.css",
+    "main.js": "/static/js/main.6d686220.js",
+    "static/media/contact_bg.png": "/static/media/contact_bg.b07f3679006822c46f7d.png",
+    "static/media/dog.png": "/static/media/dog.bb033380ffd2ea368c3f.png",
+    "static/media/pet_care.png": "/static/media/pet_care.b6241e2731b1d0cb4447.png",
+    "static/media/bradcam.png": "/static/media/bradcam.d381740d44831827fee9.png",
+    "static/media/banner.png": "/static/media/banner.f867d8236cfb84e53c5f.png",
+    "static/media/react.png": "/static/media/react.62b41405c3951389251c.png",
+    "static/media/user_placeholder.png": "/static/media/user_placeholder.ceb8955189a1a1300faa.png",
+    "static/media/rails.png": "/static/media/rails.5cfa93edc92874b68047.png",
+    "index.html": "/index.html",
+    "main.d9405787.css.map": "/static/css/main.d9405787.css.map",
+    "main.6d686220.js.map": "/static/js/main.6d686220.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9405787.css",
+    "static/js/main.6d686220.js"
+  ]
+}
