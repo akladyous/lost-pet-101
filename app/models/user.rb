@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_one_attached :avatar, service: :amazon
+    has_one_attached :avatar #, service: :amazon
 
     has_one :user_profile, dependent: :destroy
     has_one :user_address, dependent: :destroy
@@ -16,6 +16,6 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: { case_sensitive: false }
     validates :password, confirmation: true, length: {minimum: 5}
     validates :password_confirmation, presence: true, length: {minimum: 5}
-    
+
 
 end

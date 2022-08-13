@@ -1,12 +1,12 @@
-# require 'debug'
+require 'debug'
 require 'faker'
 Faker::Config.locale = :en
 
-system('clear')
-puts "How many records ?"
-total_record = gets.strip().to_i
-puts "🌱 Seeding #{total_record.to_i} Users ..."
-
+# system('clear')
+# puts "How many records ?"
+# total_record = gets.strip().to_i
+# puts "🌱 Seeding #{total_record.to_i} Users ..."
+total_record = 25
 spinner = Enumerator.new do |e|
     loop do
         e.yield '|'
@@ -16,17 +16,19 @@ spinner = Enumerator.new do |e|
     end
 end
 
+
 def create_user idx
-    folder =  -> {"#{Rails.root.to_s}/client/src/images/avatars".downcase}
-    images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
-    
-    first_name = Faker::Name.first_name
+  folder =  -> {"#{Rails.root.to_s}/client/src/images/avatars".downcase}
+  images = -> {Dir.entries(folder.call) - %w[. .. .DS_Store]}
+
+  # debugger
+  first_name = Faker::Name.first_name
     user = User.new(
         # user_name: Faker::Internet.username,
         user_name: "#{first_name}#{idx}",
-        email: Faker::Internet.email, 
+        email: Faker::Internet.email,
         password: "00000",
-        password_confirmation: "00000" 
+        password_confirmation: "00000"
         # password: Faker::Internet.password(min_length: 5, max_length: 10, mix_case: true, special_characters: true)
     )
 
@@ -51,7 +53,10 @@ def create_user idx
                 state: Faker::Address.state
             )
             # country: Faker::Address.country_name_to_code(name: 'united_states')
-            user.avatar.attach(io: File.open("#{folder.call}/#{images.call[idx]}"), filename: images.call[idx])
+            image_target = "#{folder.call}/#{images.call[idx]}"
+            image_index = images.call[idx]
+            debugger
+            user.avatar.attach(io: File.open(image_target), filename: image_index)
         end
     end
     return user
@@ -80,7 +85,7 @@ def create_pet idx
         coat: coat.()
     )
 
-    if pet.valid? 
+    if pet.valid?
         if pet.save!
             pet.image_file.attach(io: File.open("#{folder.call}/#{images.call[idx]}"), filename: images.call[idx])
             return pet
@@ -130,11 +135,10 @@ end
 
 
 1.upto(total_record-1) do |index|
-
     progress = "=" * (index/5) unless index < 5
     printf("\rGenerating  records: %s", spinner.next)
     # printf("\rGenerating user records: [%-20s] %d%%", progress, index/5)
-
+    # debugger
     user = create_user index
     pet = create_pet index
 
