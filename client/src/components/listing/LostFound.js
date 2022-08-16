@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import PageHeader from '../layout/PageHeader.js';
 import ListingMapper from './ListingMapper.js';
 import ListingCard from './ListingCard.js';
@@ -6,21 +6,23 @@ import ListingtContainer from './ListingContainer.js';
 import PageFooter from '../layout/PageFooter.js';
 
 export default function LostFound() {
-    
+
     const [listingInfo, setListingInfo] = useState(null)
 
     function handleForm(e) {
         e.preventDefault()
-        fetch(`api/listing_infos/public`, 
-            { method: "GET",
+        fetch(`api/listing_infos/public`,
+            {
+                method: "GET",
                 headers: {
                     Accept: "application/json",
                     "Content-type": "application/json"
-            }})
-        .then(response => response.json())
-        .then(data => {
-            setListingInfo([...data].reverse());
-        })
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                setListingInfo([...data].reverse());
+            })
     };
 
     return (
@@ -150,10 +152,7 @@ export default function LostFound() {
                                                 <button
                                                     type="submit"
                                                     className="btn"
-                                                    style={{
-                                                        backgroundColor:
-                                                            "hsl(25,100%,50%)",
-                                                    }}
+                                                    style={{ backgroundColor: "hsl(25,100%,50%)", }}
                                                     onClick={handleForm}
                                                 >
                                                     Search
