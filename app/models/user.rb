@@ -17,7 +17,8 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: { case_sensitive: false }
     validates :password, confirmation: true, length: {minimum: 5}
     validates :password_confirmation, presence: true, length: {minimum: 5}
-    
+
+
     def avatar_url
         Rails.application.routes.url_helpers.rails_blob_path(self.avatar, only_path: true)
     end
