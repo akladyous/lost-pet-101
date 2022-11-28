@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 export default function withResource(Component, url) {
 
@@ -9,47 +9,47 @@ export default function withResource(Component, url) {
         const [message, setMessage] = useState(null)
         const [resource, setResource] = useState(null)
 
-        useEffect(()=>{
+        useEffect(() => {
             const controller = new AbortController();
-                (async () =>{
-                    setLoading(true)
-                    setLoading(true)
-                    const config = {
+            (async () => {
+                setLoading(true)
+                const config = {
                     headers: { "Content-type": "application/json" },
-                    signal: controller.signal};
-                    const response = await axios.get(url, config);
-                    return response
+                    signal: controller.signal
+                };
+                const response = await axios.get(url, config);
+                return response
             })()
                 .then(response => {
                     setLoading(false)
-                    if(response && response.status === 200){
+                    if (response && response.status === 200) {
                         setMessage("Completed")
                         setResource(response.data)
-                    } else{
+                    } else {
                         setError(true)
                         setMessage("Error")
                     }
                 })
-                .catch(error =>{
-                    if(error.response.data.hasOwnProperty('error')){
+                .catch(error => {
+                    if (error.response.data.hasOwnProperty('error')) {
                         //backend error
                         setLoading(false)
                         setError(true)
                         setMessage(error.response.data.error)
-                    }else{
+                    } else {
                         //server error
                         setLoading(false)
                         setError(true)
                         setMessage(error.message)
                     }
                 })
-                .finally(()=>{
+                .finally(() => {
                     controller.abort();
                 })
 
 
 
-        },[])
+        }, [])
         return <Component {...props} data={resource} loading={loading} error={error} message={message} />
     }
 };
