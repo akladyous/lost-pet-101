@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function withResourcePost(Component, url, dataObject) {
-
+    return props => {
         const [loading, setLoading] = useState(false);
         const [error, setError] = useState(false);
         const [message, setMessage] = useState(null);

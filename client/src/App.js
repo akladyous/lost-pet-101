@@ -1,6 +1,6 @@
 import './App.css';
 // import logo from './logo.svg';
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import util from './components/hocs/util.jsx'
 import Root from './components/layout/Root.js'
 import Header from './components/layout/Header.js'
@@ -22,7 +22,7 @@ import TestimonialsHome from './components/testimonials/TestimonialsHome.js'
 import Testimonials from './components/testimonials/Testimonials.js';
 const WithUser = withResource(ListingFlyer, 'users/profile')
 const WithListingInfos = withResource(Testimonials, "listing_founds");
-const Logout = withResourceDelete(UserLogout ,'logout')
+const Logout = withResourceDelete(UserLogout, 'logout')
 
 function App() {
     return (
