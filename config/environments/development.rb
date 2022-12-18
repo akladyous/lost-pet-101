@@ -24,7 +24,7 @@ Rails.application.configure do
     config.active_record.migration_error = :page_load
     config.active_record.verbose_query_logs = true
 
-    config.active_storage.service = :amazon
+    config.active_storage.service = :local #:amazon
 
     # config.action_mailer.default_url_option = { host: "https://petfinder101.herokuapp.com/" }
     config.action_mailer.raise_delivery_errors = true

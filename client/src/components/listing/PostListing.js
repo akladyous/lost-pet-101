@@ -53,8 +53,8 @@ export default function PostListing() {
         } else if (currentIndex === lastIndex) {
             onFinish();
         }
-    },[currentIndex] ) 
-    
+    },[currentIndex] )
+
     const prevStep = useCallback( (e) => {
         e.preventDefault()
         if (currentIndex > 0) {
@@ -76,7 +76,7 @@ export default function PostListing() {
 
     const onFinish = () =>{
         // to be implementaed later
-    } 
+    }
 
     return (
         <div className="lost_found_main">
@@ -86,9 +86,9 @@ export default function PostListing() {
                 <div className="row h-100">
                     <div className="col-md-5 col-lg-5 px-2 mt-2">
                         <div className="card h-100" id="card-container">
-                            <img 
+                            <img
                             alt="PetImage"
-                            src={post_image || require('../../images/pet_blank.png')} 
+                            src={post_image || require('../../images/pet_blank.png')}
                                 style={{backgroundSize: 'fill', height: '100%', objectFit:'cover', borderRadius:'25px', padding: '5px'}}
                             />
                         </div>

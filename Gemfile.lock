@@ -120,6 +120,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-x86_64-darwin)
       racc (~> 1.4)
+    pg (1.4.5)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -173,6 +174,7 @@ DEPENDENCIES
   bootsnap
   debug
   faker!
+  pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0, >= 7.0.4)
   tzinfo-data

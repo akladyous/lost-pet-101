@@ -5,8 +5,8 @@ class Pet < ApplicationRecord
 
     has_many :listing_requests
     has_many :users, through: :listing_requests
-    
-    has_one_attached :image_file, service: :amazon
+
+    has_one_attached :image_file #, service: :amazon
 
 
     validates :size, inclusion: {in: %w[small medium large], message: "%{value} is not a valid size" }
