@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
             description: params[:description]
         )
         render_ok @listing
-    end 
+    end
 
     def update
         @listing.update(

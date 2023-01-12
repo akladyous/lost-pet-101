@@ -4,15 +4,23 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: petfinder_api
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: pwssword
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   host: localhost
 
 development:
   <<: *default
-
-production:
-  <<: *default
+  database: LostPet101_development
+  host: localhost
 
 test:
   <<: *default
+  database: LostPet101_test
+  host: localhost
+
+production:
+  <<: *default
+  database: LostPet101_production
+  host: <%= ENV["POSTGRES_HOST"] %>
+  port: <%= ENV["POSTGRES_PORT"] %>
+  timeout: 5000

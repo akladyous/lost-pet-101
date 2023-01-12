@@ -15,8 +15,8 @@ gem 'active_model_serializers', '~> 0.10.13'
 #     gem "debug", platforms: %i[ mri mingw x64_mingw ]
 # end
 
-group :development do
+group :development, :test do
     gem "debug", platforms: %i[ mri mingw x64_mingw ]
     gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main', require: false
+    gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 end
-

@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_08_230734) do
   create_table "listing_infos", force: :cascade do |t|
     t.string "listing_type"
     t.boolean "published"
-    t.datetime "published_at", default: "2022-11-30 23:13:25"
+    t.datetime "published_at", default: "2023-01-12 15:56:48"
     t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
