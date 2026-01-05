@@ -1,0 +1,24 @@
+{
+    "tech stack": [
+        "Ruby on Rails (API-only)",
+        "PostgreSQL",
+        "Puma (web server)",
+        "bcrypt (authentication)",
+        "AWS S3",
+        "Active Storage",
+        "React.js",
+        "Redux Toolkit",
+        "React Router DOM",
+        "Tailwind CSS",
+        "Axios",
+        "React Hook Form",
+        "Yup (validation)",
+        "Docker"
+    ],
+    "highlights": [
+        "Architected a full-stack lost-and-found platform using Ruby on Rails, React, and PostgreSQL, enabling users to create, manage, and search detailed pet reports through a RESTful API.",
+        "Implemented secure user authentication and account management with BCrypt password hashing, password reset flows, and CORS-enabled API access.",
+        "Integrated file upload and media management with Active Storage and AWS S3 to handle pet images at scale with reliable cloud storage.",
+        "Designed advanced search and discovery features with multi-criteria filtering, location-based queries, and real-time updates to improve report matching and usability."
+    ]
+}
